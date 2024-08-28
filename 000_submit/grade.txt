@@ -1,10 +1,6 @@
-Grading at 08/28/2024:18:29:31.754008
-For commit ID 7c96ee8cd18224bc9991b561f6761f925da5acf3
-Grading at Wed Aug 28 02:29:31 PM EDT 2024
-I expected to find a file called 'myNetID.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-bm350.txt
-README
+Grading at 08/28/2024:19:00:23.269909
+For commit ID 28c87031e2147c394b542615b97fad3659afa36a
+Grading at Wed Aug 28 03:00:23 PM EDT 2024
+Your file matched the expected output
 
-Overall Grade: FAILED
+Overall Grade: PASSED
