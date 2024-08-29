@@ -1,10 +1,10 @@
-Grading at 08/29/2024:17:55:31.120795
-For commit ID a77633b4726ec49739fa9a2666decb7a5480fed4
-Grading at Thu Aug 29 01:55:31 PM EDT 2024
+Grading at 08/29/2024:18:00:31.558256
+For commit ID 578c194f4c39e8a4afd1b478257671f5bff095d3
+Grading at Thu Aug 29 02:00:31 PM EDT 2024
 'example.txt' exists (good)
 'example.txt' has the right contents (good)
 'answer.txt' exists (good)
 You got the correct output for the grep activity (good)
-You got 'hungar' for the diff activity, but that was not right
+You got the correct output for the diff activity (good)
 
-Overall Grade: FAILED
+Overall Grade: PASSED
