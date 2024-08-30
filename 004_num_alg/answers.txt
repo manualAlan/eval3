@@ -1,0 +1,2 @@
+For i from 0 to 2*N+1:
+    print 3*N+i*2
