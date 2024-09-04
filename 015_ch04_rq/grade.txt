@@ -1,12 +1,11 @@
-Grading at 09/04/2024:18:16:01.543577
-For commit ID 7249ada09ae9dbb49497add085ab8cbc5eda8485
-Grading at Wed Sep  4 02:16:01 PM EDT 2024
+Grading at 09/04/2024:18:19:33.111552
+For commit ID 1171cc44a0f9d9ab3de479b31b92c3bf315dba9f
+Grading at Wed Sep  4 02:19:32 PM EDT 2024
 Reading your quiz answers from answers.txt
-You got 2 questions incorrect.
+You got 1 questions incorrect.
 You might want to review these concepts:
 ------------
 Introduction to chapter 4
-Step 3: Generalize Your Steps
 ------------
 
 Overall Grade: FAILED
