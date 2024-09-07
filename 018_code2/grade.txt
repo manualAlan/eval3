@@ -1,0 +1,30 @@
+Grading at 09/07/2024:19:42:19.355920
+For commit ID 85eda10b6552b4ba61bfc13bc1579b9690932268
+Grading at Sat Sep  7 03:42:19 PM EDT 2024
+Checking code2.c for legal syntax
+Checking for int printTriangle (int size)
+Found on line 4, column 1 
+Checking for int main(void)
+Found on line 33, column 1 
+Trying to run the code..
+Line_6_did_not_match
+Line_15_did_not_match
+Your file did not match the expected output
+Here is what you printed
+Here is a triangle with height 4
+
+*
+**
+***
+That triangle had 6 total stars
+Here is a triangle with height 7
+
+*
+**
+***
+****
+*****
+******
+That triangle had 21 total stars
+
+Overall Grade: F
