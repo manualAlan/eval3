@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _retire_info {
+struct _retire_info {
   int months;
   double contribution;
   double rate_of_return;
+};
 
-} retire_info;
-
+typedef struct _retire_info retire_info;
 void print_balance(int startAge, double * balance, retire_info info) {
   for (int i = 0; i < info.months; i++) {
     int age_years = (startAge + i) / 12;
@@ -41,4 +41,3 @@ int main() {
 
   return 0;
 }
-
