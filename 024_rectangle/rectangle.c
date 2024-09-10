@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct {
+struct rectangle_tag {
   int x;
   int y;
   int width;
   int height;
-} rectangle;
+};
+
+typedef struct rectangle_tag rectangle;
 //I've provided "min" and "max" functions in
 //case they are useful to you
 int min(int a, int b) {
@@ -35,18 +37,44 @@ rectangle canonicalize(rectangle r) {
   return r;
   //WRITE TH
   //IS FUNCTION
-  return r;
 }
+
 rectangle intersection(rectangle r1, rectangle r2) {
   r1 = canonicalize(r1);
   r2 = canonicalize(r2);
-  int x1 = r1.x > r2.x ? r1.x : r2.x;
-  int y1 = r1.y > r2.y ? r1.y : r2.y;
-  int x2 = (r1.x + r1.width) < (r2.x + r2.width) ? (r1.x + r1.width) : (r2.x + r2.width);
-  int y2 =
-      (r1.y + r1.height) < (r2.y + r2.height) ? (r1.y + r1.height) : (r2.y + r2.height);
+
+  int x1, y1, x2, y2;
+
+  if (r1.x > r2.x) {
+    x1 = r1.x;
+  }
+  else {
+    x1 = r2.x;
+  }
+
+  if (r1.y > r2.y) {
+    y1 = r1.y;
+  }
+  else {
+    y1 = r2.y;
+  }
+
+  if ((r1.x + r1.width) < (r2.x + r2.width)) {
+    x2 = r1.x + r1.width;
+  }
+  else {
+    x2 = r2.x + r2.width;
+  }
+
+  if ((r1.y + r1.height) < (r2.y + r2.height)) {
+    y2 = r1.y + r1.height;
+  }
+  else {
+    y2 = r2.y + r2.height;
+  }
 
   rectangle result;
+
   if (x2 <= x1 || y2 <= y1) {
     result.x = 0;
     result.y = 0;
@@ -59,10 +87,9 @@ rectangle intersection(rectangle r1, rectangle r2) {
     result.width = x2 - x1;
     result.height = y2 - y1;
   }
-  return result;
-  //WRITE THIS FUNCTION
-}
 
+  return result;
+}
 //You should not need to modify any code below this line
 void printRectangle(rectangle r) {
   r = canonicalize(r);
