@@ -76,7 +76,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   rectangle result;
 
   // If no intersection, or the width or height of the result is 0, set it to empty
-  if (x2 <= x1 || y2 <= y1) {
+  if (x2 <= x1 && y2 <= y1) {
     result.x = 0;
     result.y = 0;
     result.width = 0;
@@ -95,7 +95,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
 //You should not need to modify any code below this line
 void printRectangle(rectangle r) {
   r = canonicalize(r);
-  if (r.width == 0 || r.height == 0) {
+  if (r.width == 0 && r.height == 0) {
     printf("<empty>\n");
   }
   else {
