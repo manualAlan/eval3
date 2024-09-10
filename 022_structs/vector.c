@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 double dot_product(vector_t v1, vector_t v2) {
-  vector_t result;
   return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
   //YOUR CODE GOES HERE
 }
