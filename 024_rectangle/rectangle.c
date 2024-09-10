@@ -61,7 +61,6 @@ rectangle intersection(rectangle r1, rectangle r2) {
   }
   return result;
   //WRITE THIS FUNCTION
-  return r1;
 }
 
 //You should not need to modify any code below this line
