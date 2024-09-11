@@ -76,7 +76,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   rectangle result;
 
   // If no intersection, or the width or height of the result is 0, set it to empty
-  if (x2 <= x1 && y2 <= y1) {
+  if (x2 < x1 || y2 < y1 || (x2 <= x1 && y2 <= y1)) {
     result.x = 0;
     result.y = 0;
     result.width = 0;
