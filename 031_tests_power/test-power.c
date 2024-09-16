@@ -4,7 +4,7 @@ unsigned power(unsigned x, unsigned y);
 
 void run_check(unsigned x, unsigned y, unsigned expected_ans) {
   if (x == 0 && y == 0) {
-    if (expected_ans != 0) {
+    if (expected_ans != 1) {
       printf("Test failed: power(%u, %u) = %u, expected %u\n", x, y, 0, expected_ans);
       exit(EXIT_FAILURE);
     }
