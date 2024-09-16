@@ -1,6 +1,6 @@
-Grading at 09/16/2024:18:40:23.863819
-For commit ID 082ae568067bc07913538da6fb579fc61c5c06a0
-Grading at Mon Sep 16 02:40:23 PM EDT 2024
+Grading at 09/16/2024:18:45:55.144819
+For commit ID ee97ccf587372c39d252013ccb461642b6c4403d
+Grading at Mon Sep 16 02:45:54 PM EDT 2024
 **Testing broken implementation 10 **
 -------------------------------------
 
@@ -9,57 +9,7 @@ Test failed: power(2, 3) = 2, expected 8
 **Testing broken implementation 11 **
 -------------------------------------
 
-Test failed: power(0, 0) = 0, expected 1
-
-**Testing broken implementation 1 **
--------------------------------------
-
-Test failed: power(2, 3) = 2, expected 8
-
-**Testing broken implementation 2 **
--------------------------------------
-
-Test failed: power(2, 3) = 9, expected 8
-
-**Testing broken implementation 3 **
--------------------------------------
-
-Test failed: power(0, 0) = 0, expected 1
-
-**Testing broken implementation 4 **
--------------------------------------
-
-Test failed: power(0, 0) = 0, expected 1
-
-**Testing broken implementation 5 **
--------------------------------------
-
-Test failed: power(2, 3) = 0, expected 8
-
-**Testing broken implementation 6 **
--------------------------------------
-
-Test failed: power(0, 0) = 0, expected 1
-
-**Testing broken implementation 7 **
--------------------------------------
-
-Test failed: power(2, 3) = 27, expected 8
-
-**Testing broken implementation 8 **
--------------------------------------
-
-Test failed: power(2, 3) = 6, expected 8
-
-**Testing broken implementation 9 **
--------------------------------------
-
-Test failed: power(2, 3) = 0, expected 8
-
-**Testing correct implementation **
--------------------------------------
-
-Test failed: power(0, 0) = 0, expected 1
-Your test program falsely failed the correct implementation!
+All tests passed!
+Your test program did not identify /usr/local/ece551/power/power11.o as broken!
 
 Overall Grade: FAILED
