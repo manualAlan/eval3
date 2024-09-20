@@ -14,4 +14,3 @@ test.o: test.c
 
 clean:
 	rm -f *.o $(TARGET)
-1;95;0c
