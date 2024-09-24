@@ -11,6 +11,36 @@ void test_maxSeq() {
     printf("Test 1 (empty array) failed\n");
     exit(EXIT_FAILURE);
   }
+  int arr11[] = {2147483647, 0, 1, 2};
+  if (maxSeq(arr11, 4) != 3) {  // max increasing subsequence is {1, 4, 5, 6
+    printf("Test 8 (two large subsequences) failed\n");
+    exit(EXIT_FAILURE);
+  }
+  int arr10[] = {1, 2, 3, 4};
+  if (maxSeq(arr10, 4) != 4) {  // max increasing subsequence is {1, 4, 5, 6
+    printf("Test 8 (two large subsequences) failed\n");
+    exit(EXIT_FAILURE);
+  }
+  int arr21[] = {-2147483648, -2147483647, 0};  // decreasing sequence
+  if (maxSeq(arr21, 3) != 2) {
+    printf("Test 1 (array with max int values) failed\n");
+    exit(EXIT_FAILURE);
+  }
+  int arr13[] = {1, 3, 2, 4, 3, 5};
+  if (maxSeq(arr13, 6) != 2) {
+    printf("Test 3 (alternating increase and decrease) failed\n");
+    exit(EXIT_FAILURE);
+  }
+  int arr15[] = {-10, -5, 0, 5, 10, -1, 0, 1};
+  if (maxSeq(arr15, 8) != 5) {  // sequence: -10, -5, 0, 5, 10
+    printf("Test 5 (negative and positive values) failed\n");
+    exit(EXIT_FAILURE);
+  }
+  int arr16[] = {-100, -50, -20, -5, -1};
+  if (maxSeq(arr16, 5) != 5) {
+    printf("Test 6 (all negative values) failed\n");
+    exit(EXIT_FAILURE);
+  }
 
   // Test 2: Single element array
   int arr2[] = {5};
