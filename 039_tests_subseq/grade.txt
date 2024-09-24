@@ -1,10 +1,65 @@
-Grading at 09/24/2024:22:59:21.034807
-For commit ID a7099e0b50070a9de0f48c4620b9cba273bd0f06
-Grading at Tue Sep 24 06:59:20 PM EDT 2024
+Grading at 09/24/2024:23:13:11.965407
+For commit ID bdea3d4e8f7ca2474d45b4e1953751e71c1ea696
+Grading at Tue Sep 24 07:13:11 PM EDT 2024
 **Testing broken implementation 10 **
 -------------------------------------
 
-All tests passed!
-Your test program did not identify /usr/local/ece551/subseq/subseq10.o as broken!
+Test 5 (negative and positive values) failed
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+Test 8 (two large subsequences) failed
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+Test 1 (array with max int values) failed
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+Test 1 (empty array) failed
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+Test 1 (array with max int values) failed
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+Test 1 (empty array) failed
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Test 8 (two large subsequences) failed
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+Test 1 (array with max int values) failed
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+Test 8 (two large subsequences) failed
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+Test 8 (two large subsequences) failed
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+Test 8 (two large subsequences) failed
+
+**Testing correct implementation **
+-------------------------------------
+
+Test 1 (array with max int values) failed
+Your test program falsely failed the correct implementation!
 
 Overall Grade: FAILED
