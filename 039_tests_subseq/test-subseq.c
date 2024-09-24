@@ -46,7 +46,18 @@ void test_maxSeq() {
     printf("Test 6 (mixed array) failed\n");
     exit(EXIT_FAILURE);
   }
+  int arr7[] = {1, 2, 2, 3, 4};
+  if (maxSeq(arr7, 5) != 3) {  // max increasing subsequence is {2, 3, 4}
+    printf("Test 7 (array with repeated elements) failed\n");
+    exit(EXIT_FAILURE);
+  }
 
+  // Test 8: Two large subsequences
+  int arr8[] = {1, 2, 3, 1, 4, 5, 6};
+  if (maxSeq(arr8, 7) != 4) {  // max increasing subsequence is {1, 4, 5, 6}
+    printf("Test 8 (two large subsequences) failed\n");
+    exit(EXIT_FAILURE);
+  }
   printf("All tests passed!\n");
 }
 
