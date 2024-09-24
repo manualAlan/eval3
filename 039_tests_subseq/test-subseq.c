@@ -22,7 +22,7 @@ void test_maxSeq() {
     exit(EXIT_FAILURE);
   }
   int arr21[] = {-2147483648, -2147483647, 0};  // decreasing sequence
-  if (maxSeq(arr21, 3) != 2) {
+  if (maxSeq(arr21, 3) != 3) {
     printf("Test 1 (array with max int values) failed\n");
     exit(EXIT_FAILURE);
   }
