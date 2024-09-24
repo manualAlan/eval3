@@ -58,6 +58,11 @@ void test_maxSeq() {
     printf("Test 8 (two large subsequences) failed\n");
     exit(EXIT_FAILURE);
   }
+  int arr9[] = {1, 2, 3, 2, 3, 4};
+  if (maxSeq(arr9, 6) != 3) {
+    printf('failure');
+    exit(EXIT_FAILURE);
+  }
   printf("All tests passed!\n");
 }
 
