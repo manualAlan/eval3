@@ -1,10 +1,10 @@
-Grading at 09/24/2024:23:13:11.965407
-For commit ID bdea3d4e8f7ca2474d45b4e1953751e71c1ea696
-Grading at Tue Sep 24 07:13:11 PM EDT 2024
+Grading at 09/24/2024:23:20:22.865262
+For commit ID f154715fb870eab63cd59d7a3a942c812ac8f509
+Grading at Tue Sep 24 07:20:22 PM EDT 2024
 **Testing broken implementation 10 **
 -------------------------------------
 
-Test 5 (negative and positive values) failed
+Test 1 (array with max int values) failed
 
 **Testing broken implementation 11 **
 -------------------------------------
@@ -14,7 +14,7 @@ Test 8 (two large subsequences) failed
 **Testing broken implementation 1 **
 -------------------------------------
 
-Test 1 (array with max int values) failed
+Test 3 (all same elements) failed
 
 **Testing broken implementation 2 **
 -------------------------------------
@@ -39,7 +39,7 @@ Test 8 (two large subsequences) failed
 **Testing broken implementation 6 **
 -------------------------------------
 
-Test 1 (array with max int values) failed
+Test 2 (single element array) failed
 
 **Testing broken implementation 7 **
 -------------------------------------
@@ -59,7 +59,8 @@ Test 8 (two large subsequences) failed
 **Testing correct implementation **
 -------------------------------------
 
-Test 1 (array with max int values) failed
-Your test program falsely failed the correct implementation!
+All tests passed!
 
-Overall Grade: FAILED
+All test programs were handled correctly
+
+Overall Grade: PASSED
