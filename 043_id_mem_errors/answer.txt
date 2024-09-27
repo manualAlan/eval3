@@ -1,6 +1,7 @@
-14 use of dangling pointer
-16 use of uninitialized value
-19 index out of bounds
-20 use of uninitialized value
 23 return dangling pointer
-27 return dangling pointer
+22 return dangling pointer
+21 return dangling pointer
+20 return dangling pointer
+19 return dangling pointer
+18 return dangling pointer
+17 return dangling pointer
