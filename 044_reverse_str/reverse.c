@@ -3,6 +3,22 @@
 #include <string.h>
 
 void reverse(char * str) {
+  if (str == NULL) {
+    return;
+  }
+
+  int len = strlen(str);
+  int start = 0;
+  int end = len - 1;
+
+  while (start < end) {
+    // Swap the characters at start and end
+    char temp = str[start];
+    str[start] = str[end];
+    str[end] = temp;
+    start++;
+    end--;
+  }
   //WRITE ME!
 }
 
@@ -13,7 +29,8 @@ int main(void) {
   char str3[] = "Captain's log, Stardate 42523.7";
   char str4[] = "Hello, my name is Inigo Montoya.";
   char str5[] = "You can be my wingman anyday!";
-  char str6[] = "Executor Selendis! Unleash the full power of your forces! There may be no tomorrow!";
+  char str6[] = "Executor Selendis! Unleash the full power of your forces! There may be "
+                "no tomorrow!";
   char * array[] = {str0, str1, str2, str3, str4, str5, str6};
   for (int i = 0; i < 7; i++) {
     reverse(array[i]);
