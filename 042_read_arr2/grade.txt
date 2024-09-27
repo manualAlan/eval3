@@ -1,9 +1,10 @@
-Grading at 09/27/2024:14:01:39.753414
-For commit ID 95a8ace3cd723d0b04cc1430ddca4b832a60c4ff
-Grading at Fri Sep 27 10:01:39 AM EDT 2024
+Grading at 09/27/2024:14:04:19.992760
+For commit ID 8f801193c185624591cfa5e4c78691ee9e6db2ab
+Grading at Fri Sep 27 10:04:19 AM EDT 2024
 Attempting to compile test.c
-The code did not compile
+gcc -Wall -g -o test test.c
+compiled
 Your file matched the expected output
 Your output matched what we expected
 
-Overall Grade: F
+Overall Grade: A
