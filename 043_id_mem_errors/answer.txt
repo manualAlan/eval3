@@ -3,3 +3,8 @@
 20 use of uninitialized value
 23 return dangling pointer
 28 use of dangling pointer
+6 index out of bounds
+6 use of dangling pointer
+6 return dangling pointer
+6 use of uninitialized value
+
