@@ -1,7 +1,18 @@
-Grading at 09/28/2024:16:55:45.895178
-For commit ID 7b41bf8da66ee0ed86e0c7b7fecbe3c0b9c063e4
-Grading at Sat Sep 28 12:55:45 PM EDT 2024
+Grading at 09/30/2024:16:23:57.478675
+For commit ID 2e32edc1c982997e10071249ddf384b5b0794d88
+Grading at Mon Sep 30 12:23:52 PM EDT 2024
 Attempting to compile breaker.c 
-The code did not compile!
+gcc -Wall -Wextra -std=c99 -c breaker.c -o breaker.o
+gcc -Wall -Wextra -std=c99 -o breaker breaker.o
+testcase1 passed
+#################################################
+testcase2:
+testcase2 passed
+#################################################
+testcase3:
+testcase3 passed
+#################################################
+testcase4:
+testcase4 passed
 
-Overall Grade: F
+Overall Grade: A
