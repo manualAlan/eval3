@@ -8,3 +8,7 @@ edge_chars.txt
 empty_lines.txt
 random_chars.txt
 one_line.txt
+line_too_long.txt
+all_same.txt
+varying_line_length.txt
+
