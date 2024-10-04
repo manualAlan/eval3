@@ -16,19 +16,19 @@ void rotateMatrix(char grid[10][10]) {
 
 int main(int argc, char ** args) {
   if (argc != 2) {
-    printf("arguments number wrong\n");
+    fprintf(stderr, "arguments number wrong\n");
     return EXIT_FAILURE;
   }
 
   FILE * filePtr = fopen(args[1], "r");
   if (filePtr == NULL) {
-    printf("file not opening\n");
+    fprintf(stderr, "file not opening\n");
     return EXIT_FAILURE;
   }
 
   int charRead = fgetc(filePtr);
   if (charRead == EOF) {
-    printf("file empty\n");
+    fprintf(stderr, "file empty\n");
     return EXIT_FAILURE;
   }
 
@@ -37,7 +37,7 @@ int main(int argc, char ** args) {
 
   while (charRead != EOF) {
     if (rowNum >= 10) {
-      printf("too many rows\n");
+      fprintf(stderr, "too many rows\n");
       return EXIT_FAILURE;
     }
 
@@ -45,18 +45,18 @@ int main(int argc, char ** args) {
       colNum = 0;
       rowNum++;
       if (charRead != '\n') {
-        printf("missing newline\n");
+        fprintf(stderr, "missing newline\n");
         return EXIT_FAILURE;
       }
     }
     else {
       if (charRead < 32 || charRead > 126) {
-        printf("invalid character found: %d\n", charRead);
+        fprintf(stderr, "invalid character found: %d\n", charRead);
         return EXIT_FAILURE;
       }
 
       if (charRead == '\n') {
-        printf("less columns\n");
+        fprintf(stderr, "less columns\n");
         return EXIT_FAILURE;
       }
       matrix[rowNum][colNum] = charRead;
@@ -66,13 +66,12 @@ int main(int argc, char ** args) {
   }
 
   fclose(filePtr);
-  //printf("%d", colNum);
   if (rowNum < 10) {
-    printf("not enough rows\n");
+    fprintf(stderr, "not enough rows\n");
     return EXIT_FAILURE;
   }
   if (fgetc(filePtr) != EOF) {
-    printf("file has too many characters\n");
+    fprintf(stderr, "file has too many characters\n");
     return EXIT_FAILURE;
   }
   rotateMatrix(matrix);
@@ -80,10 +79,10 @@ int main(int argc, char ** args) {
   // Printer
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
-      if (matrix[x][y] == '\0') {
+      if (matrix[x][y] == '\0' || matrix[x][y] < 32 || matrix[x][y] > 126) {
         fprintf(
             stderr, "Error: null character found in matrix at position [%d][%d]\n", x, y);
-        exit(EXIT_FAILURE);  // Exit with failure if null is found
+        return EXIT_FAILURE;  // Exit with failure if null is found
       }
       printf("%c", matrix[x][y]);
     }
