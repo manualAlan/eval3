@@ -50,6 +50,11 @@ int main(int argc, char ** args) {
       }
     }
     else {
+      if (charRead < 32 || charRead > 126) {
+        printf("invalid character found: %d\n", charRead);
+        return EXIT_FAILURE;
+      }
+
       if (charRead == '\n') {
         printf("less columns\n");
         return EXIT_FAILURE;
@@ -61,17 +66,25 @@ int main(int argc, char ** args) {
   }
 
   fclose(filePtr);
-
+  //printf("%d", colNum);
   if (rowNum < 10) {
     printf("not enough rows\n");
     return EXIT_FAILURE;
   }
-
+  if (fgetc(filePtr) != EOF) {
+    printf("file has too many characters\n");
+    return EXIT_FAILURE;
+  }
   rotateMatrix(matrix);
 
   // Printer
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
+      if (matrix[x][y] == '\0') {
+        fprintf(
+            stderr, "Error: null character found in matrix at position [%d][%d]\n", x, y);
+        exit(EXIT_FAILURE);  // Exit with failure if null is found
+      }
       printf("%c", matrix[x][y]);
     }
     printf("\n");
