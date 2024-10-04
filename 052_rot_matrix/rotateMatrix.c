@@ -65,7 +65,6 @@ int main(int argc, char ** args) {
     charRead = fgetc(filePtr);
   }
 
-  fclose(filePtr);
   if (rowNum < 10) {
     fprintf(stderr, "not enough rows\n");
     return EXIT_FAILURE;
@@ -75,7 +74,7 @@ int main(int argc, char ** args) {
     return EXIT_FAILURE;
   }
   rotateMatrix(matrix);
-
+  fclose(filePtr);
   // Printer
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
