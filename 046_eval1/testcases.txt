@@ -8,6 +8,12 @@ launches-step1 st5.txt
 launches-step1 st6.txt
 launches-step1 st7.txt
 launches-step1 st8.txt
+launches-step1 st9.txt
+launches-step1 st10.txt
+launches-step1 st11.txt
+launches-step1 st12.txt
+launches-step1
+
 launches-step2 sol.txt
 launches-step2 st1.txt
 launches-step2 st2.txt
@@ -18,6 +24,7 @@ launches-step2 st6.txt
 launches-step2 st7.txt
 launches-step2 st8.txt
 launches-step2 missingfile
+
 
 launches-step3 sol.txt three1.txt
 launches-step3 sol.txt three2.txt
@@ -34,3 +41,4 @@ launches-step3 st5.txt three3.txt
 launches-step3 st3.txt three8.txt
 launches-step3 sol.txt
 launches-step3 missingfiles
+launches-step3
