@@ -1,4 +1,36 @@
 launches-step1 sol.txt
 launches-step1 missingfile
+launches-step1 st1.txt
+launches-step1 st2.txt
+launches-step1 st3.txt
+launches-step1 st4.txt
+launches-step1 st5.txt
+launches-step1 st6.txt
+launches-step1 st7.txt
+launches-step1 st8.txt
 launches-step2 sol.txt
+launches-step2 st1.txt
+launches-step2 st2.txt
+launches-step2 st3.txt
+launches-step2 st4.txt
+launches-step2 st5.txt
+launches-step2 st6.txt
+launches-step2 st7.txt
+launches-step2 st8.txt
+launches-step2 missingfile
+
+launches-step3 sol.txt three1.txt
+launches-step3 sol.txt three2.txt
+launches-step3 sol.txt three3.txt
+launches-step3 sol.txt three4.txt
+launches-step3 sol.txt three5.txt
+launches-step3 sol.txt three6.txt
+launches-step3 sol.txt three7.txt
+launches-step3 sol.txt three8.txt
 launches-step3 sol.txt launches1.txt
+launches-step3 st2.txt three6.txt
+launches-step3 st3.txt three8.txt
+launches-step3 st5.txt three3.txt
+launches-step3 st3.txt three8.txt
+launches-step3 sol.txt
+launches-step3 missingfiles
