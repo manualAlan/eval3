@@ -1,6 +1,6 @@
-Grading at 10/06/2024:19:27:09.152031
-For commit ID b2a139de4617749dc7d956b5af60527333d0810f
-Grading at Sun Oct  6 03:27:05 PM EDT 2024
+Grading at 10/06/2024:23:24:50.679698
+For commit ID 351d38b3877a7e37e4bb949172705e8d64c4c07f
+Grading at Sun Oct  6 07:24:26 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -30,6 +30,78 @@ We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
 -------------------------
  This test case will run 
+ launches-step1 
+ With arguments 
+ st1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st4.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st5.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st6.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st7.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st8.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
  launches-step2 
  With arguments 
  sol.txt 
@@ -47,9 +119,91 @@ Running your code
 We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
+ launches-step2 
+ With arguments 
+ st1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st4.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st5.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st6.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st7.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ st8.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ missingfile 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
  launches-step3 
  With arguments 
- sol.txt launches1.txt 
+ sol.txt three1.txt 
 -------------------------
 I need to compile your code for launches-step3 (make launches-step3)
 
@@ -63,7 +217,136 @@ gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three4.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three5.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three6.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three7.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt three8.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt launches1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ st2.txt three6.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ st3.txt three8.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ st5.txt three3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ st3.txt three8.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, but you did not print anything to stderr
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ missingfiles 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
