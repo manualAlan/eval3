@@ -1,6 +1,6 @@
-Grading at 10/06/2024:23:34:54.491191
-For commit ID 8b2e8250fc995641b98c6f40dab9cd85c2bd5942
-Grading at Sun Oct  6 07:34:30 PM EDT 2024
+Grading at 10/06/2024:23:47:32.167855
+For commit ID df2809b60878e2584b8471ef82a413a6a8e4d5fb
+Grading at Sun Oct  6 07:47:03 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -106,6 +106,66 @@ And valgrind reported no errors
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st9.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st10.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st11.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st12.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st13.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+  
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -357,6 +417,16 @@ And valgrind reported no errors
  launches-step3 
  With arguments 
  missingfiles 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+  
 -------------------------
 Running our code...
 Running your code
