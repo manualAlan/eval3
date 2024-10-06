@@ -1,6 +1,6 @@
-Grading at 10/05/2024:15:13:05.522146
-For commit ID 348d34a80f6bb2a9866c46e81528afa76c17b0d8
-Grading at Sat Oct  5 11:13:02 AM EDT 2024
+Grading at 10/06/2024:19:27:09.152031
+For commit ID b2a139de4617749dc7d956b5af60527333d0810f
+Grading at Sun Oct  6 03:27:05 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -11,40 +11,13 @@ Running your test cases
 I need to compile your code for launches-step1 (make launches-step1)
 
 Compiling launches-step1
-rm -f myinput.o planet_util.o step1.o step2.o step3.o target.o *~ launches-step? launches-step4-debug
+rm -f iter_target.o myinput.o planet_util.o step1.o step2.o step3.o step4.o target.o *~ launches-step? launches-step4-debug
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 step1.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 myinput.c
 gcc -o launches-step1 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step1.o myinput.o provided.o dummy-s2.o dummy-s3.o -lm
 Running our code...
 Running your code
-We agreed on this testcase, but valgrind reported errors
-==3566359== Memcheck, a memory error detector
-==3566359== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3566359== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3566359== Command: ./launches-step1 sol.txt
-==3566359== Parent PID: 3566358
-==3566359== 
-==3566359== 
-==3566359== HEAP SUMMARY:
-==3566359==     in use at exit: 225 bytes in 8 blocks
-==3566359==   total heap usage: 29 allocs, 21 frees, 9,761 bytes allocated
-==3566359== 
-==3566359== 225 bytes in 8 blocks are definitely lost in loss record 1 of 1
-==3566359==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3566359==    by 0x49F258E: strdup (strdup.c:42)
-==3566359==    by 0x1094DE: parse_planet_info (myinput.c:6)
-==3566359==    by 0x109CC7: read_planets (provided.c:126)
-==3566359==    by 0x10945E: main (step1.c:15)
-==3566359== 
-==3566359== LEAK SUMMARY:
-==3566359==    definitely lost: 225 bytes in 8 blocks
-==3566359==    indirectly lost: 0 bytes in 0 blocks
-==3566359==      possibly lost: 0 bytes in 0 blocks
-==3566359==    still reachable: 0 bytes in 0 blocks
-==3566359==         suppressed: 0 bytes in 0 blocks
-==3566359== 
-==3566359== For lists of detected and suppressed errors, rerun with: -s
-==3566359== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step1 
@@ -71,34 +44,7 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 planet_util.c
 gcc -o launches-step2 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step2.o myinput.o provided.o planet_util.o dummy-s3.o -lm
 Running our code...
 Running your code
-We agreed on this testcase, but valgrind reported errors
-==3566464== Memcheck, a memory error detector
-==3566464== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3566464== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3566464== Command: ./launches-step2 sol.txt
-==3566464== Parent PID: 3566463
-==3566464== 
-==3566464== 
-==3566464== HEAP SUMMARY:
-==3566464==     in use at exit: 225 bytes in 8 blocks
-==3566464==   total heap usage: 38 allocs, 30 frees, 9,879 bytes allocated
-==3566464== 
-==3566464== 225 bytes in 8 blocks are definitely lost in loss record 1 of 1
-==3566464==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3566464==    by 0x49F258E: strdup (strdup.c:42)
-==3566464==    by 0x1096CC: parse_planet_info (myinput.c:6)
-==3566464==    by 0x109EB5: read_planets (provided.c:126)
-==3566464==    by 0x109521: main (step2.c:26)
-==3566464== 
-==3566464== LEAK SUMMARY:
-==3566464==    definitely lost: 225 bytes in 8 blocks
-==3566464==    indirectly lost: 0 bytes in 0 blocks
-==3566464==      possibly lost: 0 bytes in 0 blocks
-==3566464==    still reachable: 0 bytes in 0 blocks
-==3566464==         suppressed: 0 bytes in 0 blocks
-==3566464== 
-==3566464== For lists of detected and suppressed errors, rerun with: -s
-==3566464== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
@@ -116,35 +62,8 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 target.c
 gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput.o provided.o planet_util.o target.o -lm
 Running our code...
 Running your code
-We agreed on this testcase, but valgrind reported errors
-==3566549== Memcheck, a memory error detector
-==3566549== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3566549== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3566549== Command: ./launches-step3 sol.txt launches1.txt
-==3566549== Parent PID: 3566548
-==3566549== 
-==3566549== 
-==3566549== HEAP SUMMARY:
-==3566549==     in use at exit: 225 bytes in 8 blocks
-==3566549==   total heap usage: 43 allocs, 35 frees, 14,909 bytes allocated
-==3566549== 
-==3566549== 225 bytes in 8 blocks are definitely lost in loss record 1 of 1
-==3566549==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3566549==    by 0x49F258E: strdup (strdup.c:42)
-==3566549==    by 0x1095A6: parse_planet_info (myinput.c:6)
-==3566549==    by 0x109D8F: read_planets (provided.c:126)
-==3566549==    by 0x1094C1: main (step3.c:19)
-==3566549== 
-==3566549== LEAK SUMMARY:
-==3566549==    definitely lost: 225 bytes in 8 blocks
-==3566549==    indirectly lost: 0 bytes in 0 blocks
-==3566549==      possibly lost: 0 bytes in 0 blocks
-==3566549==    still reachable: 0 bytes in 0 blocks
-==3566549==         suppressed: 0 bytes in 0 blocks
-==3566549== 
-==3566549== For lists of detected and suppressed errors, rerun with: -s
-==3566549== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-You have FAILED one or more of your test cases
-Keep debugging
+We agreed on this testcase and valgrind was clean
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
