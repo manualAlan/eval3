@@ -12,6 +12,7 @@ launches-step1 st9.txt
 launches-step1 st10.txt
 launches-step1 st11.txt
 launches-step1 st12.txt
+launches-step1 st13.txt
 launches-step1
 
 launches-step2 sol.txt
