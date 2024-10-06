@@ -1,6 +1,6 @@
-Grading at 10/06/2024:23:24:50.679698
-For commit ID 351d38b3877a7e37e4bb949172705e8d64c4c07f
-Grading at Sun Oct  6 07:24:26 PM EDT 2024
+Grading at 10/06/2024:23:34:54.491191
+For commit ID 8b2e8250fc995641b98c6f40dab9cd85c2bd5942
+Grading at Sun Oct  6 07:34:30 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -45,7 +45,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -54,7 +55,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -63,7 +65,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -72,7 +75,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -81,7 +85,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -90,7 +95,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step1 
@@ -134,7 +140,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -143,7 +150,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -152,7 +160,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -161,7 +170,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -170,7 +180,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -179,7 +190,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step2 
@@ -298,7 +310,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step3 
@@ -307,7 +320,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step3 
@@ -316,7 +330,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step3 
@@ -325,7 +340,8 @@ We agreed this was an error, but you did not print anything to stderr
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, but you did not print anything to stderr
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step3 
@@ -346,7 +362,7 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
