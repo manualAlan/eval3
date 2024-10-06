@@ -12,18 +12,16 @@ launch_result_t solve_launch(const launch_input_t * this_launch,
 
   point_t src_location, dest_location;
   launch_result_t best_result, current_result;
-
-  double distance, dx, dy;
-  double best_time = -1.0;
+  double best_total_time = -1.0;
   double current_time = this_launch->time;
 
   for (uint64_t iteration = 0; iteration < this_launch->max_iterations; ++iteration) {
     src_location = get_location_at(src_planet, current_time);
     dest_location = get_location_at(dest_planet, current_time);
 
-    dx = dest_location.x - src_location.x;
-    dy = dest_location.y - src_location.y;
-    distance = sqrt(dx * dx + dy * dy);
+    double dx = dest_location.x - src_location.x;
+    double dy = dest_location.y - src_location.y;
+    double distance = sqrt(dx * dx + dy * dy);
 
     current_result.theta = atan2(dy, dx);
     if (current_result.theta < 0) {
@@ -37,11 +35,15 @@ launch_result_t solve_launch(const launch_input_t * this_launch,
     }
 
     double arrival_time = current_time + current_result.duration;
-    dest_location = get_location_at(dest_planet, arrival_time);
+    double waiting_time =
+        when_does_planet_return_to(dest_planet, dest_location, arrival_time) -
+        arrival_time;
 
-    if (best_time == -1.0 || current_result.duration < best_time) {
+    double total_time = current_result.duration + waiting_time;
+
+    if (best_total_time == -1.0 || total_time < best_total_time) {
       best_result = current_result;
-      best_time = current_result.duration;
+      best_total_time = total_time;
     }
 
     current_time = arrival_time;
