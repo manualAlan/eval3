@@ -6,5 +6,6 @@ launches-step3 sol.txt three14.txt
 launches-step3 sol.txt three15.txt
 launches-step3 sol.txt three16.txt
 launches-step3 sol.txt
+launches-step3 sol.txt three17.txt
 launches-step3 missingfiles
 launches-step3
