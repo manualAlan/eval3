@@ -11,4 +11,12 @@ launches-step3 sol.txt three17.txt
 launches-step3 missingfiles
 launches-step3
 launches-step3 simple.txt launches_simple.txt
+launches-step3 planets1.txt launches2.txt
 launches-step4 simple.txt launches_simple.txt
+launches-step4
+launches-step4 planets1.txt launches2.txt
+launches-step4 simple.txt
+launches-step4 a41.txt a42.txt
+launches-step4 a51.txt a52.txt
+launches-step4 a61.txt a62.txt
+launches-step4 afe egeg
