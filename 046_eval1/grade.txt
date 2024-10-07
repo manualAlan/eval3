@@ -1,6 +1,6 @@
-Grading at 10/07/2024:20:47:59.317279
-For commit ID 1f47bad10741467dcde9a4c9cb2ba5d1ad9e821f
-Grading at Mon Oct  7 04:47:44 PM EDT 2024
+Grading at 10/07/2024:20:56:19.215086
+For commit ID ddbd2dea3d56d6fd111527018293a30890de8ce1
+Grading at Mon Oct  7 04:56:04 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -84,6 +84,15 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ planet3.txt launches3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
@@ -183,19 +192,6 @@ We agreed on this testcase and valgrind was clean
  This test case will run 
  launches-step4 
  With arguments 
- a51.txt a52.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Planet A     to Planet B     at          0 requires 180.00 deg and takes       inf hours							     |	Planet A     to Planet B     at          0 requires  0.00 deg and takes       inf hours
-   Will arrive at time        inf and land immediately													   Will arrive at time        inf and land immediately
-Your file did not match the expected output
--------------------------
- This test case will run 
- launches-step4 
- With arguments 
  a61.txt a62.txt 
 -------------------------
 Running our code...
@@ -211,7 +207,16 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
-You have FAILED one or more of your test cases
-Keep debugging
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ planet3.txt launches3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
