@@ -1,6 +1,6 @@
-Grading at 10/06/2024:23:47:32.167855
-For commit ID df2809b60878e2584b8471ef82a413a6a8e4d5fb
-Grading at Sun Oct  6 07:47:03 PM EDT 2024
+Grading at 10/07/2024:00:00:48.263850
+For commit ID 529a5ad6837f6df37fbc9f29f5ebd423d2e7305d
+Grading at Sun Oct  6 08:00:17 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -166,6 +166,51 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st14.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st15.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st16.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st17.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step1 
+ With arguments 
+ st18.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step2 
@@ -406,32 +451,23 @@ And valgrind reported no errors
  This test case will run 
  launches-step3 
  With arguments 
- sol.txt 
+ sol.txt three9.txt 
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
  With arguments 
- missingfiles 
+ sol.txt three10.txt 
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
-  
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
+
+Grading has taken more than 30 seconds
+Skipping remaining test cases
 You have PASSED all of your test cases
 Keep adding test cases until you are satisfied your program is correct
 
