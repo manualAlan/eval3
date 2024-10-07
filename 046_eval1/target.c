@@ -31,7 +31,7 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
     return (launch_result_t){.theta = angle, .duration = INFINITY};
   }
   if (isnan(duration) || duration > DBL_MAX) {
-    duration = NAN;
+    duration = INFINITY;
   }
   //
   else if (isinf(duration)) {
@@ -64,8 +64,9 @@ double when_does_planet_return_to(const planet_t * planet,
     angle_to_travel += 2 * M_PI;
   }
   double time_to_return = angle_to_travel / angular_velocity;
+  printf("%f", time_to_return);
   if (isnan(time_to_return)) {
-    return NAN;
+    return INFINITY;
   }
 
   else if (isinf(time_to_return) || time_to_return > DBL_MAX) {
