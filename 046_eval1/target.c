@@ -58,7 +58,7 @@ double when_does_planet_return_to(const planet_t * planet,
   if (target_angle < 0) {
     target_angle += 2 * M_PI;
   }
-  double a = 1e25;
+  // double a = 1e25;
   point_t current_position = get_location_at(planet, start_time);
   double current_angle = atan2(current_position.y, current_position.x);
   if (current_angle < 0) {
@@ -90,7 +90,7 @@ double when_does_planet_return_to(const planet_t * planet,
   else if (isinf(time_to_return) || time_to_return > DBL_MAX) {
     return INFINITY;
   }
-  if (start_time + time_to_return > a) {
+  if (start_time + time_to_return > DBL_MAX) {
     return NAN;
   }
   return start_time + time_to_return;
