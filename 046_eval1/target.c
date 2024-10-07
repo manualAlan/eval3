@@ -2,6 +2,8 @@
 
 #include <float.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
                                        const planet_list_t * planets) {
   //STEP 3: Write this
@@ -21,8 +23,12 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   }
 
   double duration = distance / this_launch->speed;
-  if (isnan(duration) || isinf(duration) || duration > DBL_MAX) {
-    duration = DBL_MAX;
+  if (isnan(duration)) {
+    duration = NAN;
+  }
+  //
+  else if (isinf(duration) || duration > DBL_MAX) {
+    duration = INFINITY;
   }
   launch_result_t result;
   result.theta = angle;
@@ -51,8 +57,12 @@ double when_does_planet_return_to(const planet_t * planet,
     angle_to_travel += 2 * M_PI;
   }
   double time_to_return = angle_to_travel / angular_velocity;
-  if (isnan(time_to_return) || isinf(time_to_return) || time_to_return > DBL_MAX) {
+  if (isnan(time_to_return)) {
     return NAN;
+  }
+
+  else if (isinf(time_to_return) || time_to_return > DBL_MAX) {
+    return INFINITY;
   }
   return start_time + time_to_return;
 }
