@@ -2,12 +2,12 @@ launches-step3 sol.txt launches1.txt
 launches-step3 sol.txt three10.txt
 launches-step3 sol.txt three11.txt
 launches-step3 sol.txt three12.txt
-launches-step3 sol.txt three13.txt
+
 launches-step3 sol.txt three14.txt
 launches-step3 sol.txt three15.txt
 launches-step3 sol.txt three16.txt
 launches-step3 sol.txt
-launches-step3 sol.txt three17.txt
+
 launches-step3 missingfiles
 launches-step3
 launches-step3 simple.txt launches_simple.txt

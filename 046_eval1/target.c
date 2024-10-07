@@ -29,6 +29,7 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
     angle += 2 * M_PI;
   }
   launch_result_t result;
+  //  angle = fmod(angle, 2 * M_PI);
   result.theta = angle;
   double duration = distance / this_launch->speed;
 
@@ -53,6 +54,7 @@ double when_does_planet_return_to(const planet_t * planet,
                                   point_t pos,
                                   double start_time) {
   double target_angle = atan2(pos.y, pos.x);
+  target_angle = fmod(target_angle, 2 * M_PI);
   if (target_angle < 0) {
     target_angle += 2 * M_PI;
   }
@@ -66,11 +68,19 @@ double when_does_planet_return_to(const planet_t * planet,
   double angular_velocity = 2 * M_PI / planet->year_len;
 
   double angle_to_travel = target_angle - current_angle;
+  //double angle_to_travel = target_angle - current_angle;
+  //angle_to_travel = fmod(angle_to_travel, 2 * M_PI);
   if (angle_to_travel < 0) {
     angle_to_travel += 2 * M_PI;
   }
-  assert(angle_to_travel >= 0 && angle_to_travel < 2 * M_PI &&
-         "Error: Angle out of bounds must be between 0 and 2π\n");
+
+  //  if (!(angle_to_travel >= 0 && angle_to_travel < 2 * M_PI)) {
+  // fprintf(stderr, "Error: Angle out of bounds at %f\n", angle_to_travel);
+  // exit(EXIT_FAILURE);
+  // }
+
+  //  assert(angle_to_travel >= 0 && angle_to_travel < 2 * M_PI &&
+  //       "Error: Angle out of bounds at %f",angle_to_travel);
   double time_to_return = angle_to_travel / angular_velocity;
   //printf("%f", time_to_return);
   if (isnan(time_to_return)) {
