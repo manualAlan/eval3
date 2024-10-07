@@ -30,11 +30,11 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   if (this_launch->speed == 0) {
     return (launch_result_t){.theta = angle, .duration = INFINITY};
   }
-  if (isnan(duration)) {
+  if (isnan(duration) || duration > DBL_MAX) {
     duration = NAN;
   }
   //
-  else if (isinf(duration) || duration > DBL_MAX) {
+  else if (isinf(duration)) {
     duration = INFINITY;
   }
   launch_result_t result;
