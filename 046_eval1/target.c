@@ -6,6 +6,10 @@
 #include <stdlib.h>
 launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
                                        const planet_list_t * planets) {
+  if (this_launch->time > DBL_MAX || isnan(this_launch->time)) {
+    fprintf(stderr, "Error: Time value out of bounds.\n");
+    return (launch_result_t){.theta = NAN, .duration = NAN};
+  }
   //STEP 3: Write this
   planet_t * src_planet = find_planet(planets, this_launch->src);
   planet_t * dest_planet = find_planet(planets, this_launch->dest);
@@ -23,6 +27,9 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   }
 
   double duration = distance / this_launch->speed;
+  if (this_launch->speed == 0) {
+    return (launch_result_t){.theta = angle, .duration = INFINITY};
+  }
   if (isnan(duration)) {
     duration = NAN;
   }
