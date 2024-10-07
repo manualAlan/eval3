@@ -31,17 +31,7 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   launch_result_t result;
   result.theta = angle;
   double duration = distance / this_launch->speed;
-  if (this_launch->speed == 0) {
-    return (launch_result_t){.theta = angle, .duration = INFINITY};
-  }
-  if (this_launch->speed < 0) {
-    angle = angle + M_PI;
-    if (angle >= 2 * M_PI) {
-      angle -= 2 * M_PI;
-    }
-    //duration = distance / (-this_launch->speed);
-    result.theta = angle;
-  }
+
   //
   if (isnan(duration) || duration > DBL_MAX) {
     duration = INFINITY;
@@ -79,6 +69,8 @@ double when_does_planet_return_to(const planet_t * planet,
   if (angle_to_travel < 0) {
     angle_to_travel += 2 * M_PI;
   }
+  assert(angle_to_travel >= 0 && angle_to_travel < 2 * M_PI &&
+         47 "Error: Angle out of bounds must be between 0 and 2π\n");
   double time_to_return = angle_to_travel / angular_velocity;
   //printf("%f", time_to_return);
   if (isnan(time_to_return)) {
