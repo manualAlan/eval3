@@ -1,6 +1,6 @@
-Grading at 10/07/2024:01:26:36.330217
-For commit ID c759f7f2f088063daa1e30e7645e61058ce01325
-Grading at Sun Oct  6 09:26:29 PM EDT 2024
+Grading at 10/07/2024:01:29:42.219436
+For commit ID f7fda9f76374de6c207aa97f2deffdc0c0b1d164
+Grading at Sun Oct  6 09:29:34 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -19,7 +19,11 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 target.c
 gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput.o provided.o planet_util.o target.o -lm
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+Earth        to Venus        at          0 requires 147.71 deg and takes       nan hours      |	Earth        to Venus        at          0 requires 147.71 deg and takes       inf hours
+   Will arrive at time        nan and land immediately					      |	   Will arrive at time        inf and land immediately
+Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step3 
