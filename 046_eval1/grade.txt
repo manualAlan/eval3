@@ -1,12 +1,12 @@
-Grading at 10/07/2024:00:20:13.361607
-For commit ID e608c4635a4d1a3e4c63f61ab2d12ba04db6d231
-Grading at Sun Oct  6 08:20:02 PM EDT 2024
+Grading at 10/07/2024:00:29:50.790819
+For commit ID 1e4a265b7e019db70a2abfc1a900d99ba93cd5b9
+Grading at Sun Oct  6 08:29:43 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
  launches-step3 
  With arguments 
- sol.txt launches1.txt 
+ sol.txt three10.txt 
 -------------------------
 I need to compile your code for launches-step3 (make launches-step3)
 
@@ -20,68 +20,6 @@ gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- st2.txt three6.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- st3.txt three8.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- st5.txt three3.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- st3.txt three8.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three9.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three10.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes 17976931348623157081 |	Earth        to Venus        at          0 requires 147.71 deg and takes       inf hours
-   Will arrive at time 1797693134862315708145274237317043567980705675258449965989174768031572 |	   Will arrive at time        inf and land immediately
-Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step3 
@@ -103,11 +41,7 @@ Your file did not match the expected output
 -------------------------
 Running our code...
 Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes 17976931348623157081 |	Earth        to Venus        at          0 requires 147.71 deg and takes       inf hours
-   Will arrive at time 1797693134862315708145274237317043567980705675258449965989174768031572 |	   Will arrive at time        inf and land immediately
-Your file did not match the expected output
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
