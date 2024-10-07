@@ -14,6 +14,11 @@ launches-step1 st11.txt
 launches-step1 st12.txt
 launches-step1 st13.txt
 launches-step1
+launches-step1 st14.txt
+launches-step1 st15.txt
+launches-step1 st16.txt
+launches-step1 st17.txt
+launches-step1 st18.txt
 
 launches-step2 sol.txt
 launches-step2 st1.txt
@@ -40,6 +45,14 @@ launches-step3 st2.txt three6.txt
 launches-step3 st3.txt three8.txt
 launches-step3 st5.txt three3.txt
 launches-step3 st3.txt three8.txt
+launches-step3 sol.txt three9.txt
+launches-step3 sol.txt three10.txt
+launches-step3 sol.txt three11.txt
+launches-step3 sol.txt three12.txt
+launches-step3 sol.txt three13.txt
+launches-step3 sol.txt three14.txt
+launches-step3 sol.txt three15.txt
+launches-step3 sol.txt three16.txt
 launches-step3 sol.txt
 launches-step3 missingfiles
 launches-step3
