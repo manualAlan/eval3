@@ -1,6 +1,6 @@
-Grading at 10/07/2024:19:35:28.419745
-For commit ID 737e3d330dff2606f6baee934bf67d400281def7
-Grading at Mon Oct  7 03:35:18 PM EDT 2024
+Grading at 10/07/2024:20:33:06.454326
+For commit ID ba6302c5a78992d1c5b13a6d75e1db45b9072894
+Grading at Mon Oct  7 04:32:50 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -141,6 +141,15 @@ Running your code
 We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
+ launches-step3 
+ With arguments 
+ planets1.txt launches2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
  launches-step4 
  With arguments 
  simple.txt launches_simple.txt 
@@ -157,88 +166,79 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 iter_target.c
 gcc -o launches-step4 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step4.o myinput.o provided.o planet_util.o target.o iter_target.o -lm
 Running our code...
 Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Computing launch from Planet A to Planet B at time 0.00												     |	Planet A     to Planet B     at          0 requires  9.96 deg and takes      10.1 hours
-Iteration 0:																	     |	   Will arrive at time      10.08 and land immediately
-  Angle: 0.00 degrees, Duration: 10.00 hours													     <
-  Arrival time: 10.00, Waiting time: 710.00, Total time: 720.00											     <
-  ** New best solution **															     <
-Iteration 1:																	     <
-  Angle: 9.96 degrees, Duration: 10.08 hours													     <
-  Arrival time: 10.08, Waiting time: 719.92, Total time: 730.00											     <
-Iteration 2:																	     <
-  Angle: 9.96 degrees, Duration: 10.08 hours													     <
-  Arrival time: 10.08, Waiting time: 719.92, Total time: 730.00											     <
-Iteration 3:																	     <
-  Angle: 9.96 degrees, Duration: 10.08 hours													     <
-  Arrival time: 10.08, Waiting time: 719.92, Total time: 730.00											     <
-Iteration 4:																	     <
-  Angle: 9.96 degrees, Duration: 10.08 hours													     <
-  Arrival time: 10.08, Waiting time: 719.92, Total time: 730.00											     <
-Planet A     to Planet B     at          0 requires  0.00 deg and takes      10.0 hours								     <
-   Will arrive at time      10.00 but need to wait until     720.00										     <
-Computing launch from Planet A to Planet C at time 0.00												     <
-Iteration 0:																	     <
-  Angle: 180.00 degrees, Duration: 20.00 hours													     <
-  Arrival time: 20.00, Waiting time: 340.00, Total time: 360.00											     <
-  ** New best solution **															     <
-Iteration 1:																	     <
-  Angle: 190.00 degrees, Duration: 19.70 hours													     <
-  Arrival time: 19.70, Waiting time: 0.30, Total time: 20.00											     <
-  ** New best solution **															     <
-Iteration 2:																	     <
-  Angle: 189.85 degrees, Duration: 19.71 hours													     <
-  Arrival time: 19.71, Waiting time: 359.99, Total time: 379.70											     <
-Iteration 3:																	     <
-  Angle: 189.85 degrees, Duration: 19.71 hours													     <
-  Arrival time: 19.71, Waiting time: 359.99, Total time: 379.70											     <
-Iteration 4:																	     <
-  Angle: 189.85 degrees, Duration: 19.71 hours													     <
-  Arrival time: 19.71, Waiting time: 359.99, Total time: 379.70											     <
-Planet A     to Planet C     at          0 requires 190.00 deg and takes      19.7 hours								Planet A     to Planet C     at          0 requires 190.00 deg and takes      19.7 hours
-   Will arrive at time      19.70 and land immediately													   Will arrive at time      19.70 and land immediately
-Computing launch from Planet A to Planet D at time 0.00												     <
-Iteration 0:																	     <
-  Angle: 180.00 degrees, Duration: 30.00 hours													     <
-  Arrival time: 30.00, Waiting time: 690.00, Total time: 720.00											     <
-  ** New best solution **															     <
-Iteration 1:																	     <
-  Angle: 190.01 degrees, Duration: 29.77 hours													     <
-  Arrival time: 29.77, Waiting time: 0.23, Total time: 30.00											     <
-  ** New best solution **															     <
-Iteration 2:																	     <
-  Angle: 189.94 degrees, Duration: 29.78 hours													     <
-  Arrival time: 29.78, Waiting time: 720.00, Total time: 749.77											     <
-Iteration 3:																	     <
-  Angle: 189.94 degrees, Duration: 29.78 hours													     <
-  Arrival time: 29.78, Waiting time: 720.00, Total time: 749.77											     <
-Iteration 4:																	     <
-  Angle: 189.94 degrees, Duration: 29.78 hours													     <
-  Arrival time: 29.78, Waiting time: 720.00, Total time: 749.77											     <
-Planet A     to Planet D     at          0 requires 190.01 deg and takes      29.8 hours								Planet A     to Planet D     at          0 requires 190.01 deg and takes      29.8 hours
-   Will arrive at time      29.77 and land immediately													   Will arrive at time      29.77 and land immediately
-Computing launch from Planet A to Planet B at time 360.00											     |	Planet A     to Planet B     at        360 requires 225.02 deg and takes     128.9 hours
-Iteration 0:																	     |	   Will arrive at time     488.88 but need to wait until     491.47
-  Angle: 180.00 degrees, Duration: 150.00 hours													     <
-  Arrival time: 510.00, Waiting time: 570.00, Total time: 720.00										     <
-  ** New best solution **															     <
-Iteration 1:																	     <
-  Angle: 231.85 degrees, Duration: 122.83 hours													     <
-  Arrival time: 482.83, Waiting time: 27.17, Total time: 150.00											     <
-  ** New best solution **															     <
-Iteration 2:																	     <
-  Angle: 221.91 degrees, Duration: 131.47 hours													     <
-  Arrival time: 491.47, Waiting time: 711.36, Total time: 842.83										     <
-Iteration 3:																	     <
-  Angle: 221.91 degrees, Duration: 131.47 hours													     <
-  Arrival time: 491.47, Waiting time: 711.36, Total time: 842.83										     <
-Iteration 4:																	     <
-  Angle: 221.91 degrees, Duration: 131.47 hours													     <
-  Arrival time: 491.47, Waiting time: 711.36, Total time: 842.83										     <
-Planet A     to Planet B     at        360 requires 231.85 deg and takes     122.8 hours							     <
-   Will arrive at time     482.83 but need to wait until     510.00										     <
-Your file did not match the expected output
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+  
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ planets1.txt launches2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ simple.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ a41.txt a42.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ a51.txt a52.txt 
+-------------------------
+Running our code...
+Running your code
+You said this was an error (exit status was 134), but we said it was valid
+Note: this may happen if your code timed out too...
+Here is what you printed to stderr:
+------
+launches-step4: target.c:72: when_does_planet_return_to: Assertion `angle_to_travel >= 0 && angle_to_travel < 2 * M_PI && "Error: Angle out of bounds must be between 0 and 2π\n"' failed.
+timeout: the monitored command dumped core
+------
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ a61.txt a62.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ afe egeg 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 You have FAILED one or more of your test cases
 Keep debugging
 
