@@ -1,6 +1,6 @@
-Grading at 10/07/2024:21:26:05.829717
-For commit ID 12b9e97017ec52fb66adec1448ac1941ddca12fb
-Grading at Mon Oct  7 05:26:03 PM EDT 2024
+Grading at 10/07/2024:21:34:29.377010
+For commit ID d69a7d5afdceabe4fd8960cc4c5b02401a52666b
+Grading at Mon Oct  7 05:34:26 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -59,6 +59,15 @@ Pluto        to Mars         at        600 requires 122.28 deg and takes -349709
 Earth        to Jupiter      at        250 requires 51.91 deg and takes -3600515.9 hours								Earth        to Jupiter      at        250 requires 51.91 deg and takes -3600515.9 hours
    Will arrive at time -3600265.94 but need to wait until -3532146.00											   Will arrive at time -3600265.94 but need to wait until -3532146.00
 Your file did not match the expected output
+-------------------------
+ This test case will run 
+ launches-step3 
+ With arguments 
+ sol.txt posla.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
