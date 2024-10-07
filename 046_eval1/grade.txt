@@ -1,6 +1,6 @@
-Grading at 10/07/2024:20:33:06.454326
-For commit ID ba6302c5a78992d1c5b13a6d75e1db45b9072894
-Grading at Mon Oct  7 04:32:50 PM EDT 2024
+Grading at 10/07/2024:20:47:59.317279
+For commit ID 1f47bad10741467dcde9a4c9cb2ba5d1ad9e821f
+Grading at Mon Oct  7 04:47:44 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -51,19 +51,6 @@ We agreed on this testcase and valgrind was clean
  This test case will run 
  launches-step3 
  With arguments 
- sol.txt three13.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at 10000000000000000109790636294404554174049230967731184633681068290315758540491149153716332897849468889906124966972117 |	Earth        to Venus        at 10000000000000000109790636294404554174049230967731184633681068290315758540491149153716332897849468889906124966972117
-   Will arrive at time        nan and land immediately												     |	   Will arrive at time       -nan and land immediately
-Your file did not match the expected output
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
  sol.txt three14.txt 
 -------------------------
 Running our code...
@@ -97,19 +84,6 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three17.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours								Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
-   Will arrive at time -214309.98 but need to wait until -210093.00										     |	   Will arrive at time -214309.98 but need to wait until -204706.00
-Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step3 
@@ -213,13 +187,11 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-You said this was an error (exit status was 134), but we said it was valid
-Note: this may happen if your code timed out too...
-Here is what you printed to stderr:
-------
-launches-step4: target.c:72: when_does_planet_return_to: Assertion `angle_to_travel >= 0 && angle_to_travel < 2 * M_PI && "Error: Angle out of bounds must be between 0 and 2π\n"' failed.
-timeout: the monitored command dumped core
-------
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+Planet A     to Planet B     at          0 requires 180.00 deg and takes       inf hours							     |	Planet A     to Planet B     at          0 requires  0.00 deg and takes       inf hours
+   Will arrive at time        inf and land immediately													   Will arrive at time        inf and land immediately
+Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step4 
