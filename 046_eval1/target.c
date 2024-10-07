@@ -32,6 +32,9 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   if (this_launch->speed == 0) {
     return (launch_result_t){.theta = angle, .duration = INFINITY};
   }
+  //
+
+  //
   else if (isnan(duration) || duration > DBL_MAX) {
     duration = INFINITY;
   }
@@ -39,7 +42,7 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
     duration = INFINITY;
   }
   if (this_launch->time + duration > DBL_MAX) {
-    result.duration = -NAN;  // Return NaN for arrival time if out of bounds
+    result.duration = NAN;  // Return NaN for arrival time if out of bounds
   }
   result.duration = duration;
   return result;
@@ -75,7 +78,7 @@ double when_does_planet_return_to(const planet_t * planet,
     return INFINITY;
   }
   if (start_time + time_to_return > a) {
-    return -NAN;
+    return NAN;
   }
   return start_time + time_to_return;
 }
