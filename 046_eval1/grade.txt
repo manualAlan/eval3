@@ -1,6 +1,6 @@
-Grading at 10/07/2024:17:00:37.899741
-For commit ID 345fb7f9b6c547ebc5c47edd4a15b162394adbbb
-Grading at Mon Oct  7 01:00:30 PM EDT 2024
+Grading at 10/07/2024:17:45:18.195225
+For commit ID 94f64eaa2edd875d6397e9e66fedcbbac239c7f3
+Grading at Mon Oct  7 01:45:17 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -16,112 +16,6 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 myinput.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 planet_util.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 target.c
-gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput.o provided.o planet_util.o target.o -lm
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three11.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three12.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three13.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at 1000000000000000010979063629440455417404923096773118463368106 |	Earth        to Venus        at 1000000000000000010979063629440455417404923096773118463368106
-   Will arrive at time        nan and land immediately					      |	   Will arrive at time       -nan and land immediately
-Your file did not match the expected output
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three14.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three15.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three16.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- sol.txt three17.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 327.71 deg and takes -214310.0 hours      |	Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
-   Will arrive at time -214309.98 but need to wait until -209975.97			      |	   Will arrive at time -214309.98 but need to wait until -204706.00
-Your file did not match the expected output
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
- missingfiles 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- launches-step3 
- With arguments 
-  
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
-You have FAILED one or more of your test cases
-Keep debugging
+The code did not compile!
 
 Overall Grade: NO GRADE YET
