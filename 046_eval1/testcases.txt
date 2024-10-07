@@ -1,9 +1,3 @@
-launches-step3 sol.txt launches1.txt
-launches-step3 st2.txt three6.txt
-launches-step3 st3.txt three8.txt
-launches-step3 st5.txt three3.txt
-launches-step3 st3.txt three8.txt
-launches-step3 sol.txt three9.txt
 launches-step3 sol.txt three10.txt
 launches-step3 sol.txt three11.txt
 launches-step3 sol.txt three12.txt
