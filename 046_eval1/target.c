@@ -1,5 +1,6 @@
 #include "target.h"
 
+#include <assert.h>
 #include <float.h>
 #include <math.h>
 #include <stdio.h>
@@ -23,6 +24,7 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   double distance = sqrt(dx * dx + dy * dy);
 
   double angle = atan2(dy, dx);
+
   if (angle < 0) {
     angle += 2 * M_PI;
   }
@@ -32,10 +34,16 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   if (this_launch->speed == 0) {
     return (launch_result_t){.theta = angle, .duration = INFINITY};
   }
+  if (this_launch->speed < 0) {
+    angle = angle + M_PI;
+    if (angle >= 2 * M_PI) {
+      angle -= 2 * M_PI;
+    }
+    //duration = distance / (-this_launch->speed);
+    result.theta = angle;
+  }
   //
-
-  //
-  else if (isnan(duration) || duration > DBL_MAX) {
+  if (isnan(duration) || duration > DBL_MAX) {
     duration = INFINITY;
   }
   else if (isinf(duration)) {
@@ -45,6 +53,9 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
     result.duration = NAN;  // Return NaN for arrival time if out of bounds
   }
   result.duration = duration;
+  assert(angle >= 0 && angle < 2 * M_PI &&
+         "Error: Angle out of bounds must be between 0 and 2π\n");
+
   return result;
 }
 
