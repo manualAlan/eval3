@@ -1,6 +1,6 @@
-Grading at 10/07/2024:15:53:58.672625
-For commit ID e80c3fece73c17a726923cc5bb5320ac2b7525ed
-Grading at Mon Oct  7 11:53:51 AM EDT 2024
+Grading at 10/07/2024:16:04:55.965517
+For commit ID 61cf7573b20d7be3bf41b7ca30b7d2452da909d4
+Grading at Mon Oct  7 12:04:48 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -28,11 +28,7 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours	Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
-   Will arrive at time -214309.98 but need to wait until -210093.00			      |	   Will arrive at time -214309.98 but need to wait until -204706.00
-Your file did not match the expected output
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
