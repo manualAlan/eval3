@@ -70,7 +70,7 @@ double when_does_planet_return_to(const planet_t * planet,
     angle_to_travel += 2 * M_PI;
   }
   assert(angle_to_travel >= 0 && angle_to_travel < 2 * M_PI &&
-         47 "Error: Angle out of bounds must be between 0 and 2π\n");
+         "Error: Angle out of bounds must be between 0 and 2π\n");
   double time_to_return = angle_to_travel / angular_velocity;
   //printf("%f", time_to_return);
   if (isnan(time_to_return)) {
