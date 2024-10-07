@@ -6,7 +6,8 @@
 #include <stdlib.h>
 launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
                                        const planet_list_t * planets) {
-  if (this_launch->time > DBL_MAX || isnan(this_launch->time)) {
+  double a = 1e25;
+  if (this_launch->time > a || isnan(this_launch->time)) {
     fprintf(stderr, "Error: Time value out of bounds.\n");
     return (launch_result_t){.theta = NAN, .duration = NAN};
   }
@@ -25,20 +26,21 @@ launch_result_t compute_launch_by_info(const launch_input_t * this_launch,
   if (angle < 0) {
     angle += 2 * M_PI;
   }
-
+  launch_result_t result;
+  result.theta = angle;
   double duration = distance / this_launch->speed;
   if (this_launch->speed == 0) {
     return (launch_result_t){.theta = angle, .duration = INFINITY};
   }
-  if (isnan(duration) || duration > DBL_MAX) {
+  else if (isnan(duration) || duration > DBL_MAX) {
     duration = INFINITY;
   }
-  //
   else if (isinf(duration)) {
     duration = INFINITY;
   }
-  launch_result_t result;
-  result.theta = angle;
+  if (this_launch->time + duration > DBL_MAX) {
+    result.duration = -NAN;  // Return NaN for arrival time if out of bounds
+  }
   result.duration = duration;
   return result;
 }
@@ -50,7 +52,7 @@ double when_does_planet_return_to(const planet_t * planet,
   if (target_angle < 0) {
     target_angle += 2 * M_PI;
   }
-
+  double a = 1e25;
   point_t current_position = get_location_at(planet, start_time);
   double current_angle = atan2(current_position.y, current_position.x);
   if (current_angle < 0) {
@@ -64,7 +66,7 @@ double when_does_planet_return_to(const planet_t * planet,
     angle_to_travel += 2 * M_PI;
   }
   double time_to_return = angle_to_travel / angular_velocity;
-  printf("%f", time_to_return);
+  //printf("%f", time_to_return);
   if (isnan(time_to_return)) {
     return INFINITY;
   }
@@ -72,7 +74,7 @@ double when_does_planet_return_to(const planet_t * planet,
   else if (isinf(time_to_return) || time_to_return > DBL_MAX) {
     return INFINITY;
   }
-  if (start_time + time_to_return > DBL_MAX) {
+  if (start_time + time_to_return > a) {
     return -NAN;
   }
   return start_time + time_to_return;
