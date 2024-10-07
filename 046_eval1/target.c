@@ -64,12 +64,15 @@ double when_does_planet_return_to(const planet_t * planet,
     angle_to_travel += 2 * M_PI;
   }
   double time_to_return = angle_to_travel / angular_velocity;
-  if (isnan(time_to_return) || time_to_return > DBL_MAX) {
+  if (isnan(time_to_return)) {
     return NAN;
   }
 
-  else if (isinf(time_to_return)) {
+  else if (isinf(time_to_return) || time_to_return > DBL_MAX) {
     return INFINITY;
+  }
+  if (start_time + time_to_return > DBL_MAX) {
+    return -NAN;
   }
   return start_time + time_to_return;
 }
