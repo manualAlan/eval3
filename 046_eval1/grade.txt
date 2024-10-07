@@ -1,6 +1,6 @@
-Grading at 10/07/2024:00:08:19.614203
-For commit ID f4a5765dcbd40dcd6b74b7e4d7dc5e4384132414
-Grading at Sun Oct  6 08:08:08 PM EDT 2024
+Grading at 10/07/2024:00:20:13.361607
+For commit ID e608c4635a4d1a3e4c63f61ab2d12ba04db6d231
+Grading at Sun Oct  6 08:20:02 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -77,7 +77,11 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+Earth        to Venus        at          0 requires 147.71 deg and takes 17976931348623157081 |	Earth        to Venus        at          0 requires 147.71 deg and takes       inf hours
+   Will arrive at time 1797693134862315708145274237317043567980705675258449965989174768031572 |	   Will arrive at time        inf and land immediately
+Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step3 
@@ -99,7 +103,11 @@ Your file did not match the expected output
 -------------------------
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+Earth        to Venus        at          0 requires 147.71 deg and takes 17976931348623157081 |	Earth        to Venus        at          0 requires 147.71 deg and takes       inf hours
+   Will arrive at time 1797693134862315708145274237317043567980705675258449965989174768031572 |	   Will arrive at time        inf and land immediately
+Your file did not match the expected output
 -------------------------
  This test case will run 
  launches-step3 
