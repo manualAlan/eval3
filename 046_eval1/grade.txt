@@ -1,6 +1,6 @@
-Grading at 10/08/2024:00:06:22.273341
-For commit ID 96a8d75f867584c193c164684e56242847824159
-Grading at Mon Oct  7 08:06:19 PM EDT 2024
+Grading at 10/08/2024:23:43:44.247593
+For commit ID a87ab88f5c21986678ec9a44d9571bbc6a596967
+Grading at Tue Oct  8 07:43:37 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -21,14 +21,51 @@ We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
 -------------------------
  This test case will run 
+ launches-step2 
+ With arguments 
+ launches2.txt 
+-------------------------
+I need to compile your code for launches-step2 (make launches-step2)
+
+Compiling launches-step2
+rm -f myinput.o step1.o *~ launches-step? launches-step4-debug
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 step2.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 myinput.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 planet_util.c
+gcc -o launches-step2 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step2.o myinput.o provided.o planet_util.o dummy-s3.o -lm
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ planets1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ launches-step2 
+ With arguments 
+ planets1.txt launches2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
  launches-step3 
  With arguments 
- sol.txt three18.txt 
+ planets1.txt launches2.txt 
 -------------------------
 I need to compile your code for launches-step3 (make launches-step3)
 
 Compiling launches-step3
-rm -f myinput.o step1.o *~ launches-step? launches-step4-debug
+rm -f myinput.o planet_util.o step2.o *~ launches-step? launches-step4-debug
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 myinput.c
 gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 planet_util.c
@@ -36,29 +73,7 @@ gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 target.c
 gcc -o launches-step3 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step3.o myinput.o provided.o planet_util.o target.o -lm
 Running our code...
 Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours								Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
-   Will arrive at time -214309.98 but need to wait until -210093.00										     |	   Will arrive at time -214309.98 but need to wait until -204706.00
-Mars         to Jupiter      at        100 requires 34.08 deg and takes -6574648.8 hours								Mars         to Jupiter      at        100 requires 34.08 deg and takes -6574648.8 hours
-   Will arrive at time -6574548.79 but need to wait until -6545222.00											   Will arrive at time -6574548.79 but need to wait until -6545222.00
-Venus        to Earth        at         50 requires 326.61 deg and takes -140707.6 hours								Venus        to Earth        at         50 requires 326.61 deg and takes -140707.6 hours
-   Will arrive at time -140657.63 but need to wait until -140206.00										     |	   Will arrive at time -140657.63 but need to wait until -131440.00
-Earth        to Saturn       at        200 requires 325.52 deg and takes -5110034.3 hours								Earth        to Saturn       at        200 requires 325.52 deg and takes -5110034.3 hours
-   Will arrive at time -5109834.28 but need to wait until -4903130.00										     |	   Will arrive at time -5109834.28 but need to wait until -4645060.00
-Mars         to Neptune      at        500 requires 352.42 deg and takes -17051634.6 hours								Mars         to Neptune      at        500 requires 352.42 deg and takes -17051634.6 hours
-   Will arrive at time -17051134.62 but need to wait until -16925844.00										     |	   Will arrive at time -17051134.62 but need to wait until -16189916.00
-Jupiter      to Pluto        at        300 requires 292.86 deg and takes -27771121.5 hours								Jupiter      to Pluto        at        300 requires 292.86 deg and takes -27771121.5 hours
-   Will arrive at time -27770821.53 but need to wait until -26132532.00										     |	   Will arrive at time -27770821.53 but need to wait until -23954796.00
-Saturn       to Earth        at        150 requires 145.68 deg and takes -12778170.8 hours								Saturn       to Earth        at        150 requires 145.68 deg and takes -12778170.8 hours
-   Will arrive at time -12778020.76 but need to wait until -12771912.00										     |	   Will arrive at time -12778020.76 but need to wait until -12763146.00
-Neptune      to Venus        at        400 requires 170.72 deg and takes -7902539.3 hours								Neptune      to Venus        at        400 requires 170.72 deg and takes -7902539.3 hours
-   Will arrive at time -7902139.30 but need to wait until -7896942.00											   Will arrive at time -7902139.30 but need to wait until -7896942.00
-Pluto        to Mars         at        600 requires 122.28 deg and takes -34970933.5 hours								Pluto        to Mars         at        600 requires 122.28 deg and takes -34970933.5 hours
-   Will arrive at time -34970333.52 but need to wait until -34965716.00										     |	   Will arrive at time -34970333.52 but need to wait until -34949238.00
-Earth        to Jupiter      at        250 requires 51.91 deg and takes -3600515.9 hours								Earth        to Jupiter      at        250 requires 51.91 deg and takes -3600515.9 hours
-   Will arrive at time -3600265.94 but need to wait until -3532146.00											   Will arrive at time -3600265.94 but need to wait until -3532146.00
-Your file did not match the expected output
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  launches-step3 
@@ -82,6 +97,25 @@ Your output on the left, ours on the right
 Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours								Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
    Will arrive at time -214309.98 but need to wait until -210093.00										     |	   Will arrive at time -214309.98 but need to wait until -204706.00
 Your file did not match the expected output
+-------------------------
+ This test case will run 
+ launches-step4 
+ With arguments 
+ planets1.txt launches2.txt 
+-------------------------
+I need to compile your code for launches-step4 (make launches-step4)
+
+Compiling launches-step4
+rm -f myinput.o planet_util.o step3.o target.o *~ launches-step? launches-step4-debug
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 step4.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 myinput.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 planet_util.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 target.c
+gcc -c -Wall -Werror --std=gnu99 -pedantic -ggdb3 iter_target.c
+gcc -o launches-step4 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step4.o myinput.o provided.o planet_util.o target.o iter_target.o -lm
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
 You have FAILED one or more of your test cases
 Keep debugging
 
