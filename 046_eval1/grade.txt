@@ -1,6 +1,6 @@
-Grading at 10/08/2024:23:43:44.247593
-For commit ID a87ab88f5c21986678ec9a44d9571bbc6a596967
-Grading at Tue Oct  8 07:43:37 PM EDT 2024
+Grading at 10/08/2024:23:45:59.483251
+For commit ID 98e0982106d65de77c0ac1422568d2cce663a4d3
+Grading at Tue Oct  8 07:45:54 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -48,16 +48,6 @@ Running your code
 We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
- launches-step2 
- With arguments 
- planets1.txt launches2.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
  launches-step3 
  With arguments 
  planets1.txt launches2.txt 
@@ -86,19 +76,6 @@ We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
 -------------------------
  This test case will run 
- launches-step3 
- With arguments 
- sol.txt three17.txt 
--------------------------
-Running our code...
-Running your code
-We both agreed this was not an error, but your output is different from ours
-Your output on the left, ours on the right
-Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours								Earth        to Venus        at          0 requires 147.71 deg and takes -214310.0 hours
-   Will arrive at time -214309.98 but need to wait until -210093.00										     |	   Will arrive at time -214309.98 but need to wait until -204706.00
-Your file did not match the expected output
--------------------------
- This test case will run 
  launches-step4 
  With arguments 
  planets1.txt launches2.txt 
@@ -116,7 +93,7 @@ gcc -o launches-step4 -Wall -Werror --std=gnu99 -pedantic -ggdb3 step4.o myinput
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
