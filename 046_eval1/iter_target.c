@@ -74,7 +74,7 @@ launch_result_t solve_launch(const launch_input_t * this_launch,
       //dtime = current_result.duration;
       best_result = current_result;
       best_total_time = total_time;
-      // printf("  ** New best solution **\n");
+      // printf("  ** New best solution **\n");g
     }
 
     // Exit if total time is greater, no waiting is required, or if the distance is within the close_enough threshold
