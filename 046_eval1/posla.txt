@@ -1,4 +1,4 @@
-0:Earth:Venus:200:5:12000
+0:earth:venus:200:5:12000
 100:Mars:Jupiter:150:3:8000
 50:Venus:Earth:300:4:10000
 200:Earth:Saturn:250:6:15000
