@@ -1,6 +1,6 @@
-Grading at 10/07/2024:21:34:29.377010
-For commit ID d69a7d5afdceabe4fd8960cc4c5b02401a52666b
-Grading at Mon Oct  7 05:34:26 PM EDT 2024
+Grading at 10/08/2024:00:06:22.273341
+For commit ID 96a8d75f867584c193c164684e56242847824159
+Grading at Mon Oct  7 08:06:19 PM EDT 2024
 Running your test cases
 -------------------------
  This test case will run 
@@ -67,7 +67,8 @@ Your file did not match the expected output
 -------------------------
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  launches-step3 
