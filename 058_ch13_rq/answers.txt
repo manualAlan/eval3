@@ -1,11 +1,11 @@
-B
 C
 C
-F
-D
-D
-B
-D
 C
 A
+D
+D
+B
+D
+D
+D
 I
