@@ -16,6 +16,7 @@ static char * extractKey(const char * line) {
 static char * extractValue(const char * line) {
   char * eq_pos = strchr(line, '=');
   char * value = strdup(eq_pos + 1);
+  value[strcspn(value, "\n")] = '\0';  // Remove newline character
   return value;
 }
 
@@ -42,11 +43,9 @@ kvarray_t * readKVs(const char * fname) {
   free(line);
   fclose(f);
   return kv_array;
-  //WRITE ME
 }
 
 void freeKVs(kvarray_t * pairs) {
-  //WRITE ME
   for (size_t i = 0; i < pairs->length; i++) {
     free(pairs->pairs[i].key);
     free(pairs->pairs[i].value);
@@ -56,7 +55,6 @@ void freeKVs(kvarray_t * pairs) {
 }
 
 void printKVs(kvarray_t * pairs) {
-  //WRITE ME
   for (size_t i = 0; i < pairs->length; i++) {
     printf("key = '%s' value = '%s'\n", pairs->pairs[i].key, pairs->pairs[i].value);
   }
@@ -69,5 +67,4 @@ char * lookupValue(kvarray_t * pairs, const char * key) {
     }
   }
   return NULL;
-  //WRITE ME
 }
