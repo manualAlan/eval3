@@ -1,16 +1,18 @@
-Grading at 10/09/2024:20:39:20.918845
-For commit ID 16de61396c8c25a9ba92112ffd8f50d23ebb0ec2
-Grading at Wed Oct  9 04:39:17 PM EDT 2024
+Grading at 10/09/2024:20:43:04.660126
+For commit ID e6c58a1473a900a530060f3ff724d1c4cbf7a042
+Grading at Wed Oct  9 04:43:01 PM EDT 2024
 Attempting to compile:
 #################################################
 testcase1:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 #################################################
 testcase2:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 #################################################
 testcase3:
 Your output is correct
 valgrind was clean
 
-Overall Grade: F
+Overall Grade: A
