@@ -1,12 +1,11 @@
-Grading at 10/09/2024:12:22:43.540945
-For commit ID e13f7cc0c718b5b3322726a737343db7095474bc
-Grading at Wed Oct  9 08:22:43 AM EDT 2024
+Grading at 10/09/2024:12:25:53.851631
+For commit ID c23f979107f9f3f1b9de699aebc9e09dd3d8f6bf
+Grading at Wed Oct  9 08:25:53 AM EDT 2024
 Reading your quiz answers from answers.txt
-You got 3 questions incorrect.
+You got 2 questions incorrect.
 You might want to review these concepts:
 ------------
 A Modestly Sized Example
-Commenting and Documentation
 Introduction to Chapter 13
 ------------
 
