@@ -2,11 +2,11 @@ B
 D
 D
 C
+D
+D
+D
+B
 A
-D
-D
-B
-B
 B
 F
 D
