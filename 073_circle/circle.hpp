@@ -9,7 +9,7 @@ class Circle {
   const double radius;
 
  public:
-  Circle(const Point & center, const double radius);
+  Circle(const Point & p, double r) : center(p), radius(r) {}
 
   void move(double dx, double dy);
 
