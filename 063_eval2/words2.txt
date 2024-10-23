@@ -1,3 +1,4 @@
-animal:
-a:
-b:
+animal: dog
+pets:dog
+dogs:dog
+
