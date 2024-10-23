@@ -4,7 +4,7 @@
 #include "rand_story.h"
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    fprintf(stderr, "wrong number of arguments", argv[0]);
+    fprintf(stderr, "wrong number of arguments");
     return EXIT_FAILURE;
   }
 
