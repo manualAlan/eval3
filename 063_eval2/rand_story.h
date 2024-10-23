@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "provided.h"
-
-void parse_story(char * filename);
+catarray_t * parseWords(const char * filename);
+void freeCatArray(catarray_t * categories);
+void parse_cat(char * filename);
 #endif

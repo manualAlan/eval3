@@ -1,0 +1,4 @@
+animal:cat
+place:desert
+verb:run
+food:apple

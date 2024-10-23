@@ -8,7 +8,6 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  parse_story(argv[1]);
-
+  parse_cat(argv[1]);
   return EXIT_SUCCESS;
 }
