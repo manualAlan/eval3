@@ -1,0 +1,13 @@
+Grading at 10/23/2024:17:45:54.345651
+For commit ID e2a54688544e97a73ae6c24b4cdf93756d8eddff
+Grading at Wed Oct 23 01:45:54 PM EDT 2024
+Doing some basic checking for your submission
+
+Step 1
+Checking that story-step1 compiles
+rm -f *~ story-step1  story-step1.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+The code did not compile!
+
+Overall Grade: NO GRADE YET
