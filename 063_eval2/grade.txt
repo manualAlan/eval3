@@ -1,11 +1,11 @@
-Grading at 10/23/2024:17:47:24.272001
-For commit ID 91aee365b98c21b58bb47cd96597b3bdcaff69f6
-Grading at Wed Oct 23 01:47:20 PM EDT 2024
+Grading at 10/23/2024:19:20:44.825914
+For commit ID 9f5e6c35bb152f4d5c75c7e92ecf192aa13be47c
+Grading at Wed Oct 23 03:20:36 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
 Checking that story-step1 compiles
-rm -f *~ story-step1  story-step1.o rand_story.o
+rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
@@ -51,7 +51,55 @@ Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
-rm -f *~ story-step1  story-step1.o rand_story.o
+rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
+gcc -o story-step2 story-step2.o rand_story.o provided.o
+rm story-step2.o
+The code compiled (good)
+Executable story-step2 exists (good)
+Now running YOUR tests for step 2
+
+2.1: Current test is story-step2 words.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+2.2: Current test is story-step2 words1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+2.3: Current test is story-step2 words2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+2.4: Current test is story-step2 words3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+2.5: Current test is story-step2 words4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+2.6: Current test is story-step2 words.txt w
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.7: Current test is story-step2 words5.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+Step 3
+Checking that story-step3 compiles
+rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
 The code did not compile!
 
 Overall Grade: NO GRADE YET
