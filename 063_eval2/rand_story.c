@@ -170,7 +170,7 @@ void removeUsedWord(catarray_t * cats, const char * category, const char * word)
       for (size_t j = 0; j < cats->arr[i].n_words; j++) {
         if (strcmp(cats->arr[i].words[j], word) == 0) {
           //   move the last word to the current position And reduce
-          //          free(cats->arr[i].words[j]);
+          free(cats->arr[i].words[j]);
           cats->arr[i].words[j] = cats->arr[i].words[cats->arr[i].n_words - 1];
           cats->arr[i].n_words--;
           return;
