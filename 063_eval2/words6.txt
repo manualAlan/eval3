@@ -1,0 +1,8 @@
+animal:lion
+animal:penguin
+animal:tiger
+food:icecream
+food:burger
+food:pizza
+place:cave
+place:mountain

@@ -6,7 +6,7 @@
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    fprintf(stderr, "Usage: %s <word file>\n", argv[0]);
+    fprintf(stderr, "wrong number of arg");
     return EXIT_FAILURE;
   }
 

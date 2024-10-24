@@ -1,0 +1,6 @@
+Animal: _animal_, food: _food_
+
+The _animal_ went to the _place_ to eat some _food_.
+The _adjective_ _animal_ was very satisfied.
+
+Then it traveled to another _place_ and met a _adjective_ _animal_.
