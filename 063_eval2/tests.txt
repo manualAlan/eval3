@@ -24,3 +24,11 @@ story-step3 words1.txt story2.txt
 story-step3 words6.txt story1.txt
 story-step3 words3.txt story6.txt
 story-step3 words5.txt story2.txt
+story-step4 -n words6.txt story6.txt
+story-step4 -n words7.txt story7.txt
+story-step4 -n words8.txt story8.txt
+story-step4 -n words9.txt story9.txt
+story-step4 -n words10.txt story10.txt
+story-step4 words6.txt story6.txt
+story-step4 words7.txt story7.txt
+story-step4 -n story8.txt words8.txt

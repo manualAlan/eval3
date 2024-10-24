@@ -11,7 +11,7 @@ int main(int argc, char ** argv) {
   }
 
   catarray_t * cats = parseWords(argv[1]);
-  parseAndPrint(argv[2], cats);
+  parseAndPrint(argv[2], cats, 0);
   freeCatArray(cats);
 
   return EXIT_SUCCESS;

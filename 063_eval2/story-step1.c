@@ -8,6 +8,8 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  parseAndPrint(argv[1], NULL);
+  //parseAndPrint(argv[1], NULL);
+  //pa
+  parseAndPrint(argv[1], NULL, 0);
   return EXIT_SUCCESS;
 }

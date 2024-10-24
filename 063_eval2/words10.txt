@@ -1,0 +1,8 @@
+animal:dog
+animal:cat
+animal:rabbit
+animal:owl
+adjective:quick
+adjective:lazy
+adjective:smart
+adjective:silent

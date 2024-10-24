@@ -1,0 +1,16 @@
+animal:lion
+animal:tiger
+animal:elephant
+animal:giraffe
+animal:rhino
+animal:kangaroo
+animal:bear
+animal:wolf
+adjective:fierce
+adjective:calm
+adjective:brave
+adjective:curious
+adjective:mighty
+adjective:sneaky
+adjective:playful
+adjective:strong
