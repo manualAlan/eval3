@@ -1,11 +1,11 @@
-Grading at 10/23/2024:19:24:01.494262
-For commit ID 0bb4c54813405753708e87e4f1f80acc7ea1a7ee
-Grading at Wed Oct 23 03:23:53 PM EDT 2024
+Grading at 10/24/2024:19:59:52.848681
+For commit ID cd333c63aadcaff04a02b2698dfa0430ff374bdb
+Grading at Thu Oct 24 03:59:37 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
 Checking that story-step1 compiles
-rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3  story-step1.o story-step2.o story-step3.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
@@ -45,13 +45,12 @@ Valgrind was clean
 
 1.6: Current test is story-step1 story5.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
 Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
-rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3  story-step1.o story-step2.o story-step3.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
 gcc -o story-step2 story-step2.o rand_story.o provided.o
@@ -94,13 +93,97 @@ Valgrind was clean
 
 2.7: Current test is story-step2 words5.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
 Valgrind was clean
 
 Step 3
 Checking that story-step3 compiles
-rm -f *~ story-step1 story-step2  story-step1.o story-step2.o rand_story.o
+rm -f *~ story-step1 story-step2 story-step3  story-step1.o story-step2.o story-step3.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
+gcc -o story-step3 story-step3.o rand_story.o provided.o
+rm story-step3.o
+The code compiled (good)
+Executable story-step3 exists (good)
+Now running YOUR tests for step 3
+
+3.1: Current test is story-step3 words.txt story.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+3.2: Current test is story-step3 words5.txt story5.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+3.3: Current test is story-step3 words6.txt story6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+3.4: Current test is story-step3 words1.txt story3.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.5: Current test is story-step3 words3.txt story4.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.6: Current test is story-step3 words6.txt story1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.7: Current test is story-step3 words1.txt story1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.8: Current test is story-step3 words1.txt story3.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.9: Current test is story-step3 words2.txt story3.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.10: Current test is story-step3 words1.txt story2.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.11: Current test is story-step3 words6.txt story1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.12: Current test is story-step3 words3.txt story6.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.13: Current test is story-step3 words5.txt story2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+Step 4
+Checking that story-step4 compiles
+rm -f *~ story-step1 story-step2 story-step3  story-step1.o story-step2.o story-step3.o rand_story.o
 The code did not compile!
 
 Overall Grade: NO GRADE YET
