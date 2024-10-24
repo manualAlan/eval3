@@ -94,7 +94,7 @@ void freeCatArray(catarray_t * cats) {
 }
 
 //   typedef struct usedWords_tag usedWords;
-//Parse the story template and print with swapped words
+// Parse the story template and print with swapped words
 void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
   FILE * f = fopen(filename, "r");
   if (f == NULL) {
@@ -104,14 +104,14 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
 
   size_t len = 0;
   char * line = NULL;
-  usedWords usedWordsList = {NULL, 0};  //rack previously used words
+  usedWords usedWordsList = {NULL, 0};  //track previously used words
 
-  //read the file line by line
+  //Read the file line by line
   while (getline(&line, &len, f) >= 0) {
     char * pos = line;  //Start of the current line
     while (*pos != '\0') {
       if (*pos == '_') {
-        char * end = strchr(pos + 1, '_');  //Find the closing _
+        char * end = strchr(pos + 1, '_');  // Find the closing underscore
         if (end == NULL) {
           fprintf(stderr, "Error: unmatched underscore in line\n");
           free(line);
@@ -119,43 +119,37 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           exit(EXIT_FAILURE);
         }
 
-        *end = '\0';
-        //Temporarily terminate the string at the closing underscore
+        *end = '\0';  //Temporarily terminate the string at the xlosing underscore
         char * category = pos + 1;
 
-        // Handle back-references to previous words
+        //handle back references to previous words
         if (isdigit(category[0])) {
           size_t i = strtoul(category, NULL, 10);
           const char * previousWord = getPreviousWord(&usedWordsList, i);
           printf("%s", previousWord);
           addWordToList(&usedWordsList.usedWords,
                         &usedWordsList.n_used,
-                        previousWord);  // Add to used words list
+                        previousWord);  //Add to used words list
         }
         else {
-          const char * chosenWord = NULL;
+          //Choose a random word from the category
+          const char * chosenWord = chooseWord(category, cats);
 
+          //if noReuse is enabled, remove the word from the category after using it
           if (noReuse) {
-            // check no resue case
-            do {
-              chosenWord = chooseWord(category, cats);
-            } while (wordAlreadyUsed(&usedWordsList,
-                                     chosenWord));  //Ensure word is not reused
-          }
-          else {
-            chosenWord = chooseWord(category, cats);
+            removeUsedWord(cats, category, chosenWord);  // Function to remove used word
           }
 
           printf("%s", chosenWord);
           addWordToList(&usedWordsList.usedWords,
                         &usedWordsList.n_used,
-                        chosenWord);  //dd to used words list
+                        chosenWord);  //add to used words list
         }
 
         pos = end + 1;  //move past the closing underscore
       }
       else {
-        putchar(*pos);  // Print non-placeholder characters
+        putchar(*pos);  //print non-placeholder characters
         pos++;
       }
     }
@@ -168,14 +162,6 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
   free(usedWordsList.usedWords);
   free(line);
   fclose(f);
-}
-int wordAlreadyUsed(usedWords * usedWordsList, const char * word) {
-  for (size_t i = 0; i < usedWordsList->n_used; i++) {
-    if (strcmp(usedWordsList->usedWords[i], word) == 0) {
-      return 1;  // Word has already been used
-    }
-  }
-  return 0;  // Word has not been used
 }
 
 void removeUsedWord(catarray_t * cats, const char * category, const char * word) {
