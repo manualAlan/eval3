@@ -136,14 +136,25 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           const char * chosenWord = NULL;
 
           if (noReuse) {
+            int attempts = 0;
+            const int max_attempts = 1000;
             // check no resue case
             do {
               chosenWord = chooseWord(category, cats);
+              if (chosenWord == NULL || attempts++ > max_attempts) {
+                fprintf(stderr, "No available words left in '%s'\n", category);
+                exit(EXIT_FAILURE);
+              }
             } while (wordAlreadyUsed(&usedWordsList,
                                      chosenWord));  //Ensure word is not reused
           }
           else {
             chosenWord = chooseWord(category, cats);
+            //chosenWord = chooseWord(category, cats);
+            if (chosenWord == NULL) {
+              fprintf(stderr, "Error: No words available for category '%s'\n", category);
+              exit(EXIT_FAILURE);
+            }
           }
 
           printf("%s", chosenWord);
@@ -185,9 +196,10 @@ void removeUsedWord(catarray_t * cats, const char * category, const char * word)
         if (strcmp(cats->arr[i].words[j], word) == 0) {
           //   move the last word to the current position And reduce
           //          free(cats->arr[i].words[j]);
-          cats->arr[i].words[j] = NULL;
-          //cats->arr[i].words[j] = cats->arr[i].words[cats->arr[i].n_words - 1];
-          // cats->arr[i].n_words--;
+          //cats->arr[i].words[j] = NULL;
+          free(cats->arr[i].words[j]);
+          cats->arr[i].words[j] = cats->arr[i].words[cats->arr[i].n_words - 1];
+          cats->arr[i].words[cats->arr[i].n_words - 1] = NULL;
           cats->arr[i].n_words--;
           return;
         }
