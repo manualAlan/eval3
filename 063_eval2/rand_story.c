@@ -141,9 +141,10 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
             // check no resue case
             do {
               chosenWord = chooseWord(category, cats);
-              if (chosenWord == NULL || attempts++ > max_attempts) {
+              if (chosenWord == NULL || attempts > max_attempts) {
                 fprintf(stderr, "No available words left in '%s'\n", category);
                 exit(EXIT_FAILURE);
+                attempts++;
               }
             } while (wordAlreadyUsed(&usedWordsList,
                                      chosenWord));  //Ensure word is not reused
@@ -158,6 +159,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           }
 
           printf("%s", chosenWord);
+          if (noReuse) {
+            removeUsedWord(cats, category, chosenWord);
+          }
           addWordToList(&usedWordsList.usedWords,
                         &usedWordsList.n_used,
                         chosenWord);  //dd to used words list
