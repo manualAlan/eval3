@@ -1,6 +1,6 @@
-Grading at 10/24/2024:21:29:20.009809
-For commit ID 1e145f50a45e5aa1c95eda8bb019f1e8be079f84
-Grading at Thu Oct 24 05:28:51 PM EDT 2024
+Grading at 10/26/2024:22:00:25.999283
+For commit ID 67d1eb0129bfcb9447af1697c55e613027747afd
+Grading at Sat Oct 26 06:00:06 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -210,11 +210,15 @@ Your file did not match the expected output
 
 4.3: Current test is story-step4 -n words8.txt story8.txt
 -----------------------------
-You exited with a failure status (good) but did not print to stderr (bad)
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
 
 4.4: Current test is story-step4 -n words9.txt story9.txt
 -----------------------------
-You exited with a failure status (good) but did not print to stderr (bad)
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
 
 4.5: Current test is story-step4 -n words10.txt story10.txt
 -----------------------------
