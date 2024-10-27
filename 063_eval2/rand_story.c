@@ -191,7 +191,8 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
         char * endPtr;
         long int index = strtol(category, &endPtr, 10);
 
-        if (*endPtr == '\0' && index > 0) {  // Check if the category is a valid integer
+        if (!(cats == NULL) && *endPtr == '\0' &&
+            index > 0) {  // Check if the category is a valid integer
           if (index > usedWordsList.n_used) {
             fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
             free(line);
