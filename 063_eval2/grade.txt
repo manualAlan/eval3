@@ -1,6 +1,6 @@
-Grading at 10/27/2024:16:06:33.233806
-For commit ID 86fcb7ec9027690a4926d0013e56807630b45fa0
-Grading at Sun Oct 27 12:06:16 PM EDT 2024
+Grading at 10/27/2024:16:14:29.870234
+For commit ID ffdf8c7c8660da914b7d10ec47c71c8f3277ea8e
+Grading at Sun Oct 27 12:14:13 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -119,8 +119,12 @@ Valgrind was clean
 
 3.3: Current test is story-step3 words6.txt story6.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
+Your file did not match the expected output
+
 
 3.4: Current test is story-step3 words1.txt story3.txt
 -----------------------------
@@ -195,8 +199,12 @@ Now running YOUR tests for step 4
 
 4.1: Current test is story-step4 -n words6.txt story6.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
+Your file did not match the expected output
+
 
 4.2: Current test is story-step4 -n words7.txt story7.txt
 -----------------------------
@@ -222,8 +230,12 @@ Valgrind was clean
 
 4.6: Current test is story-step4 words6.txt story6.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
+Your file did not match the expected output
+
 
 4.7: Current test is story-step4 words7.txt story7.txt
 -----------------------------
