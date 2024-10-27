@@ -1,0 +1,5 @@
+animal:dog
+animal:dog
+animal:dog
+animal:cat
+animal:lion

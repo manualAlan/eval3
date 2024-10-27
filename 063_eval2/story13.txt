@@ -1,0 +1,3 @@
+The _animal_ roamed in the _place_.
+It saw a _1_ and then went to a _2_.
+Afterwards, it found itself at _-1_ and _0_.

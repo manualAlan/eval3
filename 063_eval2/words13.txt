@@ -1,0 +1,5 @@
+animal:cat
+animal:dog
+animal:lion
+place:forest
+place:park

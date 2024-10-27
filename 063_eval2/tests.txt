@@ -1,3 +1,12 @@
+story-step3 words11.txt story11.txt
+story-step3 words12.txt story12.txt
+story-step3 words13.txt story13.txt
+story-step4 -n words11.txt story11.txt
+story-step4 -n words12.txt story12.txt
+story-step4 -n words13.txt story13.txt
+story-step4 words11.txt story11.txt
+story-step4 words12.txt story12.txt
+story-step4 words13.txt story13.txt
 story-step1 story.txt
 story-step1 story1.txt
 story-step1 story2.txt
