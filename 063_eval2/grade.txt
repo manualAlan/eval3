@@ -1,6 +1,6 @@
-Grading at 10/27/2024:16:41:56.920097
-For commit ID 9ed7bbba38a23d50213f9c3eebd8e7477f8ab4c5
-Grading at Sun Oct 27 12:41:35 PM EDT 2024
+Grading at 10/27/2024:16:47:22.833365
+For commit ID 2ca95ed0342ae7e3a581776549538396f9c72919
+Grading at Sun Oct 27 12:46:57 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -107,76 +107,93 @@ The code compiled (good)
 Executable story-step3 exists (good)
 Now running YOUR tests for step 3
 
-3.1: Current test is story-step3 words.txt story.txt
+3.1: Current test is story-step3 words11.txt story11.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
-3.2: Current test is story-step3 words5.txt story5.txt
+3.2: Current test is story-step3 words12.txt story12.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.3: Current test is story-step3 words13.txt story13.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.4: Current test is story-step3 words.txt story.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
-3.3: Current test is story-step3 words6.txt story6.txt
+3.5: Current test is story-step3 words5.txt story5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
-3.4: Current test is story-step3 words1.txt story3.txt
+3.6: Current test is story-step3 words6.txt story6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+3.7: Current test is story-step3 words1.txt story3.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.5: Current test is story-step3 words3.txt story4.txt
+3.8: Current test is story-step3 words3.txt story4.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.6: Current test is story-step3 words6.txt story1.txt
+3.9: Current test is story-step3 words6.txt story1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.7: Current test is story-step3 words1.txt story1.txt
+3.10: Current test is story-step3 words1.txt story1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.8: Current test is story-step3 words1.txt story3.txt
+3.11: Current test is story-step3 words1.txt story3.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.9: Current test is story-step3 words2.txt story3.txt
+3.12: Current test is story-step3 words2.txt story3.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.10: Current test is story-step3 words1.txt story2.txt
+3.13: Current test is story-step3 words1.txt story2.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.11: Current test is story-step3 words6.txt story1.txt
+3.14: Current test is story-step3 words6.txt story1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.12: Current test is story-step3 words3.txt story6.txt
+3.15: Current test is story-step3 words3.txt story6.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.13: Current test is story-step3 words5.txt story2.txt
+3.16: Current test is story-step3 words5.txt story2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -192,51 +209,90 @@ The code compiled (good)
 Executable story-step4 exists (good)
 Now running YOUR tests for step 4
 
-4.1: Current test is story-step4 -n words6.txt story6.txt
+4.1: Current test is story-step4 -n words11.txt story11.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
 
-4.2: Current test is story-step4 -n words7.txt story7.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+The dog chased a lion.					      |	The dog chased a dog.
+Later, the cat was tired.					Later, the cat was tired.
+Your file did not match the expected output
 
-4.3: Current test is story-step4 -n words8.txt story8.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
 
-4.4: Current test is story-step4 -n words9.txt story9.txt
+4.2: Current test is story-step4 -n words12.txt story12.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.5: Current test is story-step4 -n words10.txt story10.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-4.6: Current test is story-step4 words6.txt story6.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-4.7: Current test is story-step4 words7.txt story7.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-4.8: Current test is story-step4 -n story8.txt words8.txt
+4.3: Current test is story-step4 -n words13.txt story13.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have passed the test cases YOU provided
-If your tests are good, this is great. 
-If your tests are insufficient, you should do much more testing
+4.4: Current test is story-step4 words11.txt story11.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.5: Current test is story-step4 words12.txt story12.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.6: Current test is story-step4 words13.txt story13.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.7: Current test is story-step4 -n words6.txt story6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.8: Current test is story-step4 -n words7.txt story7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.9: Current test is story-step4 -n words8.txt story8.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.10: Current test is story-step4 -n words9.txt story9.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.11: Current test is story-step4 -n words10.txt story10.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.12: Current test is story-step4 words6.txt story6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.13: Current test is story-step4 words7.txt story7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+4.14: Current test is story-step4 -n story8.txt words8.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
