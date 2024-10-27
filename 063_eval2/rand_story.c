@@ -139,7 +139,6 @@ void freeCatArray(catarray_t * cats) {
 
 //   typedef struct usedWords_tag usedWords;
 //Parse the story template and print with swapped words
-
 void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
   FILE * f = fopen(filename, "r");
   if (f == NULL) {
@@ -149,13 +148,14 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
 
   size_t len = 0;
   char * line = NULL;
+  usedWords usedWordsList = {NULL, 0};  //rack previously used words
 
-  // Read the file line by line
+  //read the file line by line
   while (getline(&line, &len, f) >= 0) {
-    char * pos = line;
+    char * pos = line;  //Start of the current line
     while (*pos != '\0') {
       if (*pos == '_') {
-        char * end = strchr(pos + 1, '_');  // Find the closing _
+        char * end = strchr(pos + 1, '_');  //Find the closing _
         if (end == NULL) {
           fprintf(stderr, "Error: unmatched underscore in line\n");
           free(line);
@@ -163,58 +163,59 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           exit(EXIT_FAILURE);
         }
 
-        *end = '\0';  // Temporarily terminate the string at the closing underscore
+        *end = '\0';
+        //Temporarily terminate the string at the closing underscore
         char * category = pos + 1;
+        // int i = 0;
+
+        //        if (isdigit(category[0])) {
+        // size_t i = strtoul(category, NULL, 10);
+        // const char * previousWord = getPreviousWord(&usedWordsList, i);
+        // printf("%s", previousWord);
+        // addWordToList(&usedWordsList.usedWords,
+        //              &usedWordsList.n_used,
+        //              previousWord);  // Add to used words list
+        // }
+
         const char * chosenWord = NULL;
 
-        // Manually check if the category exists in cats before calling chooseWord()
-        int categoryExists = 0;
-        for (size_t i = 0; i < cats->n; i++) {
-          if (strcmp(cats->arr[i].name, category) == 0) {
-            categoryExists = 1;
-            break;
-          }
-        }
-
-        if (!categoryExists) {
-          // If the category doesn't exist, return the original placeholder
-          printf("_%s_", category);
-          pos = end + 1;
-          continue;
-        }
-
-        // If category exists, proceed to chooseWord logic
         if (noReuse) {
           int attempts = 0;
           const int max_attempts = 1000;
+          // check no resue case
           do {
             chosenWord = chooseWord(category, cats);
-            if (chosenWord == NULL) {
-              // Should not happen here, but we include a fallback just in case
-              printf("_%s_", category);
-              pos = end + 1;
-              break;
+            if (chosenWord == NULL || attempts > max_attempts) {
+              fprintf(stderr, "No available words left in '%s'\n", category);
+              free(line);
+              fclose(f);
+              exit(EXIT_FAILURE);
+              // attempts++;
             }
             attempts++;
-          } while (chosenWord == NULL && attempts <= max_attempts);
-
-          if (chosenWord != NULL) {
-            removeUsedWord(
-                cats, category, chosenWord);  // remove the used word from catarray
-            printf("%s", chosenWord);         // print the chosen word
-          }
+          } while (wordAlreadyUsed(&usedWordsList,
+                                   chosenWord));  //Ensure word is not reused
         }
         else {
           chosenWord = chooseWord(category, cats);
+          //chosenWord = chooseWord(category, cats);
           if (chosenWord == NULL) {
-            // Should not happen here, but we include a fallback just in case
-            printf("_%s_", category);
-            pos = end + 1;
-            continue;
+            fprintf(stderr, "Error: No words available for category '%s'\n", category);
+            free(line);
+            fclose(f);
+            exit(EXIT_FAILURE);
           }
-          printf("%s", chosenWord);  // print the chosen word
         }
-        pos = end + 1;  // move past the closing underscore
+
+        printf("%s", chosenWord);
+        if (noReuse) {
+          removeUsedWord(cats, category, chosenWord);
+        }
+        //          addWordToList(&usedWordsList.usedWords,
+        //            &usedWordsList.n_used,
+        //            chosenWord);  //dd to used words list
+
+        pos = end + 1;  //move past the closing underscore
       }
       else {
         putchar(*pos);  // Print non-placeholder characters
@@ -222,8 +223,22 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
       }
     }
   }
-  free(line);  // free line buffer
-  fclose(f);   // close file
+
+  //free the usedWords list
+  for (size_t i = 0; i < usedWordsList.n_used; i++) {
+    free(usedWordsList.usedWords[i]);
+  }
+  free(usedWordsList.usedWords);
+  free(line);
+  fclose(f);
+}
+int wordAlreadyUsed(usedWords * usedWordsList, const char * word) {
+  for (size_t i = 0; i < usedWordsList->n_used; i++) {
+    if (strcmp(usedWordsList->usedWords[i], word) == 0) {
+      return 1;  // Word has already been used
+    }
+  }
+  return 0;  // Word has not been used
 }
 
 void removeUsedWord(catarray_t * cats, const char * category, const char * word) {
