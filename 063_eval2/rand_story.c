@@ -200,9 +200,10 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           // Get the previously used word
           chosenWord = getPreviousWord(&usedWordsList, (size_t)index);
         }
-        else if (cats == NULL || !categoryExists(cats, category)) {
+        else if (!(cats == NULL) && !categoryExists(cats, category)) {
           // If cats is NULL or category doesn't exist, print the original placeholder
-          printf("_%s_", category);
+          fprintf(stderr, " category doesn't exist");
+          exit(EXIT_FAILURE);
         }
         else {
           // Category exists, proceed to choose a word
