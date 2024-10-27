@@ -225,9 +225,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
 
         /////////////////////////////
         // printf("%s", chosenWord);
-        if (noReuse) {
-          removeUsedWord(cats, category, chosenWord);
-        }
+        //if (noReuse) {
+        // removeUsedWord(cats, category, chosenWord);
+        //        }
         //          addWordToList(&usedWordsList.usedWords,
         //            &usedWordsList.n_used,
         //            chosenWord);  //dd to used words list
