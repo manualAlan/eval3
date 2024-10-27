@@ -137,6 +137,15 @@ void freeCatArray(catarray_t * cats) {
   free(cats);       //free the catarray_t structure itself
 }
 
+//hwlper function
+int categoryExists(catarray_t * cats, const char * category) {
+  for (size_t i = 0; i < cats->n; i++) {
+    if (strcmp(cats->arr[i].name, category) == 0) {
+      return 1;  // Category exists
+    }
+  }
+  return 0;  // Category does not exist
+}
 //   typedef struct usedWords_tag usedWords;
 //Parse the story template and print with swapped words
 void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
@@ -176,38 +185,46 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
         //              &usedWordsList.n_used,
         //              previousWord);  // Add to used words list
         // }
-
+        ///////////////////////////////////
         const char * chosenWord = NULL;
-
-        if (noReuse) {
-          int attempts = 0;
-          const int max_attempts = 1000;
-          // check no resue case
-          do {
+        if (!(cats == NULL) && !categoryExists(cats, category)) {
+          // Category not found, print the original placeholder as-is
+          printf("_%s_", category);
+        }
+        else {
+          // Category exists, proceed to choose a word
+          if (noReuse) {
+            int attempts = 0;
+            const int max_attempts = 1000;
+            do {
+              chosenWord = chooseWord(category, cats);
+              if (chosenWord == NULL || attempts > max_attempts) {
+                fprintf(stderr, "No available words left in '%s'\n", category);
+                free(line);
+                fclose(f);
+                exit(EXIT_FAILURE);
+              }
+              attempts++;
+            } while (wordAlreadyUsed(&usedWordsList, chosenWord));
+          }
+          else {
             chosenWord = chooseWord(category, cats);
-            if (chosenWord == NULL || attempts > max_attempts) {
-              fprintf(stderr, "No available words left in '%s'\n", category);
+            if (chosenWord == NULL) {
+              fprintf(stderr, "Error: No words available for category '%s'\n", category);
               free(line);
               fclose(f);
               exit(EXIT_FAILURE);
-              // attempts++;
             }
-            attempts++;
-          } while (wordAlreadyUsed(&usedWordsList,
-                                   chosenWord));  //Ensure word is not reused
-        }
-        else {
-          chosenWord = chooseWord(category, cats);
-          //chosenWord = chooseWord(category, cats);
-          if (chosenWord == NULL) {
-            fprintf(stderr, "Error: No words available for category '%s'\n", category);
-            free(line);
-            fclose(f);
-            exit(EXIT_FAILURE);
+          }
+          // Print the chosen word
+          printf("%s", chosenWord);
+          if (noReuse) {
+            removeUsedWord(cats, category, chosenWord);
           }
         }
 
-        printf("%s", chosenWord);
+        /////////////////////////////
+        // printf("%s", chosenWord);
         if (noReuse) {
           removeUsedWord(cats, category, chosenWord);
         }
