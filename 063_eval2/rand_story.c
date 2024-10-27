@@ -187,8 +187,21 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
         // }
         ///////////////////////////////////
         const char * chosenWord = NULL;
-        if (!(cats == NULL) && !categoryExists(cats, category)) {
-          // Category not found, print the original placeholder as-is
+        char * endPtr;
+        long int index = strtol(category, &endPtr, 10);
+
+        if (*endPtr == '\0' && index > 0) {  // Check if the category is a valid integer
+          if (index > usedWordsList.n_used) {
+            fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
+            free(line);
+            fclose(f);
+            exit(EXIT_FAILURE);
+          }
+          // Get the previously used word
+          chosenWord = getPreviousWord(&usedWordsList, (size_t)index);
+        }
+        else if (cats == NULL || !categoryExists(cats, category)) {
+          // If cats is NULL or category doesn't exist, print the original placeholder
           printf("_%s_", category);
         }
         else {
@@ -216,13 +229,16 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
               exit(EXIT_FAILURE);
             }
           }
-          // Print the chosen word
+        }
+
+        // Print the chosen word if a word was found
+        if (chosenWord != NULL) {
           printf("%s", chosenWord);
+          addWordToList(&usedWordsList.usedWords, &usedWordsList.n_used, chosenWord);
           if (noReuse) {
             removeUsedWord(cats, category, chosenWord);
           }
         }
-
         /////////////////////////////
         // printf("%s", chosenWord);
         //if (noReuse) {
