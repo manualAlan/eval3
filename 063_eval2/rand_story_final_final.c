@@ -149,121 +149,129 @@ int categoryExists(catarray_t * cats, const char * category) {
 }
 //   typedef struct usedWords_tag usedWords;
 //Parse the story template and print with swapped words
-// Helper function to open a file and handle errors
-FILE * openFile(const char * filename) {
+void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
   FILE * f = fopen(filename, "r");
   if (f == NULL) {
     fprintf(stderr, "Cannot open file %s\n", filename);
     exit(EXIT_FAILURE);
   }
-  return f;
-}
 
-// Helper function to free the usedWords list
-void freeUsedWords(usedWords * usedWordsList) {
-  for (size_t i = 0; i < usedWordsList->n_used; i++) {
-    free(usedWordsList->usedWords[i]);
-  }
-  free(usedWordsList->usedWords);
-}
-
-// Helper function to handle back-references
-const char * handleBackReference(const char * category, usedWords * usedWordsList) {
-  char * endPtr;
-  long int index = strtol(category, &endPtr, 10);
-  if (*endPtr == '\0' && index > 0 && index <= usedWordsList->n_used) {
-    return getPreviousWord(usedWordsList, (size_t)index);
-  }
-  fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
-  return NULL;
-}
-
-//helper function to choose a word from a category, considering noReuse
-const char * chooseCategoryWord(const char * category,
-                                catarray_t * cats,
-                                usedWords * usedWordsList,
-                                int noReuse) {
-  const char * chosenWord = NULL;
-  if (noReuse) {
-    int attempts = 0;
-    const int max_attempts = 1000;
-    do {
-      // Cast category to char * to match the chooseWord function's parameter type
-      chosenWord = chooseWord((char *)category, cats);
-      if (chosenWord == NULL || attempts > max_attempts) {
-        fprintf(stderr, "No available words left in '%s'\n", category);
-        return NULL;
-      }
-      attempts++;
-    } while (wordAlreadyUsed(usedWordsList, chosenWord));
-  }
-  else {
-    // Cast category to char * to match the chooseWord function's parameter type
-    chosenWord = chooseWord((char *)category, cats);
-    if (chosenWord == NULL) {
-      fprintf(stderr, "Error: No words available for category '%s'\n", category);
-    }
-  }
-  return chosenWord;
-}
-
-// Helper function to process each line, performing substitutions
-void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWordsList) {
-  char * pos = line;
-  while (*pos != '\0') {
-    if (*pos == '_') {
-      char * end = strchr(pos + 1, '_');
-      if (end == NULL) {
-        fprintf(stderr, "Error: unmatched underscore in line\n");
-        exit(EXIT_FAILURE);
-      }
-      *end = '\0';
-      char * category = pos + 1;
-      const char * chosenWord = NULL;
-
-      if (!(cats == NULL) && isdigit(category[0])) {
-        chosenWord = handleBackReference(category, usedWordsList);
-      }
-      else if (!(cats == NULL) && categoryExists(cats, category)) {
-        chosenWord = chooseCategoryWord(category, cats, usedWordsList, noReuse);
-      }
-      else {
-        fprintf(stderr, "Category '%s' does not exist\n", category);
-        exit(EXIT_FAILURE);
-      }
-
-      if (chosenWord != NULL) {
-        printf("%s", chosenWord);
-        addWordToList(&usedWordsList->usedWords, &usedWordsList->n_used, chosenWord);
-        if (noReuse) {
-          removeUsedWord(cats, category, chosenWord);
-        }
-      }
-      pos = end + 1;
-    }
-    else {
-      putchar(*pos);
-      pos++;
-    }
-  }
-}
-
-// Main function with refactored code
-void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
-  FILE * f = openFile(filename);
   size_t len = 0;
   char * line = NULL;
-  usedWords usedWordsList = {NULL, 0};  // Track previously used words
+  usedWords usedWordsList = {NULL, 0};  //rack previously used words
 
+  //read the file line by line
   while (getline(&line, &len, f) >= 0) {
-    processLine(line, cats, noReuse, &usedWordsList);
+    char * pos = line;  //Start of the current line
+    while (*pos != '\0') {
+      if (*pos == '_') {
+        char * end = strchr(pos + 1, '_');  //Find the closing _
+        if (end == NULL) {
+          fprintf(stderr, "Error: unmatched underscore in line\n");
+          free(line);
+          fclose(f);
+          exit(EXIT_FAILURE);
+        }
+
+        *end = '\0';
+        //Temporarily terminate the string at the closing underscore
+        char * category = pos + 1;
+        // int i = 0;
+
+        //        if (isdigit(category[0])) {
+        // size_t i = strtoul(category, NULL, 10);
+        // const char * previousWord = getPreviousWord(&usedWordsList, i);
+        // printf("%s", previousWord);
+        // addWordToList(&usedWordsList.usedWords,
+        //              &usedWordsList.n_used,
+        //              previousWord);  // Add to used words list
+        // }
+        ///////////////////////////////////
+        const char * chosenWord = NULL;
+        char * endPtr;
+        long int index = strtol(category, &endPtr, 10);
+
+        if (!(cats == NULL) && *endPtr == '\0' &&
+            index > 0) {  // Check if the category is a valid integer
+          if (index > usedWordsList.n_used) {
+            fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
+            free(line);
+            fclose(f);
+            exit(EXIT_FAILURE);
+          }
+          // Get the previously used word
+          chosenWord = getPreviousWord(&usedWordsList, (size_t)index);
+        }
+        else if (!(cats == NULL) && !categoryExists(cats, category)) {
+          // exit failure for non-int categories that doesn't exist
+          //!(cats == NULL) so that categoryExists() doesn't get NULL cats
+          fprintf(stderr, " category doesn't exist");
+          exit(EXIT_FAILURE);
+        }
+        else {
+          //Category exists, proceed to choose a word
+          if (noReuse) {
+            int attempts = 0;
+            const int max_attempts = 1000;
+            do {
+              chosenWord = chooseWord(category, cats);
+              if (chosenWord == NULL || attempts > max_attempts) {
+                fprintf(stderr, "No available words left in '%s'\n", category);
+                free(line);
+                fclose(f);
+                exit(EXIT_FAILURE);
+              }
+              attempts++;
+            } while (wordAlreadyUsed(&usedWordsList, chosenWord));
+          }
+          else {
+            chosenWord = chooseWord(category, cats);
+            if (chosenWord == NULL) {
+              fprintf(stderr, "Error: No words available for category '%s'\n", category);
+              free(line);
+              fclose(f);
+              exit(EXIT_FAILURE);
+            }
+            //     if (noReuse) {
+            // removeUsedWord(cats, category, chosenWord);
+            // }
+          }
+        }
+
+        // Print the chosen word if a word was found
+        if (chosenWord != NULL) {
+          printf("%s", chosenWord);
+          addWordToList(&usedWordsList.usedWords, &usedWordsList.n_used, chosenWord);
+          if (noReuse) {
+            removeUsedWord(cats, category, chosenWord);
+          }
+        }
+        /////////////////////////////
+        // printf("%s", chosenWord);
+        //if (noReuse) {
+        // removeUsedWord(cats, category, chosenWord);
+        //        }
+        //          addWordToList(&usedWordsList.usedWords,
+        //            &usedWordsList.n_used,
+        //            chosenWord);  //dd to used words list
+
+        pos = end + 1;  //move past the closing underscore
+      }
+      else {
+        putchar(*pos);  // Print non-placeholder characters
+        pos++;
+      }
+    }
   }
 
-  freeUsedWords(&usedWordsList);
+  //free the usedWords list
+  for (size_t i = 0; i < usedWordsList.n_used; i++) {
+    free(usedWordsList.usedWords[i]);
+  }
+  free(usedWordsList.usedWords);
   free(line);
   fclose(f);
 }
-
 int wordAlreadyUsed(usedWords * usedWordsList, const char * word) {
   for (size_t i = 0; i < usedWordsList->n_used; i++) {
     if (strcmp(usedWordsList->usedWords[i], word) == 0) {
