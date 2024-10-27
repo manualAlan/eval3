@@ -1,6 +1,6 @@
-Grading at 10/27/2024:16:14:29.870234
-For commit ID ffdf8c7c8660da914b7d10ec47c71c8f3277ea8e
-Grading at Sun Oct 27 12:14:13 PM EDT 2024
+Grading at 10/27/2024:16:32:45.672535
+For commit ID 840503c634109cd7b3294828dbce907006f51540
+Grading at Sun Oct 27 12:32:29 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -13,13 +13,20 @@ rm story-step1.o
 The code compiled (good)
 Executable story-step1 exists (good)
 Checking with provided test case story.txt
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected output
 Now running YOUR tests for step 1
 
 1.1: Current test is story-step1 story.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Once upon a time, there was a _animal_ who lived in a very _a |	Once upon a time, there was a cat who lived in a very cat
+_place_. 						      |	cat. 
+Your file did not match the expected output
+
 
 1.2: Current test is story-step1 story1.txt
 -----------------------------
@@ -29,13 +36,18 @@ Valgrind was clean
 
 1.3: Current test is story-step1 story2.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+You considered this a failure case:
+Error: Invalid back-reference '1'
+But we did not.
 
 1.4: Current test is story-step1 story3.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+___ ___ ____ __						      |	catcatcat catcat cat
+Your file did not match the expected output
+
 
 1.5: Current test is story-step1 story4.txt
 -----------------------------
@@ -45,8 +57,17 @@ Valgrind was clean
 
 1.6: Current test is story-step1 story5.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Animal: _animal_, food: _food_				      |	Animal: cat, food: cat
+
+The _animal_ went to the _place_ to eat some _food_.	      |	The cat went to the cat to eat some cat.
+The _adjective_ _animal_ was very satisfied.		      |	The cat cat was very satisfied.
+
+Then it traveled to another _place_ and met a _adjective_ _an |	Then it traveled to another cat and met a cat cat.
+Your file did not match the expected output
+
 
 Step 2
 Checking that story-step2 compiles
@@ -119,12 +140,8 @@ Valgrind was clean
 
 3.3: Current test is story-step3 words6.txt story6.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 3.4: Current test is story-step3 words1.txt story3.txt
 -----------------------------
@@ -178,13 +195,8 @@ But you did not (exit status was EXIT_SUCCESS).
 
 3.13: Current test is story-step3 words5.txt story2.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-Once upon a time, there was a lion. This _1_ lived in a very  |	Once upon a time, there was a lion. This lion lived in a very
-calm desert. One day, it left its _2_ _2_ and met a cat.      |	calm desert. One day, it left its calm desert and met a cat.
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 Step 4
 Checking that story-step4 compiles
@@ -199,12 +211,8 @@ Now running YOUR tests for step 4
 
 4.1: Current test is story-step4 -n words6.txt story6.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 4.2: Current test is story-step4 -n words7.txt story7.txt
 -----------------------------
@@ -230,12 +238,8 @@ Valgrind was clean
 
 4.6: Current test is story-step4 words6.txt story6.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-The penguin ate icecream. Later, _1_ climbed a mountain.      |	The penguin ate icecream. Later, icecream climbed a mountain.
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 4.7: Current test is story-step4 words7.txt story7.txt
 -----------------------------
