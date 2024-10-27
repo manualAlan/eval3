@@ -211,9 +211,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           if (noReuse) {
             removeUsedWord(cats, category, chosenWord);
           }
-          addWordToList(&usedWordsList.usedWords,
-                        &usedWordsList.n_used,
-                        chosenWord);  //dd to used words list
+          //          addWordToList(&usedWordsList.usedWords,
+          //            &usedWordsList.n_used,
+          //            chosenWord);  //dd to used words list
         }
 
         pos = end + 1;  //move past the closing underscore
