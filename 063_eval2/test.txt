@@ -1,0 +1,30 @@
+story-step3 words14.txt story3.txt
+story-step4 -n words14.txt story9.txt
+story-step3 words14.txt story16.txt
+story-step4 -n words14.txt story2.txt
+story-step3 words14.txt story11.txt
+story-step4 -n words14.txt story6.txt
+story-step4 words14.txt story1.txt
+story-step3 words14.txt story15.txt
+story-step4 words14.txt story14.txt
+story-step3 words14.txt story7.txt
+story-step4 -n words14.txt story8.txt
+story-step3 words14.txt story10.txt
+story-step4 -n words14.txt story13.txt
+story-step3 words14.txt story4.txt
+story-step4 words14.txt story12.txt
+story-step3 words14.txt story6.txt
+story-step4 -n words14.txt story5.txt
+story-step3 words14.txt story2.txt
+story-step4 -n words14.txt story16.txt
+story-step3 words14.txt story8.txt
+story-step4 words14.txt story3.txt
+story-step3 words14.txt story14.txt
+story-step4 -n words14.txt story7.txt
+story-step3 words14.txt story5.txt
+story-step4 words14.txt story11.txt
+story-step4 -n words14.txt story4.txt
+story-step3 words14.txt story13.txt
+story-step4 words14.txt story10.txt
+story-step3 words14.txt story12.txt
+story-step4 -n words14.txt story1.txt
