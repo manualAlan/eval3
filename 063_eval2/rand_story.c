@@ -1,3 +1,4 @@
+//final final
 #include "rand_story.h"
 
 #include <ctype.h>
@@ -6,17 +7,17 @@
 #include <string.h>
 
 #include "provided.h"
-
+//helper function
 void printCatArray(const catarray_t * catarray) {
   if (catarray == NULL) {
     fprintf(stderr, "Catarray is NULL.\n");
     return;
   }
 
-  // Print the total number of categories
+  //Print the total number of categories
   printf("Number of categories: %zu\n\n", catarray->n);
 
-  // Loop through each category and print its details
+  //loop through each category and print its details
   for (size_t i = 0; i < catarray->n; i++) {
     category_t * category = &catarray->arr[i];
     printf("Category: %s\n", category->name);
@@ -201,12 +202,13 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           chosenWord = getPreviousWord(&usedWordsList, (size_t)index);
         }
         else if (!(cats == NULL) && !categoryExists(cats, category)) {
-          // If cats is NULL or category doesn't exist, print the original placeholder
+          // exit failure for non-int categories that doesn't exist
+          //!(cats == NULL) so that categoryExists() doesn't get NULL cats
           fprintf(stderr, " category doesn't exist");
           exit(EXIT_FAILURE);
         }
         else {
-          // Category exists, proceed to choose a word
+          //Category exists, proceed to choose a word
           if (noReuse) {
             int attempts = 0;
             const int max_attempts = 1000;
@@ -229,6 +231,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
               fclose(f);
               exit(EXIT_FAILURE);
             }
+            //     if (noReuse) {
+            // removeUsedWord(cats, category, chosenWord);
+            // }
           }
         }
 

@@ -18,7 +18,7 @@ category_t * findOrCreateCategory(catarray_t * cats, const char * name);
 catarray_t * parseWords(const char * filename);
 
 void freeCatArray(catarray_t * cats);
-
+int categoryExists(catarray_t * cats, const char * category);
 //void parseAndPrint(const char * filename, catarray_t * cats);
 void parseAndPrint(const char * filename, catarray_t * cats, int noReuse);
 void removeUsedWord(catarray_t * cats, const char * category, const char * word);
