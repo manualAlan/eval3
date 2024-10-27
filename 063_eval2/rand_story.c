@@ -169,12 +169,12 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
         // int i = 0;
 
         if (isdigit(category[0])) {
-          //size_t i = strtoul(category, NULL, 10);
-          //          const char * previousWord = getPreviousWord(&usedWordsList, i);
-          //printf("%s", previousWord);
-          //          addWordToList(&usedWordsList.usedWords,
-          //            &usedWordsList.n_used,
-          //            previousWord);  // Add to used words list
+          size_t i = strtoul(category, NULL, 10);
+          const char * previousWord = getPreviousWord(&usedWordsList, i);
+          printf("%s", previousWord);
+          addWordToList(&usedWordsList.usedWords,
+                        &usedWordsList.n_used,
+                        previousWord);  // Add to used words list
         }
         else {
           const char * chosenWord = NULL;
@@ -211,9 +211,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           if (noReuse) {
             removeUsedWord(cats, category, chosenWord);
           }
-          // addWordToList(&usedWordsList.usedWords,
-          //            &usedWordsList.n_used,
-          //            chosenWord);  //dd to used words list
+          addWordToList(&usedWordsList.usedWords,
+                        &usedWordsList.n_used,
+                        chosenWord);  //dd to used words list
         }
 
         pos = end + 1;  //move past the closing underscore
@@ -275,10 +275,10 @@ void removeUsedWord(catarray_t * cats, const char * category, const char * word)
 }
 
 //Retrieve a previously used word based on an index
-//const char * getPreviousWord(usedWords * usedWordsList, size_t index) {
-// if (index == 0 || index > usedWordsList->n_used) {
-//    fprintf(stderr, "Error. Invalid reference(point1)\n");
-//   exit(EXIT_FAILURE);
-// }
-// return usedWordsList->usedWords[usedWordsList->n_used - index];
-//}
+const char * getPreviousWord(usedWords * usedWordsList, size_t index) {
+  if (index == 0 || index > usedWordsList->n_used) {
+    fprintf(stderr, "Error. Invalid reference(point1)\n");
+    exit(EXIT_FAILURE);
+  }
+  return usedWordsList->usedWords[usedWordsList->n_used - index];
+}
