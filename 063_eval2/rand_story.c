@@ -207,31 +207,62 @@ const char * chooseCategoryWord(const char * category,
   return chosenWord;
 }
 
-// Helper function to process each line, performing substitutions
+// Helper function to process each line, performing substitutions exactly as the original logic
 void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWordsList) {
-  char * pos = line;
+  char * pos = line;  // Start of the current line
   while (*pos != '\0') {
     if (*pos == '_') {
-      char * end = strchr(pos + 1, '_');
+      char * end = strchr(pos + 1, '_');  // Find the closing underscore
       if (end == NULL) {
         fprintf(stderr, "Error: unmatched underscore in line\n");
         exit(EXIT_FAILURE);
       }
+
       *end = '\0';
+      //temporarily terminate the string at the closing underscore
       char * category = pos + 1;
       const char * chosenWord = NULL;
+      char * endPtr;
+      int index = strtol(category, &endPtr, 10);
 
-      if (!(cats == NULL) && isdigit(category[0])) {
-        chosenWord = handleBackReference(category, usedWordsList);
+      if (!(cats == NULL) && *endPtr == '\0' &&
+          index > 0) {  //check if the category is a valid integer
+        if (index > usedWordsList->n_used) {
+          fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
+          exit(EXIT_FAILURE);
+        }
+        //get the previously used word
+        chosenWord = getPreviousWord(usedWordsList, (size_t)index);
       }
-      else if (!(cats == NULL) && categoryExists(cats, category)) {
-        chosenWord = chooseCategoryWord(category, cats, usedWordsList, noReuse);
-      }
-      else {
+      else if (!(cats == NULL) && !categoryExists(cats, category)) {
+        //     Exit failure for non-integer categories that don't exist
         fprintf(stderr, "Category '%s' does not exist\n", category);
         exit(EXIT_FAILURE);
       }
+      else {
+        //category exists, proceed to choose a word
+        if (noReuse) {
+          int attempts = 0;
+          const int max_attempts = 1000;
+          do {
+            chosenWord = chooseWord(category, cats);
+            if (chosenWord == NULL || attempts > max_attempts) {
+              fprintf(stderr, "No available words left in '%s'\n", category);
+              exit(EXIT_FAILURE);
+            }
+            attempts++;
+          } while (wordAlreadyUsed(usedWordsList, chosenWord));
+        }
+        else {
+          chosenWord = chooseWord(category, cats);
+          if (chosenWord == NULL) {
+            fprintf(stderr, "Error: No words available for category '%s'\n", category);
+            exit(EXIT_FAILURE);
+          }
+        }
+      }
 
+      //print the chosen word if was found
       if (chosenWord != NULL) {
         printf("%s", chosenWord);
         addWordToList(&usedWordsList->usedWords, &usedWordsList->n_used, chosenWord);
@@ -239,21 +270,22 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
           removeUsedWord(cats, category, chosenWord);
         }
       }
-      pos = end + 1;
+
+      pos = end + 1;  //move past the closing underscore
     }
     else {
-      putchar(*pos);
+      putchar(*pos);  //print non-placeholder characters
       pos++;
     }
   }
 }
 
-// Main function with refactored code
+//reduced size cleaner func
 void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
   FILE * f = openFile(filename);
   size_t len = 0;
   char * line = NULL;
-  usedWords usedWordsList = {NULL, 0};  // Track previously used words
+  usedWords usedWordsList = {NULL, 0};  //track previously used words
 
   while (getline(&line, &len, f) >= 0) {
     processLine(line, cats, noReuse, &usedWordsList);
@@ -267,10 +299,10 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
 int wordAlreadyUsed(usedWords * usedWordsList, const char * word) {
   for (size_t i = 0; i < usedWordsList->n_used; i++) {
     if (strcmp(usedWordsList->usedWords[i], word) == 0) {
-      return 1;  // Word has already been used
+      return 1;  //word has already been used
     }
   }
-  return 0;  // Word has not been used
+  return 0;  //word has not been used
 }
 
 void removeUsedWord(catarray_t * cats, const char * category, const char * word) {
