@@ -1,6 +1,6 @@
-Grading at 10/27/2024:03:20:30.511204
-For commit ID 58a1618aeed746a15e05b5ca2425d038d58217fd
-Grading at Sat Oct 26 11:20:09 PM EDT 2024
+Grading at 10/27/2024:03:22:30.860559
+For commit ID 58641ab48394ce1ec85f6f0dca525d71b7f65307
+Grading at Sat Oct 26 11:22:10 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -177,12 +177,6 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.13: Current test is story-step3 words5.txt story2.txt
------------------------------
-You considered this a failure case:
-Category 1 not found
-But we did not.
-
 Step 4
 Checking that story-step4 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4  story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -239,8 +233,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
