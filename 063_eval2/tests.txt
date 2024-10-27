@@ -23,7 +23,7 @@ story-step3 words2.txt story3.txt
 story-step3 words1.txt story2.txt
 story-step3 words6.txt story1.txt
 story-step3 words3.txt story6.txt
-story-step3 words5.txt story2.txt
+//story-step3 words5.txt story2.txt
 story-step4 -n words6.txt story6.txt
 story-step4 -n words7.txt story7.txt
 story-step4 -n words8.txt story8.txt
