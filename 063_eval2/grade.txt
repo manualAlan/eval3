@@ -1,6 +1,6 @@
-Grading at 10/27/2024:18:39:22.893431
-For commit ID f56d59384a9992d7b163f0cf6bc450d433f921f9
-Grading at Sun Oct 27 02:38:53 PM EDT 2024
+Grading at 10/27/2024:18:45:23.022749
+For commit ID 7d7e22ee72cf83142a378135b291c1a295dd095d
+Grading at Sun Oct 27 02:44:53 PM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -63,9 +63,8 @@ Valgrind was clean
 
 1.10: Current test is story-step1 story18.txt
 -----------------------------
-You considered this a failure case:
-Error: Invalid back-reference '1'
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
@@ -323,8 +322,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
