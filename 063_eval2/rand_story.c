@@ -7,6 +7,31 @@
 
 #include "provided.h"
 
+void printCatArray(const catarray_t * catarray) {
+  if (catarray == NULL) {
+    fprintf(stderr, "Catarray is NULL.\n");
+    return;
+  }
+
+  // Print the total number of categories
+  printf("Number of categories: %zu\n\n", catarray->n);
+
+  // Loop through each category and print its details
+  for (size_t i = 0; i < catarray->n; i++) {
+    category_t * category = &catarray->arr[i];
+    printf("Category: %s\n", category->name);
+    printf("Number of words: %zu\n", category->n_words);
+    printf("Words:\n");
+
+    // Print each word in the category
+    for (size_t j = 0; j < category->n_words; j++) {
+      printf("  %s\n", category->words[j]);
+    }
+
+    printf("\n");
+  }
+}
+
 //General function to add a word to a dynamically allocated list
 void addWordToList(char *** list, size_t * n_words, const char * word) {
   *list = realloc(*list, (*n_words + 1) * sizeof(**list));
@@ -16,6 +41,7 @@ void addWordToList(char *** list, size_t * n_words, const char * word) {
   }
   (*list)[*n_words] = strdup(word);
   (*n_words)++;
+  //X  fprintf(stderr, "Allocated memory for word: %s\n", word);
 }
 
 //Find or create a category in a given catArray, return this category's address
@@ -81,6 +107,7 @@ catarray_t * parseWords(const char * filename) {
 }
 
 // a freeCatArray function that frees elements from bottom up
+/*
 void freeCatArray(catarray_t * cats) {
   for (size_t i = 0; i < cats->n; i++) {
     for (size_t j = 0; j < cats->arr[i].n_words; j++) {
@@ -91,6 +118,23 @@ void freeCatArray(catarray_t * cats) {
   }
   free(cats->arr);
   free(cats);
+}
+*/
+void freeCatArray(catarray_t * cats) {
+  if (cats == NULL) {
+    return;
+  }
+  for (size_t i = 0; i < cats->n; i++) {
+    if (cats->arr[i].words != NULL) {
+      for (size_t j = 0; j < cats->arr[i].n_words; j++) {
+        free(cats->arr[i].words[j]);  //free each word
+      }
+      free(cats->arr[i].words);  //Free the array of word pointers
+    }
+    free(cats->arr[i].name);  //free category name
+  }
+  free(cats->arr);  // free the array of category structures
+  free(cats);       //free the catarray_t structure itself
 }
 
 //   typedef struct usedWords_tag usedWords;
@@ -143,9 +187,12 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
               chosenWord = chooseWord(category, cats);
               if (chosenWord == NULL || attempts > max_attempts) {
                 fprintf(stderr, "No available words left in '%s'\n", category);
+                free(line);
+                fclose(f);
                 exit(EXIT_FAILURE);
-                attempts++;
+                // attempts++;
               }
+              attempts++;
             } while (wordAlreadyUsed(&usedWordsList,
                                      chosenWord));  //Ensure word is not reused
           }
@@ -154,6 +201,8 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
             //chosenWord = chooseWord(category, cats);
             if (chosenWord == NULL) {
               fprintf(stderr, "Error: No words available for category '%s'\n", category);
+              free(line);
+              fclose(f);
               exit(EXIT_FAILURE);
             }
           }
@@ -162,9 +211,9 @@ void parseAndPrint(const char * filename, catarray_t * cats, int noReuse) {
           if (noReuse) {
             removeUsedWord(cats, category, chosenWord);
           }
-          addWordToList(&usedWordsList.usedWords,
-                        &usedWordsList.n_used,
-                        chosenWord);  //dd to used words list
+          // addWordToList(&usedWordsList.usedWords,
+          //            &usedWordsList.n_used,
+          //            chosenWord);  //dd to used words list
         }
 
         pos = end + 1;  //move past the closing underscore
@@ -201,10 +250,23 @@ void removeUsedWord(catarray_t * cats, const char * category, const char * word)
           //   move the last word to the current position And reduce
           //          free(cats->arr[i].words[j]);
           //cats->arr[i].words[j] = NULL;
+          //          printf("1%s1", (cats->arr[i].words[j]));
           free(cats->arr[i].words[j]);
-          cats->arr[i].words[j] = cats->arr[i].words[cats->arr[i].n_words - 1];
-          cats->arr[i].words[cats->arr[i].n_words - 1] = NULL;
+          //cats->arr[i].words[j] = cats->arr[i].words[cats->arr[i].n_words - 1];
+          //cats->arr[i].words[cats->arr[i].n_words - 1] = NULL;
+          //
+          //cats->arr[i].n_words--;
+          // cats->arr[i].words[j] = "";
+          //remove the word and move everything afterwords 1 step forward
+          for (size_t k = j; k < cats->arr[i].n_words - 1; k++) {
+            //            printf("2%s2", (cats->arr[i].words[k]));
+            cats->arr[i].words[k] = cats->arr[i].words[k + 1];
+            // printf("3%s3", (cats->arr[i].words[k]));
+          }
           cats->arr[i].n_words--;
+          cats->arr[i].words = realloc(
+              cats->arr[i].words, cats->arr[i].n_words * sizeof(*(cats->arr[i].words)));
+          //          printCatArray(cats);
           return;
         }
       }

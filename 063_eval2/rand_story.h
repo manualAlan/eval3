@@ -10,7 +10,7 @@ struct usedWords_tag {
   size_t n_used;
 };
 typedef struct usedWords_tag usedWords;
-
+void printCatArray(const catarray_t * catarray);
 void addWordToList(char *** list, size_t * n_words, const char * word);
 
 category_t * findOrCreateCategory(catarray_t * cats, const char * name);
