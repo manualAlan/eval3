@@ -138,18 +138,18 @@ void freeCatArray(catarray_t * cats) {
   free(cats);       //free the catarray_t structure itself
 }
 
-//hwlper function
+//hwlper function checking if category exists in cats
 int categoryExists(catarray_t * cats, const char * category) {
   for (size_t i = 0; i < cats->n; i++) {
     if (strcmp(cats->arr[i].name, category) == 0) {
-      return 1;  // Category exists
+      return 1;  //exsit
     }
   }
-  return 0;  // Category does not exist
+  return 0;  //does not exist
 }
 //   typedef struct usedWords_tag usedWords;
 //Parse the story template and print with swapped words
-// Helper function to open a file and handle errors
+//helper function to open a file and handle errors
 FILE * openFile(const char * filename) {
   FILE * f = fopen(filename, "r");
   if (f == NULL) {
@@ -159,7 +159,7 @@ FILE * openFile(const char * filename) {
   return f;
 }
 
-// Helper function to free the usedWords list
+//helper function to free the usedWords list
 void freeUsedWords(usedWords * usedWordsList) {
   for (size_t i = 0; i < usedWordsList->n_used; i++) {
     free(usedWordsList->usedWords[i]);
@@ -167,7 +167,7 @@ void freeUsedWords(usedWords * usedWordsList) {
   free(usedWordsList->usedWords);
 }
 
-//Helper function to handle back-references eg _1_
+//helper function to handle back-references eg _1_
 const char * handleBackReference(const char * category, usedWords * usedWordsList) {
   char * endPtr;
   long int index = strtol(category, &endPtr, 10);
@@ -177,11 +177,11 @@ const char * handleBackReference(const char * category, usedWords * usedWordsLis
   fprintf(stderr, "Error: Invalid back-reference '%s'\n", category);
   return NULL;
 }
-
+/*
 //helper function to choose a word from a category, considering noReuse
 const char * chooseCategoryWord(const char * category,
                                 catarray_t * cats,
-                                /* usedWords * usedWordsList,*/
+                                 usedWords * usedWordsList,
                                 int noReuse) {
   const char * chosenWord = NULL;
   if (noReuse) {
@@ -208,7 +208,7 @@ const char * chooseCategoryWord(const char * category,
   }
   return chosenWord;
 }
-
+*/
 // Helper function to process each line, performing substitutions exactly as the original logic
 void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWordsList) {
   char * pos = line;  // Start of the current line
@@ -219,7 +219,6 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
         fprintf(stderr, "Error: unmatched underscore in line\n");
         exit(EXIT_FAILURE);
       }
-
       *end = '\0';
       //temporarily terminate the string at the closing underscore
       char * category = pos + 1;
@@ -252,9 +251,6 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
             fprintf(stderr, "No available words left in '%s'\n", category);
             exit(EXIT_FAILURE);
           }
-          // attempts++;
-          // }  // while (wordAlreadyUsed(usedWordsList, chosenWord));
-          // fprintf(stderr, "No available words left in '%s'\n", category);
           //exit(EXIT_FAILURE);
         }
         else {
@@ -265,7 +261,6 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
           }
         }
       }
-
       //print the chosen word if was found
       if (chosenWord != NULL) {
         printf("%s", chosenWord);
@@ -274,7 +269,6 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
           removeUsedWord(cats, category, chosenWord);
         }
       }
-
       pos = end + 1;  //move past the closing underscore
     }
     else {

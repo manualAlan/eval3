@@ -27,13 +27,11 @@ int main(int argc, char ** argv) {
     storyFile = argv[2];
   }
 
-  // Parse the word file to load
   catarray_t * cats = parseWords(wordFile);
 
-  // Call parseAndPrint, passing the flag for no reuse of words
   parseAndPrint(storyFile, cats, noReuse);
 
-  // Free the memory used by the category array
+  //free the memory used by the category array
   freeCatArray(cats);
   return EXIT_SUCCESS;
 }

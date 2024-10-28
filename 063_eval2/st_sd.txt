@@ -1,4 +1,4 @@
-adj1: _adj_ _adj_ _adj_ _adj_ _adj_
+adj1*2: _adj_ _adj_
 number1: _number_
 adj2: _adj_
 noun1: _noun_
