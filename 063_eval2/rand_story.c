@@ -245,16 +245,16 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
         //category exists, proceed to choose a word
         if (noReuse) {
           // int attempts = 0;
-          const int max_attempts = 1000;
-          for (int attempts = 0; attempts < max_attempts; attempts++) {
-            chosenWord = chooseWord(category, cats);
-            if (chosenWord == NULL) {
-              fprintf(stderr, "No available words left in '%s'\n", category);
-              exit(EXIT_FAILURE);
-            }
-            // attempts++;
-          }  // while (wordAlreadyUsed(usedWordsList, chosenWord));
-             // fprintf(stderr, "No available words left in '%s'\n", category);
+          // const int max_attempts = 1000;
+          // for (int attempts = 0; attempts < max_attempts; attempts++) {
+          chosenWord = chooseWord(category, cats);
+          if (chosenWord == NULL) {
+            fprintf(stderr, "No available words left in '%s'\n", category);
+            exit(EXIT_FAILURE);
+          }
+          // attempts++;
+          // }  // while (wordAlreadyUsed(usedWordsList, chosenWord));
+          // fprintf(stderr, "No available words left in '%s'\n", category);
           //exit(EXIT_FAILURE);
         }
         else {
