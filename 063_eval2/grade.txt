@@ -1,6 +1,6 @@
-Grading at 10/28/2024:14:18:34.919639
-For commit ID f0baeb2996d3cad8adc852677c4a82d1a091afe4
-Grading at Mon Oct 28 10:18:15 AM EDT 2024
+Grading at 10/28/2024:14:21:14.116912
+For commit ID 23f76aa2d642d85b9cbb47fe5fee870cdc6cdcf0
+Grading at Mon Oct 28 10:20:55 AM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -156,7 +156,8 @@ Now running YOUR tests for step 4
 
 4.1: Current test is story-step4 -n words_sd.txt st_sd.txt
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 4.2: Current test is story-step4 -n words_sd.txt st_num.txt
@@ -178,7 +179,8 @@ Valgrind was clean
 
 4.5: Current test is story-step4 -n words_sdrp.txt st_sd.txt
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 4.6: Current test is story-step4 -n words_sdrp.txt st_num.txt
