@@ -1,6 +1,6 @@
-Grading at 10/28/2024:13:59:53.976935
-For commit ID 40d0548dbcbcdb1808d120e795070498dc2cb981
-Grading at Mon Oct 28 09:59:44 AM EDT 2024
+Grading at 10/28/2024:14:09:44.450343
+For commit ID 1448f672eba090cbef323b69877fb2fab62b001e
+Grading at Mon Oct 28 10:09:34 AM EDT 2024
 Doing some basic checking for your submission
 
 Step 1
@@ -94,14 +94,8 @@ Now running YOUR tests for step 4
 
 4.1: Current test is story-step4 -n words10.txt story10.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-A quick dog chased after a lazy rabbit in the forest.	      |	A smart owl chased after a lazy dog in the forest.
-But the silent owl was too fast to catch.		      |	But the silent rabbit was too fast to catch.
-Then a smart cat appeared out of nowhere.		      |	Then a quick cat appeared out of nowhere.
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 4.2: Current test is story-step4 -n words3.txt story11.txt
 -----------------------------
@@ -140,17 +134,11 @@ Valgrind was clean
 
 4.8: Current test is story-step4 -n words7.txt story7.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-In the wild, there was a rhino who was very calm.	      |	In the wild, there was a wolf who was very sneaky.
-It met a giraffe, which giraffe was giraffe  equally curious. |	It met a giraffe, which giraffe was giraffe  equally playful.
- a bear appeared both with its playful  curiousnature.	      |	 a tiger appeared both with its calm  playfulnature.
-Your file did not match the expected output
-
-
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
