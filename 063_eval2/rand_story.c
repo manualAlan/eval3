@@ -167,7 +167,7 @@ void freeUsedWords(usedWords * usedWordsList) {
   free(usedWordsList->usedWords);
 }
 
-// Helper function to handle back-references
+//Helper function to handle back-references eg _1_
 const char * handleBackReference(const char * category, usedWords * usedWordsList) {
   char * endPtr;
   long int index = strtol(category, &endPtr, 10);
@@ -181,21 +181,23 @@ const char * handleBackReference(const char * category, usedWords * usedWordsLis
 //helper function to choose a word from a category, considering noReuse
 const char * chooseCategoryWord(const char * category,
                                 catarray_t * cats,
-                                usedWords * usedWordsList,
+                                /* usedWords * usedWordsList,*/
                                 int noReuse) {
   const char * chosenWord = NULL;
   if (noReuse) {
     int attempts = 0;
     const int max_attempts = 1000;
-    do {
+    while (attempts < max_attempts) {
       // Cast category to char * to match the chooseWord function's parameter type
       chosenWord = chooseWord((char *)category, cats);
-      if (chosenWord == NULL || attempts > max_attempts) {
+      if (chosenWord == NULL) {
         fprintf(stderr, "No available words left in '%s'\n", category);
         return NULL;
       }
       attempts++;
-    } while (wordAlreadyUsed(usedWordsList, chosenWord));
+    }  // while (wordAlreadyUsed(usedWordsList, chosenWord));
+    fprintf(stderr, "No available words left in '%s'\n", category);
+    return NULL;
   }
   else {
     // Cast category to char * to match the chooseWord function's parameter type
@@ -242,16 +244,18 @@ void processLine(char * line, catarray_t * cats, int noReuse, usedWords * usedWo
       else {
         //category exists, proceed to choose a word
         if (noReuse) {
-          int attempts = 0;
+          // int attempts = 0;
           const int max_attempts = 1000;
-          do {
+          for (int attempts = 0; attempts < max_attempts; attempts++) {
             chosenWord = chooseWord(category, cats);
-            if (chosenWord == NULL || attempts > max_attempts) {
+            if (chosenWord == NULL) {
               fprintf(stderr, "No available words left in '%s'\n", category);
               exit(EXIT_FAILURE);
             }
-            attempts++;
-          } while (wordAlreadyUsed(usedWordsList, chosenWord));
+            // attempts++;
+          }  // while (wordAlreadyUsed(usedWordsList, chosenWord));
+             // fprintf(stderr, "No available words left in '%s'\n", category);
+          //exit(EXIT_FAILURE);
         }
         else {
           chosenWord = chooseWord(category, cats);
