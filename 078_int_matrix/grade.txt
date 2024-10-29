@@ -1,20 +1,47 @@
-Grading at 10/29/2024:17:23:59.110842
-For commit ID 9c91b14528713ce33b5507f00a4894f1dc45785f
-Grading at Tue Oct 29 01:23:59 PM EDT 2024
+Grading at 10/29/2024:17:39:24.782292
+For commit ID ca1e9170b5bc352f5b0860c58a05bc98f02b16f1
+Grading at Tue Oct 29 01:39:09 PM EDT 2024
 Attempting to compile:
 rm -f *.o  *~ intMatrixTest
-The code did not compile!
-In file included from 69_test_main.cpp:1:
-IntMatrix.h:4:10: fatal error: IntArray.h: No such file or directory
-    4 | #include "IntArray.h"
-      |          ^~~~~~~~~~~~
-compilation terminated.
-In file included from IntMatrix.cpp:1:
-IntMatrix.h:4:10: fatal error: IntArray.h: No such file or directory
-    4 | #include "IntArray.h"
-      |          ^~~~~~~~~~~~
-compilation terminated.
-cc1plus: fatal error: IntArray.cpp: No such file or directory
-compilation terminated.
+#################################################
+testcase1:
+Your output is correct
+valgrind was clean
+#################################################
+testcase2:
+Your output is correct
+valgrind was clean
+#################################################
+testcase3:
+Your output is correct
+valgrind was clean
+#################################################
+testcase4:
+Your output is correct
+valgrind was clean
+#################################################
+testcase5:
+Your output is correct
+valgrind was clean
+#################################################
+testcase6:
+Your output is correct
+valgrind was clean
+#################################################
+testcase7:
+Your output is correct
+valgrind was clean
+#################################################
+testcase8:
+Your output is correct
+valgrind was clean
+#################################################
+testcase9:
+Your output is correct
+valgrind was clean
+#################################################
+testcase10:
+Your output is correct
+valgrind was clean
 
-Overall Grade: F
+Overall Grade: A
