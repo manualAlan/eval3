@@ -4,40 +4,49 @@
 #include <string>
 #include <vector>
 
-bool myfunction(std::string a, std::string b) {
-  return (a < b);
+// This function compares two strings for use with std::sort
+bool stringOrder(const std::string & a, const std::string & b) {
+  return a < b;
 }
-void read(std::istream & stream, std::vector<std::string> & lines) {
+
+// This function sorts the data in the vector
+void sortData(std::vector<std::string> & data) {
+  std::sort(data.begin(), data.end(), stringOrder);
+}
+
+void processInput(std::istream & input) {
+  std::vector<std::string> lines;
   std::string line;
-  while (std::getline(stream, line)) {
+
+  // Read lines from the input stream
+  while (std::getline(input, line)) {
     lines.push_back(line);
   }
+
+  // Sort the lines
+  sortData(lines);
+
+  // Output the sorted lines
+  for (const auto & line : lines) {
+    std::cout << line << std::endl;
+  }
 }
 
-int main(int argc, char * argv[]) {
-  std::vector<std::string> lines;
-  if (argc == 0) {
-    std::cerr << "how?" << std::endl;
-    return EXIT_FAILURE;
-  }
+int main(int argc, char ** argv) {
   if (argc == 1) {
-    read(std::cin, lines);
+    // No command-line arguments: read from standard input
+    processInput(std::cin);
   }
   else {
-    for (int i = 1; i < argc; ++i) {
+    for (int i = 1; i < argc; i++) {
       std::ifstream file(argv[i]);
       if (!file) {
-        std::cerr << "Could not open file " << argv[i] << std::endl;
+        std::cerr << "Could not open file: " << argv[i] << std::endl;
         return EXIT_FAILURE;
       }
-      read(file, lines);
+      processInput(file);
       file.close();
     }
-  }
-
-  std::sort(lines.begin(), lines.end(), myfunction);
-  for (std::vector<std::string>::iterator it = lines.begin(); it != lines.end(); ++it) {
-    std::cout << *it << std::endl;
   }
   return EXIT_SUCCESS;
 }
