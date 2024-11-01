@@ -13,13 +13,15 @@ void readFromStream(std::istream & stream, std::vector<std::string> & lines) {
 
 int main(int argc, char * argv[]) {
   std::vector<std::string> lines;
-
-  // If no arguments, read from standard input
+  if (argc == 0) {
+    return EXIT_FAILURE;
+  }
+  //if no arguments, read from standard input
   if (argc == 1) {
     readFromStream(std::cin, lines);
   }
   else {
-    // Read from each file specified in the arguments
+    //read from each file specified in the arguments
     for (int i = 1; i < argc; ++i) {
       std::ifstream file(argv[i]);
       if (!file) {
@@ -30,13 +32,9 @@ int main(int argc, char * argv[]) {
     }
   }
 
-  // Sort the lines using std::sort
   std::sort(lines.begin(), lines.end());
-
-  // Print the sorted lines
-  for (const auto & line : lines) {
-    std::cout << line << std::endl;
+  for (std::vector<std::string>::iterator it = lines.begin(); it != lines.end(); ++it) {
+    std::cout << *it << std::endl;
   }
-
   return EXIT_SUCCESS;
 }
