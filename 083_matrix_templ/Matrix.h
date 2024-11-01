@@ -1,5 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+#include <cassert>
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
@@ -8,8 +9,8 @@
 template<typename T>
 class Matrix {
  private:
-  int rows;     // Use int instead of size_t
-  int columns;  // Use int instead of size_t
+  int rows;
+  int columns;
   std::vector<std::vector<T> > data;
 
  public:
@@ -17,49 +18,47 @@ class Matrix {
   Matrix() : rows(0), columns(0), data() {}
 
   // Constructor with specified dimensions
-  Matrix(int r, int c) : rows(r), columns(c), data(r, std::vector<T>(c)) {}
+  Matrix(int r, int c) : rows(r), columns(c), data(r, std::vector<T>(c)) {
+    assert(r >= 0 && c >= 0);  // Handle special case: negative dimensions
+  }
 
   // Copy constructor
-  Matrix(const Matrix & other) :
-      rows(other.rows), columns(other.columns), data(other.data) {}
+  Matrix(const Matrix & rhs) : rows(rhs.rows), columns(rhs.columns), data(rhs.data) {}
 
   // Destructor
   ~Matrix() {}
 
   // Assignment operator
-  Matrix & operator=(const Matrix & other) {
-    if (this != &other) {
-      rows = other.rows;
-      columns = other.columns;
-      data = other.data;
+  Matrix & operator=(const Matrix & rhs) {
+    if (this != &rhs) {
+      rows = rhs.rows;
+      columns = rhs.columns;
+      data = rhs.data;
     }
     return *this;
   }
 
   // Get the number of rows
-  int getRows() const {  // Return int
-    return rows;
-  }
+  int getRows() const { return rows; }
 
   // Get the number of columns
-  int getColumns() const {  // Return int
-    return columns;
-  }
+  int getColumns() const { return columns; }
 
   // Overload the equality operator
-  bool operator==(const Matrix & other) const {
-    return (rows == other.rows && columns == other.columns && data == other.data);
+  bool operator==(const Matrix & rhs) const {
+    if (rows != rhs.rows || columns != rhs.columns) {
+      return false;
+    }
+    return data == rhs.data;
   }
 
   // Overload the addition operator
-  Matrix operator+(const Matrix & other) const {
-    if (rows != other.rows || columns != other.columns) {
-      throw std::invalid_argument("Matrix dimensions must match for addition");
-    }
+  Matrix operator+(const Matrix & rhs) const {
+    assert(rows == rhs.rows && columns == rhs.columns);  // Check for matching dimensions
     Matrix result(rows, columns);
     for (int i = 0; i < rows; ++i) {
       for (int j = 0; j < columns; ++j) {
-        result.data[i][j] = data[i][j] + other.data[i][j];
+        result.data[i][j] = data[i][j] + rhs.data[i][j];
       }
     }
     return result;
@@ -67,16 +66,12 @@ class Matrix {
 
   // Overload the subscript operator to access elements
   std::vector<T> & operator[](int index) {
-    if (index < 0 || index >= rows) {
-      throw std::out_of_range("Index out of range");
-    }
+    assert(index >= 0 && index < rows);  // Check for out-of-bounds access
     return data[index];
   }
 
   const std::vector<T> & operator[](int index) const {
-    if (index < 0 || index >= rows) {
-      throw std::out_of_range("Index out of range");
-    }
+    assert(index >= 0 && index < rows);  // Check for out-of-bounds access
     return data[index];
   }
 
