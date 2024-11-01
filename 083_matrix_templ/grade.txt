@@ -1,6 +1,6 @@
-Grading at 11/01/2024:14:45:20.911916
-For commit ID 12bdd2ec2fa50aa58058074c034e67b52e434930
-Grading at Fri Nov  1 10:45:14 AM EDT 2024
+Grading at 11/01/2024:14:51:57.985289
+For commit ID 90c09240adc5b5366ade917708b8fc7b608041f4
+Grading at Fri Nov  1 10:51:51 AM EDT 2024
 -----------------------------------------------
 testcase 1 : Testing with Matrix<int>
 ...compiling...
@@ -25,15 +25,19 @@ Compiling assertion failure tester...
 Compiled.
 -----------------------------------------------
 testcase 4 :  operator[]: row number too high
-Valgrind reported errors (test failed).
+Your file matched the expected output
+Testcase passed
 -----------------------------------------------
 testcase 5 :  operator[]: row number too low
-Valgrind reported errors (test failed).
+Your file matched the expected output
+Testcase passed
 -----------------------------------------------
 testcase 6 :  operator+: different number of rows
-Valgrind reported errors (test failed).
+Your file matched the expected output
+Testcase passed
 -----------------------------------------------
 testcase 7 :  operator+: different number of columns
-Valgrind reported errors (test failed).
+Your file matched the expected output
+Testcase passed
 
-Overall Grade: C
+Overall Grade: A
