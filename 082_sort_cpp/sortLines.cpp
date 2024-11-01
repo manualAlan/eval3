@@ -29,6 +29,7 @@ int main(int argc, char * argv[]) {
         return EXIT_FAILURE;
       }
       readFromStream(file, lines);
+      file.close();
     }
   }
 
