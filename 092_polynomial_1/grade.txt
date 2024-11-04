@@ -1,162 +1,27 @@
-Grading at 11/04/2024:21:10:47.326094
-For commit ID 48a433ea05c5b5982e1418f331a7420986b7b03e
-Grading at Mon Nov  4 04:10:46 PM EST 2024
+Grading at 11/04/2024:21:14:58.105899
+For commit ID 635816191b6c73711dc6a384ae607fe2959ab087
+Grading at Mon Nov  4 04:14:57 PM EST 2024
 Compiling your code with our test main
 In file included from testmain.cpp:4:
 poly.hpp: In member function ‘Polynomial<NumT> Polynomial<NumT>::operator-() const’:
-poly.hpp:36:16: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   36 |     for (const auto & term : terms) {
-      |                ^~~~
-      |                ----
-poly.hpp:36:23: error: ISO C++ forbids declaration of ‘term’ with no type [-fpermissive]
-   36 |     for (const auto & term : terms) {
-      |                       ^~~~
-poly.hpp:36:30: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-   36 |     for (const auto & term : terms) {
-      |                              ^~~~~
-poly.hpp:37:25: error: request for member ‘first’ in ‘term’, which is of non-class type ‘const int’
-   37 |       result.terms[term.first] = -term.second;
-      |                         ^~~~~
-poly.hpp:37:40: error: request for member ‘second’ in ‘term’, which is of non-class type ‘const int’
-   37 |       result.terms[term.first] = -term.second;
-      |                                        ^~~~~~
+poly.hpp:36:57: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   36 |     for (const std::pair<const unsigned, NumT> & term : terms) {
+      |                                                         ^~~~~
 poly.hpp: In member function ‘Polynomial<NumT> Polynomial<NumT>::operator+(const Polynomial<NumT>&) const’:
-poly.hpp:45:16: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   45 |     for (const auto & term : rhs.terms) {
-      |                ^~~~
-      |                ----
-poly.hpp:45:23: error: ISO C++ forbids declaration of ‘term’ with no type [-fpermissive]
-   45 |     for (const auto & term : rhs.terms) {
-      |                       ^~~~
-poly.hpp:45:30: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-   45 |     for (const auto & term : rhs.terms) {
-      |                              ^~~
-poly.hpp:46:27: error: request for member ‘second’ in ‘term’, which is of non-class type ‘const int’
-   46 |       result.addTerm(term.second, term.first);
-      |                           ^~~~~~
-poly.hpp:46:40: error: request for member ‘first’ in ‘term’, which is of non-class type ‘const int’
-   46 |       result.addTerm(term.second, term.first);
-      |                                        ^~~~~
+poly.hpp:45:57: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   45 |     for (const std::pair<const unsigned, NumT> & term : rhs.terms) {
+      |                                                         ^~~
 poly.hpp: In member function ‘Polynomial<NumT> Polynomial<NumT>::operator*(const NumT&) const’:
-poly.hpp:57:16: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   57 |     for (const auto & term : terms) {
-      |                ^~~~
-      |                ----
-poly.hpp:57:23: error: ISO C++ forbids declaration of ‘term’ with no type [-fpermissive]
-   57 |     for (const auto & term : terms) {
-      |                       ^~~~
-poly.hpp:57:30: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-   57 |     for (const auto & term : terms) {
-      |                              ^~~~~
-poly.hpp:58:25: error: request for member ‘first’ in ‘term’, which is of non-class type ‘const int’
-   58 |       result.terms[term.first] = term.second * n;
-      |                         ^~~~~
-poly.hpp:58:39: error: request for member ‘second’ in ‘term’, which is of non-class type ‘const int’
-   58 |       result.terms[term.first] = term.second * n;
-      |                                       ^~~~~~
+poly.hpp:57:57: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   57 |     for (const std::pair<const unsigned, NumT> & term : terms) {
+      |                                                         ^~~~~
 poly.hpp: In member function ‘Polynomial<NumT> Polynomial<NumT>::operator*(const Polynomial<NumT>&) const’:
-poly.hpp:66:16: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   66 |     for (const auto & term1 : terms) {
-      |                ^~~~
-      |                ----
-poly.hpp:66:23: error: ISO C++ forbids declaration of ‘term1’ with no type [-fpermissive]
-   66 |     for (const auto & term1 : terms) {
-      |                       ^~~~~
-poly.hpp:66:31: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-   66 |     for (const auto & term1 : terms) {
-      |                               ^~~~~
-poly.hpp:67:18: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   67 |       for (const auto & term2 : rhs.terms) {
-      |                  ^~~~
-      |                  ----
-poly.hpp:67:25: error: ISO C++ forbids declaration of ‘term2’ with no type [-fpermissive]
-   67 |       for (const auto & term2 : rhs.terms) {
-      |                         ^~~~~
-poly.hpp:67:33: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
-   67 |       for (const auto & term2 : rhs.terms) {
-      |                                 ^~~
-poly.hpp:68:34: error: request for member ‘first’ in ‘term1’, which is of non-class type ‘const int’
-   68 |         unsigned new_exp = term1.first + term2.first;
-      |                                  ^~~~~
-poly.hpp:68:48: error: request for member ‘first’ in ‘term2’, which is of non-class type ‘const int’
-   68 |         unsigned new_exp = term1.first + term2.first;
-      |                                                ^~~~~
-poly.hpp:69:32: error: request for member ‘second’ in ‘term1’, which is of non-class type ‘const int’
-   69 |         NumT new_coeff = term1.second * term2.second;
-      |                                ^~~~~~
-poly.hpp:69:47: error: request for member ‘second’ in ‘term2’, which is of non-class type ‘const int’
-   69 |         NumT new_coeff = term1.second * term2.second;
-      |                                               ^~~~~~
-poly.hpp: In function ‘std::ostream& operator<<(std::ostream&, const Polynomial<NumT>&)’:
-poly.hpp:114:8: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-  114 |   for (auto it = p.terms.rbegin(); it != p.terms.rend(); ++it) {
-      |        ^~~~
-      |        ----
-poly.hpp:114:13: error: ‘it’ does not name a type; did you mean ‘int’?
-  114 |   for (auto it = p.terms.rbegin(); it != p.terms.rend(); ++it) {
-      |             ^~
-      |             int
-poly.hpp:114:35: error: expected ‘;’ before ‘it’
-  114 |   for (auto it = p.terms.rbegin(); it != p.terms.rend(); ++it) {
-      |                                   ^~~
-      |                                   ;
-poly.hpp:114:36: error: ‘it’ was not declared in this scope; did you mean ‘int’?
-  114 |   for (auto it = p.terms.rbegin(); it != p.terms.rend(); ++it) {
-      |                                    ^~
-      |                                    int
-poly.hpp: In instantiation of ‘Polynomial<NumT> Polynomial<NumT>::operator-() const [with NumT = int]’:
-testmain.cpp:15:28:   required from here
-poly.hpp:36:5: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, int>’
-   36 |     for (const auto & term : terms) {
-      |     ^~~
-poly.hpp:36:23: error: loop variable ‘term’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, int>’ [-Werror=range-loop-construct]
-   36 |     for (const auto & term : terms) {
-      |                       ^~~~
-poly.hpp:36:23: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, int>&’ to prevent copying
-poly.hpp: In instantiation of ‘Polynomial<NumT> Polynomial<NumT>::operator+(const Polynomial<NumT>&) const [with NumT = int]’:
-testmain.cpp:21:36:   required from here
-poly.hpp:45:5: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, int>’
-   45 |     for (const auto & term : rhs.terms) {
-      |     ^~~
-poly.hpp:45:23: error: loop variable ‘term’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, int>’ [-Werror=range-loop-construct]
-   45 |     for (const auto & term : rhs.terms) {
-      |                       ^~~~
-poly.hpp:45:23: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, int>&’ to prevent copying
-poly.hpp: In instantiation of ‘Polynomial<NumT> Polynomial<NumT>::operator*(const Polynomial<NumT>&) const [with NumT = int]’:
-testmain.cpp:22:36:   required from here
-poly.hpp:66:5: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, int>’
-   66 |     for (const auto & term1 : terms) {
-      |     ^~~
-poly.hpp:66:23: error: loop variable ‘term1’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, int>’ [-Werror=range-loop-construct]
-   66 |     for (const auto & term1 : terms) {
-      |                       ^~~~~
-poly.hpp:66:23: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, int>&’ to prevent copying
-poly.hpp:67:7: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, int>’
-   67 |       for (const auto & term2 : rhs.terms) {
-      |       ^~~
-poly.hpp:67:25: error: loop variable ‘term2’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, int>’ [-Werror=range-loop-construct]
-   67 |       for (const auto & term2 : rhs.terms) {
-      |                         ^~~~~
-poly.hpp:67:25: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, int>&’ to prevent copying
-poly.hpp: In instantiation of ‘Polynomial<NumT> Polynomial<NumT>::operator*(const NumT&) const [with NumT = double]’:
-testmain.cpp:81:42:   required from here
-poly.hpp:57:5: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, double>’
-   57 |     for (const auto & term : terms) {
-      |     ^~~
-poly.hpp:57:23: error: loop variable ‘term’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, double>’ [-Werror=range-loop-construct]
-   57 |     for (const auto & term : terms) {
-      |                       ^~~~
-poly.hpp:57:23: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, double>&’ to prevent copying
-poly.hpp: In instantiation of ‘Polynomial<NumT> Polynomial<NumT>::operator*(const NumT&) const [with NumT = int]’:
-poly.hpp:98:19:   required from ‘Polynomial<NumT>& Polynomial<NumT>::operator*=(const NumT&) [with NumT = int]’
-testmain.cpp:43:9:   required from here
-poly.hpp:57:5: error: invalid initialization of reference of type ‘const int&’ from expression of type ‘const std::pair<const unsigned int, int>’
-   57 |     for (const auto & term : terms) {
-      |     ^~~
-poly.hpp:57:23: error: loop variable ‘term’ of type ‘const int&’ binds to a temporary constructed from type ‘const std::pair<const unsigned int, int>’ [-Werror=range-loop-construct]
-   57 |     for (const auto & term : terms) {
-      |                       ^~~~
-poly.hpp:57:23: note: use non-reference type ‘const int’ to make the copy explicit or ‘const std::pair<const unsigned int, int>&’ to prevent copying
+poly.hpp:66:58: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   66 |     for (const std::pair<const unsigned, NumT> & term1 : terms) {
+      |                                                          ^~~~~
+poly.hpp:67:60: error: range-based ‘for’ loops only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   67 |       for (const std::pair<const unsigned, NumT> & term2 : rhs.terms) {
+      |                                                            ^~~
 cc1plus: all warnings being treated as errors
 g++ failed
 
