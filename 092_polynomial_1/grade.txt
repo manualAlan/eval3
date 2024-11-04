@@ -1,13 +1,13 @@
-Grading at 11/04/2024:21:22:55.636699
-For commit ID 5c9b947bfe44631be878e6e897ecf6a3e4009ba5
-Grading at Mon Nov  4 04:22:55 PM EST 2024
+Grading at 11/04/2024:21:25:16.182766
+For commit ID b86584b001bbee23859c3b68e904116f51fe7ff2
+Grading at Mon Nov  4 04:25:15 PM EST 2024
 Compiling your code with our test main
 In file included from testmain.cpp:4:
 poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = int]’:
 poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = int]’
 testmain.cpp:10:13:   required from here
 poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, int, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, int> > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, int>, std::_Select1st<std::pair<const unsigned int, int> >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, int> > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Corrected: erase() returns the next iterator
+   20 |         it = terms.erase(it);  // Erase returns the next iterator, so reassign it directly
       |         ~~~^~~~~~~~~~~~~~~~~
 In file included from /usr/include/c++/11/map:60,
                  from poly.hpp:6,
@@ -21,7 +21,7 @@ poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = 
 poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = double]’
 testmain.cpp:75:14:   required from here
 poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, double, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, double> > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, double>, std::_Select1st<std::pair<const unsigned int, double> >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, double> > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Corrected: erase() returns the next iterator
+   20 |         it = terms.erase(it);  // Erase returns the next iterator, so reassign it directly
       |         ~~~^~~~~~~~~~~~~~~~~
 In file included from /usr/include/c++/11/map:60,
                  from poly.hpp:6,
@@ -35,7 +35,7 @@ poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = 
 poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = std::complex<double>]’
 testmain.cpp:83:14:   required from here
 poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, std::complex<double>, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, std::complex<double> > > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::complex<double> >, std::_Select1st<std::pair<const unsigned int, std::complex<double> > >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, std::complex<double> > > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Corrected: erase() returns the next iterator
+   20 |         it = terms.erase(it);  // Erase returns the next iterator, so reassign it directly
       |         ~~~^~~~~~~~~~~~~~~~~
 In file included from /usr/include/c++/11/map:60,
                  from poly.hpp:6,
