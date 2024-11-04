@@ -14,13 +14,13 @@ class Polynomial {
 
   // Helper function to remove zero terms and simplify
   void simplify() {
-    for (typename std::map<unsigned, NumT>::iterator it = terms.begin();
-         it != terms.end();) {
+    typename std::map<unsigned, NumT>::iterator it = terms.begin();
+    while (it != terms.end()) {
       if (it->second == NumT()) {
-        it = terms.erase(it);  // Erase returns the next iterator, so reassign it directly
+        it = terms.erase(it);  // Erase the current element and update iterator
       }
       else {
-        ++it;
+        ++it;  // Move to the next element
       }
     }
     if (terms.empty()) {
