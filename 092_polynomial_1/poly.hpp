@@ -17,7 +17,7 @@ class Polynomial {
     for (typename std::map<unsigned, NumT>::iterator it = terms.begin();
          it != terms.end();) {
       if (it->second == NumT()) {
-        it = terms.erase(it);
+        it = terms.erase(it);  // Corrected: erase() returns the next iterator
       }
       else {
         ++it;
