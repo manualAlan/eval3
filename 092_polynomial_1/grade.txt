@@ -1,49 +1,6 @@
-Grading at 11/04/2024:21:34:19.799835
-For commit ID e26ace79a151c2c9bfcbb2971fd16157f1af18fa
-Grading at Mon Nov  4 04:34:19 PM EST 2024
+Grading at 11/04/2024:22:05:21.214480
+For commit ID eb71b7f3de0ac5347b96df26e5bbbf3ee05fd237
+Grading at Mon Nov  4 05:05:20 PM EST 2024
 Compiling your code with our test main
-In file included from testmain.cpp:4:
-poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = int]’:
-poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = int]’
-testmain.cpp:10:13:   required from here
-poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, int, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, int> > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, int>, std::_Select1st<std::pair<const unsigned int, int> >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, int> > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Erase the current element and update iterator
-      |         ~~~^~~~~~~~~~~~~~~~~
-In file included from /usr/include/c++/11/map:60,
-                 from poly.hpp:6,
-                 from testmain.cpp:4:
-/usr/include/c++/11/bits/stl_tree.h:256:12: note: candidate: ‘std::_Rb_tree_iterator<std::pair<const unsigned int, int> >& std::_Rb_tree_iterator<std::pair<const unsigned int, int> >::operator=(const std::_Rb_tree_iterator<std::pair<const unsigned int, int> >&)’
-  256 |     struct _Rb_tree_iterator
-      |            ^~~~~~~~~~~~~~~~~
-/usr/include/c++/11/bits/stl_tree.h:256:12: note:   no known conversion for argument 1 from ‘void’ to ‘const std::_Rb_tree_iterator<std::pair<const unsigned int, int> >&’
-In file included from testmain.cpp:4:
-poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = double]’:
-poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = double]’
-testmain.cpp:75:14:   required from here
-poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, double, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, double> > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, double>, std::_Select1st<std::pair<const unsigned int, double> >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, double> > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Erase the current element and update iterator
-      |         ~~~^~~~~~~~~~~~~~~~~
-In file included from /usr/include/c++/11/map:60,
-                 from poly.hpp:6,
-                 from testmain.cpp:4:
-/usr/include/c++/11/bits/stl_tree.h:256:12: note: candidate: ‘std::_Rb_tree_iterator<std::pair<const unsigned int, double> >& std::_Rb_tree_iterator<std::pair<const unsigned int, double> >::operator=(const std::_Rb_tree_iterator<std::pair<const unsigned int, double> >&)’
-  256 |     struct _Rb_tree_iterator
-      |            ^~~~~~~~~~~~~~~~~
-/usr/include/c++/11/bits/stl_tree.h:256:12: note:   no known conversion for argument 1 from ‘void’ to ‘const std::_Rb_tree_iterator<std::pair<const unsigned int, double> >&’
-In file included from testmain.cpp:4:
-poly.hpp: In instantiation of ‘void Polynomial<NumT>::simplify() [with NumT = std::complex<double>]’:
-poly.hpp:48:5:   required from ‘void Polynomial<NumT>::addTerm(const NumT&, unsigned int) [with NumT = std::complex<double>]’
-testmain.cpp:83:14:   required from here
-poly.hpp:20:12: error: no match for ‘operator=’ (operand types are ‘std::map<unsigned int, std::complex<double>, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, std::complex<double> > > >::iterator’ {aka ‘std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::complex<double> >, std::_Select1st<std::pair<const unsigned int, std::complex<double> > >, std::less<unsigned int>, std::allocator<std::pair<const unsigned int, std::complex<double> > > >::iterator’} and ‘void’)
-   20 |         it = terms.erase(it);  // Erase the current element and update iterator
-      |         ~~~^~~~~~~~~~~~~~~~~
-In file included from /usr/include/c++/11/map:60,
-                 from poly.hpp:6,
-                 from testmain.cpp:4:
-/usr/include/c++/11/bits/stl_tree.h:256:12: note: candidate: ‘std::_Rb_tree_iterator<std::pair<const unsigned int, std::complex<double> > >& std::_Rb_tree_iterator<std::pair<const unsigned int, std::complex<double> > >::operator=(const std::_Rb_tree_iterator<std::pair<const unsigned int, std::complex<double> > >&)’
-  256 |     struct _Rb_tree_iterator
-      |            ^~~~~~~~~~~~~~~~~
-/usr/include/c++/11/bits/stl_tree.h:256:12: note:   no known conversion for argument 1 from ‘void’ to ‘const std::_Rb_tree_iterator<std::pair<const unsigned int, std::complex<double> > >&’
-g++ failed
 
-Overall Grade: FAILED
+Overall Grade: PASSED
