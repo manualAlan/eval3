@@ -1,5 +1,6 @@
 #ifndef POLY_HPP
 #define POLY_HPP
+
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -10,6 +11,22 @@ template<typename NumT>
 class Polynomial {
  private:
   std::map<unsigned, NumT> terms;  // Key: exponent, Value: coefficient
+
+  // Helper function to remove zero terms and simplify
+  void simplify() {
+    typename std::map<unsigned, NumT>::iterator it = terms.begin();
+    while (it != terms.end()) {
+      if (it->second == NumT()) {
+        it = terms.erase(it);  // Erase the current element and update iterator
+      }
+      else {
+        ++it;  // Move to the next element
+      }
+    }
+    if (terms.empty()) {
+      terms[0] = NumT();  // Ensure the polynomial is "0" if all terms are removed
+    }
+  }
 
  public:
   // Default constructor
@@ -28,13 +45,16 @@ class Polynomial {
     else if (c != NumT()) {
       terms[p] = c;
     }
+    simplify();
   }
 
   // Negation operator
   Polynomial operator-() const {
     Polynomial result;
-    for (const std::pair<const unsigned, NumT> & term : terms) {
-      result.terms[term.first] = -term.second;
+    for (typename std::map<unsigned, NumT>::const_iterator it = terms.begin();
+         it != terms.end();
+         ++it) {
+      result.terms[it->first] = -it->second;
     }
     return result;
   }
@@ -42,9 +62,12 @@ class Polynomial {
   // Addition operator
   Polynomial operator+(const Polynomial & rhs) const {
     Polynomial result(*this);
-    for (const std::pair<const unsigned, NumT> & term : rhs.terms) {
-      result.addTerm(term.second, term.first);
+    for (typename std::map<unsigned, NumT>::const_iterator it = rhs.terms.begin();
+         it != rhs.terms.end();
+         ++it) {
+      result.addTerm(it->second, it->first);
     }
+    result.simplify();
     return result;
   }
 
@@ -54,22 +77,30 @@ class Polynomial {
   // Scalar multiplication
   Polynomial operator*(const NumT & n) const {
     Polynomial result;
-    for (const std::pair<const unsigned, NumT> & term : terms) {
-      result.terms[term.first] = term.second * n;
+    for (typename std::map<unsigned, NumT>::const_iterator it = terms.begin();
+         it != terms.end();
+         ++it) {
+      result.terms[it->first] = it->second * n;
     }
+    result.simplify();
     return result;
   }
 
   // Polynomial multiplication
   Polynomial operator*(const Polynomial & rhs) const {
     Polynomial result;
-    for (const std::pair<const unsigned, NumT> & term1 : terms) {
-      for (const std::pair<const unsigned, NumT> & term2 : rhs.terms) {
-        unsigned new_exp = term1.first + term2.first;
-        NumT new_coeff = term1.second * term2.second;
+    for (typename std::map<unsigned, NumT>::const_iterator it1 = terms.begin();
+         it1 != terms.end();
+         ++it1) {
+      for (typename std::map<unsigned, NumT>::const_iterator it2 = rhs.terms.begin();
+           it2 != rhs.terms.end();
+           ++it2) {
+        unsigned new_exp = it1->first + it2->first;
+        NumT new_coeff = it1->second * it2->second;
         result.addTerm(new_coeff, new_exp);
       }
     }
+    result.simplify();
     return result;
   }
 
