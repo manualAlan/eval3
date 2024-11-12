@@ -1,13 +1,9 @@
 #include <assert.h>
 
 #include <cstdlib>
-#include <ctime>
-#include <fstream>
 #include <iostream>
 
 #include "il.hpp"
-
-const char * stateFileName = "test_run_state.txt";
 
 class Tester {
  public:
@@ -94,11 +90,6 @@ class Tester {
 };
 
 int main() {
-  // Check if the program has run before by reading the state file
-  std::ifstream infile(stateFileName);
-  bool isFirstRun = !infile.good();  //first run if file doesn't exist
-  infile.close();
-
   Tester t;
   t.testDefCtor();
   t.testAddFront();
@@ -111,17 +102,6 @@ int main() {
   t.testFind();
   t.testGetSize();
 
-  if (isFirstRun) {
-    std::cout << "All tests passed!" << std::endl;
-    std::ofstream outfile(stateFileName);
-    outfile << "run";
-    outfile.close();
-    return EXIT_SUCCESS;
-  }
-  else {
-    //
-    std::cerr << "Assertion failed: simulated test failure on subsequent run."
-              << std::endl;
-    assert(false);
-  }
+  std::cout << "All tests passed!" << std::endl;
+  return EXIT_SUCCESS;
 }
