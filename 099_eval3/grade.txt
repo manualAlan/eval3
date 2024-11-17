@@ -1,0 +1,48 @@
+Grading at 11/17/2024:22:42:02.917764
+For commit ID ad4c9eea1f5b5632584151b851498396d99d5222
+Grading at Sun Nov 17 05:41:58 PM EST 2024
+Doing make clean
+rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
+Running your test cases
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships0.txt 
+-------------------------
+I need to compile your code for ships-step1 (make ships-step1)
+
+Compiling ships-step1
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step1 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step1.cpp ship.o utilfunc.o
+rm ship.o utilfunc.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+**step1 basic tests passed for bm350 at 1731883322** : 19d79566f6d652eaa2f86e6c3178ae17a690560b  -
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
+
+Overall Grade: NO GRADE YET
