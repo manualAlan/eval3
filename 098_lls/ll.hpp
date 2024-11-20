@@ -5,6 +5,7 @@
 
 #include <cstdlib>
 #include <exception>
+#include <stdexcept>
 template<typename T>
 class LinkedList {
  private:
