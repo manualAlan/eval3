@@ -1,0 +1,44 @@
+Grading at 11/20/2024:14:17:16.025196
+For commit ID b878b73bdf11a46d19a08d5d3c647da5a8e5c0ba
+Grading at Wed Nov 20 09:17:15 AM EST 2024
+-----------------------------------------------
+testcase 1 : Testing with LinkedList<int>
+...compiling...
+In file included from tester.cpp:1:
+ll.hpp: In member function ‘T& LinkedList<T>::operator[](int)’:
+ll.hpp:130:18: error: ‘out_of_range’ is not a member of ‘std’
+  130 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const’:
+ll.hpp:139:18: error: ‘out_of_range’ is not a member of ‘std’
+  139 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with LinkedList<std::string>
+...compiling...
+In file included from tester.cpp:1:
+ll.hpp: In member function ‘T& LinkedList<T>::operator[](int)’:
+ll.hpp:130:18: error: ‘out_of_range’ is not a member of ‘std’
+  130 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const’:
+ll.hpp:139:18: error: ‘out_of_range’ is not a member of ‘std’
+  139 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with LinkedList<(a custom class we wrote)>
+...compiling...
+In file included from tester.cpp:1:
+ll.hpp: In member function ‘T& LinkedList<T>::operator[](int)’:
+ll.hpp:130:18: error: ‘out_of_range’ is not a member of ‘std’
+  130 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+ll.hpp: In member function ‘const T& LinkedList<T>::operator[](int) const’:
+ll.hpp:139:18: error: ‘out_of_range’ is not a member of ‘std’
+  139 |       throw std::out_of_range("invalid index");
+      |                  ^~~~~~~~~~~~
+The code did not compile.  This test failed.
+
+Overall Grade: F
