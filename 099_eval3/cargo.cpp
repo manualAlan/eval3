@@ -1,5 +1,6 @@
-#include "cargos.hpp"
+#include "cargo.hpp"
 
+#include <cstdlib>  // For strtoull
 #include <sstream>
 
 Cargo::Cargo(const std::string & line) {
@@ -9,7 +10,7 @@ Cargo::Cargo(const std::string & line) {
   std::getline(iss, destination, ',');
   std::string weightStr;
   std::getline(iss, weightStr, ',');
-  weight = std::strtoull(weightStr.c_str(), NULL, 10);
+  weight = strtoull(weightStr.c_str(), NULL, 10);
 
   std::string property;
   while (std::getline(iss, property, ',')) {
