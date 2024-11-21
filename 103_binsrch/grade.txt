@@ -1,19 +1,19 @@
-Grading at 11/21/2024:21:13:41.828409
-For commit ID 95686461fb7712b49070e9371f19dbfa1facc384
-Grading at Thu Nov 21 04:13:36 PM EST 2024
+Grading at 11/21/2024:21:17:47.684233
+For commit ID 63436a9066797c285b1ffed38b893f496803017f
+Grading at Thu Nov 21 04:17:42 PM EST 2024
 Stripping out any main you may have written, and compiling...
 Testcase 1
 -----------------
-  - You got the wrong result
-  - Test Failed
+  - You got the correct result in 17 steps (correct is 17)
+  - Test Passed
 Testcase 2
 -----------------
   - You got the correct result in 16 steps (correct is 15)
   - Test Passed
 Testcase 3
 -----------------
-  - You got the wrong result
-  - Test Failed
+  - You got the correct result in 17 steps (correct is 17)
+  - Test Passed
 Testcase 4
 -----------------
   - You got the correct result in 0 steps (correct is 0)
@@ -28,7 +28,7 @@ Testcase 6
   - Test Passed
 Testcase 7
 -----------------
-  - You got the wrong result
-  - Test Failed
+  - You got the correct result in 3 steps (correct is 4)
+  - Test Passed
 
-Overall Grade: F
+Overall Grade: A
