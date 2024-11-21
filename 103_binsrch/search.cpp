@@ -5,20 +5,22 @@
 #include "function.h"
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
-  while (low < high) {
-    int mid = (low + high) / 2;  // Implicit floor division for integers
-    int result = f->invoke(mid);
-    //printf("low:%d, high:%d, mid:%d, result:%d\n", low, high, mid, result);
+  int start = low;
+  int end = high;
+  while (start < end) {
+    int middle = floor((start + end) / 2.0);
+    int value = f->invoke(middle);
+    //printf("start:%d, end:%d, middle:%d, value:%d\n", start, end, middle, value);
 
-    if (result == 0) {
-      return mid;
+    if (value == 0) {
+      return middle;
     }
-    if (result < 0) {
-      low = mid + 1;
+    else if (value < 0) {
+      start = middle + 1;
     }
     else {
-      high = mid;
+      end = middle;
     }
   }
-  return (low - 1 >= low) ? (low - 1) : low;
+  return (start - 1 < low) ? start : start - 1;
 }
