@@ -1,6 +1,6 @@
-Grading at 11/17/2024:22:42:02.917764
-For commit ID ad4c9eea1f5b5632584151b851498396d99d5222
-Grading at Sun Nov 17 05:41:58 PM EST 2024
+Grading at 11/25/2024:20:16:14.655549
+For commit ID c3cb088e1283b92c80e6ad20812d38f2faaf89bd
+Grading at Mon Nov 25 03:16:07 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -29,8 +29,10 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the three test cases for step 1 early start EC **
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+(Luthadel -> Midgar) has total capacity 1700		      |	(Luthadel -> Midgar) has total capacity 3940
+Your file did not match the expected output
 -------------------------
  This test case will run 
  ships-step1 
@@ -39,10 +41,50 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
+We both agreed this was not an error, but your output is different from ours
+Your output on the left, ours on the right
+(Elantris -> Luthadel) has total capacity 2950		      |	(Elantris -> Luthadel) has total capacity 5930
+(Elantris -> Midgar) has total capacity 3550		      |	(Elantris -> Midgar) has total capacity 5350
+(Elantris -> Mordor) has total capacity 8750		      |	(Elantris -> Mordor) has total capacity 12430
+(Elantris -> Sarth) has total capacity 1400		      |	(Elantris -> Sarth) has total capacity 2200
+(Luthadel -> Elantris) has total capacity 2350		      |	(Luthadel -> Elantris) has total capacity 2880
+(Luthadel -> Midgar) has total capacity 6050		      |	(Luthadel -> Midgar) has total capacity 10120
+(Luthadel -> Mordor) has total capacity 12600		      |	(Luthadel -> Mordor) has total capacity 19130
+(Luthadel -> Sarth) has total capacity 7300		      |	(Luthadel -> Sarth) has total capacity 8740
+(Midgar -> Elantris) has total capacity 9700		      |	(Midgar -> Elantris) has total capacity 13290
+(Midgar -> Luthadel) has total capacity 18150		      |	(Midgar -> Luthadel) has total capacity 23900
+(Midgar -> Mordor) has total capacity 11650		      |	(Midgar -> Mordor) has total capacity 18590
+(Midgar -> Sarth) has total capacity 9600		      |	(Midgar -> Sarth) has total capacity 10090
+(Mordor -> Elantris) has total capacity 5950		      |	(Mordor -> Elantris) has total capacity 10490
+(Mordor -> Luthadel) has total capacity 12900		      |	(Mordor -> Luthadel) has total capacity 19690
+(Mordor -> Midgar) has total capacity 21050		      |	(Mordor -> Midgar) has total capacity 27960
+(Mordor -> Sarth) has total capacity 4850		      |	(Mordor -> Sarth) has total capacity 7440
+(Sarth -> Elantris) has total capacity 1000		      |	(Sarth -> Elantris) has total capacity 3300
+(Sarth -> Luthadel) has total capacity 13000		      |	(Sarth -> Luthadel) has total capacity 15960
+(Sarth -> Midgar) has total capacity 4500		      |	(Sarth -> Midgar) has total capacity 8260
+(Sarth -> Mordor) has total capacity 2150		      |	(Sarth -> Mordor) has total capacity 3620
+Your file did not match the expected output
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ inputs/ships0.txt inputs/cargo0.txt 
+-------------------------
+I need to compile your code for ships-step2 (make ships-step2)
+
+Compiling ships-step2
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step2 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step2.cpp ship.o utilfunc.o
+rm ship.o utilfunc.o
+Running our code...
+Running your code
 We agreed on this testcase and valgrind was clean
- *** This is one of the three test cases for step 1 early start EC **
+ *** This is the test case for step 2 early start EC **
+You have already pass the basic tests for step1:
 **step1 basic tests passed for bm350 at 1731883322** : 19d79566f6d652eaa2f86e6c3178ae17a690560b  -
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+**step2 basic tests passed for bm350 at 1732565774** : a752583782036806c49126a4a3451c0d388abd6e  -
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
