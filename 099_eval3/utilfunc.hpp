@@ -1,22 +1,22 @@
 #ifndef UTILFUNC_HPP
 #define UTILFUNC_HPP
 
-#include <map>
-#include <set>
 #include <string>
 #include <vector>
 
-#include "cargo.hpp"
 #include "ship.hpp"
+// Function to read ships from an input file
+void readShips(const std::string & filename, Fleet & fleet);
 
-void parseShipFile(
-    const std::string & filename,
-    std::map<std::pair<std::string, std::string>, uint64_t> & routeCapacity,
-    std::set<std::string> & shipNames);
+// Function to read cargo from an input file
+std::vector<Cargo> readCargo(const std::string & filename);
 
-std::vector<Cargo> parseCargoFile(const std::string & filename);
+// Function to compare ships by name
+bool shipCompare(Ship * a, Ship * b);
 
-void printRouteCapacities(
-    const std::map<std::pair<std::string, std::string>, uint64_t> & routeCapacity);
+// Find eligible ships for a given cargo
+std::vector<Ship *> findEligibleShips(const Cargo & cargo, const Fleet & fleet);
 
+// Process and load cargo onto ships
+void processCargo(const std::vector<Cargo> & cargoList, Fleet & fleet);
 #endif

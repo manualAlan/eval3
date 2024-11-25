@@ -1,23 +1,20 @@
 #include <cstdlib>
 #include <iostream>
-#include <map>
-#include <set>
-#include <string>
 
+#include "ship.hpp"
 #include "utilfunc.hpp"
-
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    std::cerr << "incorrect number of arguments" << std::endl;
-    exit(EXIT_FAILURE);
+    std::cerr << "wrong input" << std::endl;
+    return EXIT_FAILURE;
   }
+  Fleet fleet;
 
-  std::string filename = argv[1];
-  std::map<std::pair<std::string, std::string>, uint64_t> routeCapacity;
-  std::set<std::string> shipNames;
-
-  parseShipFile(filename, routeCapacity, shipNames);
-  printRouteCapacities(routeCapacity);
+  //read ships from the file
+  readShips(argv[1], fleet);
+  //compute and print route capacity
+  fleet.computeRouteCapacities();
+  fleet.printRouteCapacities();
 
   return 0;
 }

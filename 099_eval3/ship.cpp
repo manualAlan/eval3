@@ -1,7 +1,43 @@
 #include "ship.hpp"
 
-#include <cstdlib>  // For strtoul
+#include <stdint.h>
+
+#include <algorithm>
+#include <iostream>
 #include <sstream>
+#include <stdexcept>
+
+Cargo::Cargo(const std::string & name,
+             const std::string & source,
+             const std::string & destination,
+             uint64_t weight,
+             const std::vector<std::string> & properties) :
+    name(name),
+    source(source),
+    destination(destination),
+    weight(weight),
+    properties(properties) {
+}
+
+const std::string & Cargo::getName() const {
+  return name;
+}
+
+const std::string & Cargo::getSource() const {
+  return source;
+}
+
+const std::string & Cargo::getDestination() const {
+  return destination;
+}
+
+uint64_t Cargo::getWeight() const {
+  return weight;
+}
+
+const std::vector<std::string> & Cargo::getProperties() const {
+  return properties;
+}
 
 Ship::Ship(const std::string & name,
            const std::string & typeInfo,
@@ -13,85 +49,135 @@ Ship::Ship(const std::string & name,
     source(source),
     destination(destination),
     capacity(capacity),
-    usedCapacity(0),
-    slots(0),
-    usedSlots(0) {
-  if (typeInfo.find("Container") == 0) {
-    size_t commaPos = typeInfo.find(',', 9);
-    if (commaPos != std::string::npos) {
-      slots = strtoul(typeInfo.substr(9, commaPos - 9).c_str(), NULL, 10);
-    }
-    std::string capabilityList = typeInfo.substr(commaPos + 1);
-    std::istringstream iss(capabilityList);
-    std::string capability;
-    while (std::getline(iss, capability, ',')) {
-      hazmatCapabilities.insert(capability);
-    }
-  }
+    usedCapacity(0) {
 }
-
+//virtual uint64_t getCapacity() const { return capacity; }
 const std::string & Ship::getName() const {
   return name;
 }
+
 const std::string & Ship::getSource() const {
   return source;
 }
+
 const std::string & Ship::getDestination() const {
   return destination;
 }
-uint64_t Ship::getCapacity() const {
-  return capacity;
-}
-uint64_t Ship::getUsedCapacity() const {
-  return usedCapacity;
-}
-size_t Ship::getSlots() const {
-  return slots;
-}
-size_t Ship::getUsedSlots() const {
-  return usedSlots;
+
+ContainerShip::ContainerShip(const std::string & name,
+                             const std::string & typeInfo,
+                             const std::string & source,
+                             const std::string & destination,
+                             uint64_t capacity,
+                             unsigned int slots,
+                             const std::vector<std::string> & hazmatCapabilities) :
+    Ship(name, typeInfo, source, destination, capacity),
+    slots(slots),
+    hazmatCapabilities(hazmatCapabilities) {
 }
 
-std::pair<std::string, std::string> Ship::getRoute() const {
-  return std::make_pair(source, destination);
-}
+bool ContainerShip::canCarry(const Cargo & cargo) const {
+  if (cargo.getSource() != source || cargo.getDestination() != destination) {
+    return false;
+  }
 
-bool Ship::canCarryCargo(const std::string & cargoSource,
-                         const std::string & cargoDestination,
-                         uint64_t cargoWeight,
-                         const std::set<std::string> & cargoProperties) const {
-  if (source != cargoSource || destination != cargoDestination) {
+  if (std::find(cargo.getProperties().begin(),
+                cargo.getProperties().end(),
+                "container") == cargo.getProperties().end()) {
     return false;
   }
-  if (usedCapacity + cargoWeight > capacity) {
+
+  if (usedCapacity + cargo.getWeight() > capacity) {
     return false;
   }
-  if (usedSlots >= slots) {
+
+  if (loadedCargo.size() >= slots) {
     return false;
   }
-  if (cargoProperties.count("container") == 0) {
-    return false;
-  }
-  for (std::set<std::string>::const_iterator it = cargoProperties.begin();
-       it != cargoProperties.end();
+
+  for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
+       it != cargo.getProperties().end();
        ++it) {
-    if (it->find("hazardous-") == 0 &&
-        hazmatCapabilities.find(it->substr(10)) == hazmatCapabilities.end()) {
-      return false;
+    if (it->find("hazardous-") == 0) {
+      std::string hazmatType = it->substr(10);  // Remove "hazardous-"
+      if (std::find(hazmatCapabilities.begin(), hazmatCapabilities.end(), hazmatType) ==
+          hazmatCapabilities.end()) {
+        return false;
+      }
     }
   }
+
   return true;
 }
 
-void Ship::loadCargo(uint64_t cargoWeight) {
-  usedCapacity += cargoWeight;
-  usedSlots += 1;
+void ContainerShip::loadCargo(const Cargo & cargo) {
+  loadedCargo.push_back(cargo);
+  usedCapacity += cargo.getWeight();
+}
+void ContainerShip::printDetails() const {
+  std::cout << "The Container Ship " << name << "(" << usedCapacity << "/" << capacity
+            << ") is carrying : " << std::endl;
+  for (std::vector<Cargo>::const_iterator it = loadedCargo.begin();
+       it != loadedCargo.end();
+       ++it) {
+    std::cout << "  " << it->getName() << "(" << it->getWeight() << ")" << std::endl;
+  }
+  std::cout << "  (" << slots - loadedCargo.size() << ") slots remain" << std::endl;
 }
 
-std::string Ship::getDescription() const {
-  std::ostringstream oss;
-  oss << "The Container Ship " << name << "(" << usedCapacity << "/" << capacity
-      << ") is carrying:\n";
-  oss << "  (" << (slots - usedSlots) << ") slots remain";
-  return oss.str();
+// Fleet destructor
+Fleet::~Fleet() {
+  for (std::vector<Ship *>::iterator it = ships.begin(); it != ships.end(); ++it) {
+    delete *it;
+  }
+}
+
+void Fleet::addShip(Ship * ship) {
+  ships.push_back(ship);
+}
+
+void Fleet::computeRouteCapacities() {
+  routeCapacities.clear();
+  for (std::vector<Ship *>::const_iterator it = ships.begin(); it != ships.end(); ++it) {
+    std::pair<std::string, std::string> route((*it)->getSource(),
+                                              (*it)->getDestination());
+    routeCapacities[route] += (*it)->getCapacity();
+  }
+}
+
+void Fleet::printRouteCapacities() const {
+  for (std::map<std::pair<std::string, std::string>, uint64_t>::const_iterator it =
+           routeCapacities.begin();
+       it != routeCapacities.end();
+       ++it) {
+    std::cout << "(" << it->first.first << " -> " << it->first.second
+              << ") has total capacity " << it->second << std::endl;
+  }
+}
+
+void Fleet::loadCargo(const std::vector<Cargo> & cargoList) {
+  for (std::vector<Cargo>::const_iterator cargoIt = cargoList.begin();
+       cargoIt != cargoList.end();
+       ++cargoIt) {
+    bool loaded = false;
+    for (std::vector<Ship *>::iterator shipIt = ships.begin(); shipIt != ships.end();
+         ++shipIt) {
+      if ((*shipIt)->canCarry(*cargoIt)) {
+        std::cout << "**Loading the cargo onto " << (*shipIt)->getName() << "**\n";
+        (*shipIt)->loadCargo(*cargoIt);
+        loaded = true;
+        break;
+      }
+    }
+    if (!loaded) {
+      std::cout << "No ships can carry the " << cargoIt->getName() << " from "
+                << cargoIt->getSource() << " to " << cargoIt->getDestination() << "\n";
+    }
+  }
+}
+
+void Fleet::printShips() const {
+  for (std::vector<Ship *>::const_iterator it = ships.begin(); it != ships.end(); ++it) {
+    (*it)->printDetails();
+  }
 }

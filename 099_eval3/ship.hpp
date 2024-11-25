@@ -1,22 +1,42 @@
 #ifndef SHIP_HPP
 #define SHIP_HPP
 
-#include <stdint.h>  // For uint64_t
+#include <stdint.h>
 
-#include <set>
+#include <map>
 #include <string>
+#include <vector>
+
+class Cargo {
+ private:
+  std::string name;
+  std::string source;
+  std::string destination;
+  uint64_t weight;
+  std::vector<std::string> properties;
+
+ public:
+  Cargo(const std::string & name,
+        const std::string & source,
+        const std::string & destination,
+        uint64_t weight,
+        const std::vector<std::string> & properties);
+
+  const std::string & getName() const;
+  const std::string & getSource() const;
+  const std::string & getDestination() const;
+  uint64_t getWeight() const;
+  const std::vector<std::string> & getProperties() const;
+};
 
 class Ship {
- private:
+ protected:
   std::string name;
   std::string typeInfo;
   std::string source;
   std::string destination;
   uint64_t capacity;
   uint64_t usedCapacity;
-  size_t slots;
-  size_t usedSlots;
-  std::set<std::string> hazmatCapabilities;
 
  public:
   Ship(const std::string & name,
@@ -24,21 +44,53 @@ class Ship {
        const std::string & source,
        const std::string & destination,
        uint64_t capacity);
+  virtual uint64_t getCapacity() const { return capacity; }
+  virtual ~Ship() {}
+
+  virtual bool canCarry(const Cargo & cargo) const = 0;
+  virtual void loadCargo(const Cargo & cargo) = 0;
 
   const std::string & getName() const;
   const std::string & getSource() const;
   const std::string & getDestination() const;
-  uint64_t getCapacity() const;
-  uint64_t getUsedCapacity() const;
-  size_t getSlots() const;
-  size_t getUsedSlots() const;
-  std::pair<std::string, std::string> getRoute() const;
-  bool canCarryCargo(const std::string & cargoSource,
-                     const std::string & cargoDestination,
-                     uint64_t cargoWeight,
-                     const std::set<std::string> & cargoProperties) const;
-  void loadCargo(uint64_t cargoWeight);
-  std::string getDescription() const;
+
+  virtual void printDetails() const = 0;
+};
+
+class ContainerShip : public Ship {
+ private:
+  unsigned int slots;
+  std::vector<std::string> hazmatCapabilities;
+  std::vector<Cargo> loadedCargo;
+
+ public:
+  ContainerShip(const std::string & name,
+                const std::string & typeInfo,
+                const std::string & source,
+                const std::string & destination,
+                uint64_t capacity,
+                unsigned int slots,
+                const std::vector<std::string> & hazmatCapabilities);
+
+  virtual bool canCarry(const Cargo & cargo) const;
+  virtual void loadCargo(const Cargo & cargo);
+  virtual void printDetails() const;
+};
+
+//dleet class to manage a collection of ships
+class Fleet {
+ private:
+  std::vector<Ship *> ships;
+  std::map<std::pair<std::string, std::string>, uint64_t> routeCapacities;
+
+ public:
+  ~Fleet();
+  const std::vector<Ship *> & getShips() const { return ships; }
+  void addShip(Ship * ship);
+  void computeRouteCapacities();
+  void printRouteCapacities() const;
+  void loadCargo(const std::vector<Cargo> & cargoList);  //Step 2
+  void printShips() const;
 };
 
 #endif
