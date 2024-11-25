@@ -11,7 +11,7 @@
 void readShips(const std::string & filename, Fleet & fleet) {
   std::ifstream file(filename.c_str());
   if (!file) {
-    std::cerr << "could not open file " << filename << std::endl;
+    std::cerr << "Error: Could not open file " << filename << std::endl;
     std::exit(EXIT_FAILURE);
   }
 
@@ -21,7 +21,6 @@ void readShips(const std::string & filename, Fleet & fleet) {
     std::string name, typeInfo, source, destination;
     uint64_t capacity;
 
-    //parse the ship details from the line
     std::getline(iss, name, ':');
     std::getline(iss, typeInfo, ':');
     std::getline(iss, source, ':');
@@ -31,14 +30,10 @@ void readShips(const std::string & filename, Fleet & fleet) {
       std::exit(EXIT_FAILURE);
     }
 
-    if (typeInfo.find("Container") ==
-        0) {  //if the ship is a ContainerShip, parse additional details
+    if (typeInfo.find("Container") == 0) {
       std::istringstream typeStream(typeInfo);
-      std::string type;
-      std::string slotsStr;
-
-      std::string hazmatStr;
-      std::getline(typeStream, type, ',');  //parse container detail
+      std::string type, slotsStr, hazmatStr;
+      std::getline(typeStream, type, ',');
       std::getline(typeStream, slotsStr, ',');
       unsigned int slots = std::strtol(slotsStr.c_str(), NULL, 10);
 
@@ -49,7 +44,51 @@ void readShips(const std::string & filename, Fleet & fleet) {
 
       fleet.addShip(new ContainerShip(
           name, typeInfo, source, destination, capacity, slots, hazmatCapabilities));
-    }  //create a new ContainerShip and add it to the fleet
+    }
+    else if (typeInfo.find("Tanker") == 0) {
+      std::istringstream typeStream(typeInfo);
+      std::string type;
+      int minTemp, maxTemp;
+      unsigned int tanks;
+      std::string hazmatStr;
+
+      std::getline(typeStream, type, ',');
+      typeStream >> minTemp;
+      typeStream.ignore(1, ',');
+      typeStream >> maxTemp;
+      typeStream.ignore(1, ',');
+      typeStream >> tanks;
+
+      std::vector<std::string> hazmatCapabilities;
+      while (std::getline(typeStream, hazmatStr, ',')) {
+        hazmatCapabilities.push_back(hazmatStr);
+      }
+
+      fleet.addShip(new Tanker(name,
+                               typeInfo,
+                               source,
+                               destination,
+                               capacity,
+                               minTemp,
+                               maxTemp,
+                               tanks,
+                               hazmatCapabilities));
+    }
+    else if (typeInfo.find("Animals") == 0) {
+      std::istringstream typeStream(typeInfo);
+      std::string type;
+      unsigned int smallThreshold;
+
+      std::getline(typeStream, type, ',');
+      typeStream >> smallThreshold;
+
+      fleet.addShip(
+          new AnimalShip(name, typeInfo, source, destination, capacity, smallThreshold));
+    }
+    else {
+      std::cerr << "Error: Unknown ship type in line: " << line << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
   }
 }
 
