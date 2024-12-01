@@ -219,17 +219,15 @@ void Tanker::loadCargo(const Cargo & cargo) {
   usedCapacity += cargo.getWeight();
   loadedCargo.push_back(cargo);
 }
-
 void Tanker::printDetails() const {
   std::cout << "The Tanker Ship " << name << "(" << usedCapacity << "/" << capacity
-            << ") is carrying :" << std::endl;
+            << ") is carrying : " << std::endl;
   for (std::vector<Cargo>::const_iterator it = loadedCargo.begin();
        it != loadedCargo.end();
        ++it) {
     std::cout << "  " << it->getName() << "(" << it->getWeight() << ")" << std::endl;
   }
-  std::cout << "  (" << loadedCargo.size() << " / " << tanks << " tanks used)"
-            << std::endl;
+  std::cout << "  " << loadedCargo.size() << " / " << tanks << " tanks used" << std::endl;
 }
 
 //////////////// AnimalShip methods//////////////////
@@ -279,10 +277,9 @@ void AnimalShip::loadCargo(const Cargo & cargo) {
     hasRoamer = true;
   }
 }
-
 void AnimalShip::printDetails() const {
   std::cout << "The Animals Ship " << name << "(" << usedCapacity << "/" << capacity
-            << ") is carrying :" << std::endl;
+            << ") is carrying : " << std::endl;
   for (std::vector<Cargo>::const_iterator it = loadedCargo.begin();
        it != loadedCargo.end();
        ++it) {
