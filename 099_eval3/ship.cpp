@@ -53,7 +53,7 @@ Ship::Ship(const std::string & name,
     usedCapacity(0) {
 }
 uint64_t Ship::getCapacity() const {
-  std::cout << "1" << std::endl;
+  // std::cout << "1" << std::endl;
   return capacity;
 }
 const std::string & Ship::getName() const {
