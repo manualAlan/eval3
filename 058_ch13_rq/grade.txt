@@ -1,6 +1,0 @@
-Grading at 10/09/2024:13:02:34.654614
-For commit ID ec4a471870a6e77a64448d74d39e4835bfe4be0b
-Grading at Wed Oct  9 09:02:34 AM EDT 2024
-Reading your quiz answers from answers.txt
-
-Overall Grade: PASSED

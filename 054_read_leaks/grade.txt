@@ -1,9 +1,0 @@
-Grading at 10/09/2024:00:08:18.360316
-For commit ID f22c445a5240a962f20bac3c9002c863e5435686
-Grading at Tue Oct  8 08:08:17 PM EDT 2024
-Your file matched the expected output
-Your output matched what we expected
-Attempting to compile test.c
-valgrind was clean
-
-Overall Grade: A

@@ -1,6 +1,0 @@
-Grading at 08/28/2024:19:00:23.269909
-For commit ID 28c87031e2147c394b542615b97fad3659afa36a
-Grading at Wed Aug 28 03:00:23 PM EDT 2024
-Your file matched the expected output
-
-Overall Grade: PASSED
