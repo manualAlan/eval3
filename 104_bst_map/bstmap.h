@@ -7,130 +7,115 @@
 template<typename K, typename V>
 class BstMap : public Map<K, V> {
  private:
-  class Node {
-   public:
+  struct Node {
     K key;
     V value;
-    Node * left;
-    Node * right;
-    Node() : key(0), value(0), left(NULL), right(NULL) {}
-    Node(K k, V v) : key(k), value(v), left(NULL), right(NULL) {}
-    Node(const Node & rhs) : key(rhs.key), value(rhs.value), left(NULL), right(NULL) {}
+    Node *left, *right;
+
+    Node() : key(0), value(0), left(nullptr), right(nullptr) {}
+    Node(K k, V v) : key(k), value(v), left(nullptr), right(nullptr) {}
+    Node(const Node & rhs) :
+        key(rhs.key), value(rhs.value), left(nullptr), right(nullptr) {}
   };
 
   Node * root;
 
-  void removeNodes(Node * node) {
-    if (node == NULL)
+  void clear(Node * node) {
+    if (!node)
       return;
-    removeNodes(node->left);
-    removeNodes(node->right);
+    clear(node->left);
+    clear(node->right);
     delete node;
   }
 
-  Node * removeNode(Node * node, K key) {
-    if (node == NULL)
-      return NULL;
+  Node * remove(Node * node, K key) {
+    if (!node)
+      return nullptr;
     if (key == node->key) {
-      if (node->left == NULL && node->right == NULL) {
+      if (!node->left && !node->right) {
         delete node;
-        return NULL;
+        return nullptr;
       }
-      if (node->left == NULL) {
-        Node * tmp = node->right;
+      if (!node->left) {
+        Node * temp = node->right;
         delete node;
-        return tmp;
+        return temp;
       }
-      if (node->right == NULL) {
-        Node * tmp = node->left;
+      if (!node->right) {
+        Node * temp = node->left;
         delete node;
-        return tmp;
+        return temp;
       }
     }
-    node->left = removeNode(node->left, key);
-    node->right = removeNode(node->right, key);
+    node->left = remove(node->left, key);
+    node->right = remove(node->right, key);
     return node;
   }
 
-  Node * findNode(const K & key) {
-    Node ** nodePtr = &root;
-    while (*nodePtr != NULL) {
-      if ((*nodePtr)->key == key)
-        return *nodePtr;
-      nodePtr = (key > (*nodePtr)->key) ? &((*nodePtr)->right) : &((*nodePtr)->left);
+  Node * find(Node * node, const K & key) const {
+    while (node) {
+      if (key == node->key)
+        return node;
+      node = key > node->key ? node->right : node->left;
     }
-    return NULL;
+    return nullptr;
   }
 
-  void printNode(Node * node) const {
-    if (node == NULL)
-      return;
-    std::cout << node->key << " ";
-    printNode(node->left);
-    printNode(node->right);
-  }
-
-  Node * copyNodes(Node * node) const {
-    if (node == NULL)
-      return NULL;
+  Node * copy(Node * node) const {
+    if (!node)
+      return nullptr;
     Node * newNode = new Node(*node);
-    newNode->left = copyNodes(node->left);
-    newNode->right = copyNodes(node->right);
+    newNode->left = copy(node->left);
+    newNode->right = copy(node->right);
     return newNode;
   }
 
  public:
-  BstMap() : root(NULL) {}
-  BstMap(const BstMap & rhs) : root(NULL) { root = copyNodes(rhs.root); }
+  BstMap() : root(nullptr) {}
+
+  BstMap(const BstMap & rhs) : root(copy(rhs.root)) {}
+
   BstMap & operator=(const BstMap & rhs) {
-    if (&rhs != this) {
-      Node * newRoot = copyNodes(rhs.root);
-      removeNodes(root);
+    if (this != &rhs) {
+      Node * newRoot = copy(rhs.root);
+      clear(root);
       root = newRoot;
     }
     return *this;
   }
 
-  virtual void add(const K & key, const V & value) {
-    Node ** nodePtr = &root;
-    while (true) {
-      if (*nodePtr == NULL) {
-        *nodePtr = new Node(key, value);
+  void add(const K & key, const V & value) override {
+    Node ** node = &root;
+    while (*node) {
+      if ((*node)->key == key) {
+        (*node)->value = value;
         return;
       }
-      if ((*nodePtr)->key == key) {
-        (*nodePtr)->value = value;
-        return;
-      }
-      nodePtr = (key > (*nodePtr)->key) ? &((*nodePtr)->right) : &((*nodePtr)->left);
+      node = key > (*node)->key ? &(*node)->right : &(*node)->left;
     }
+    *node = new Node(key, value);
   }
 
-  virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
-    Node * const * nodePtr = &root;
-    while (*nodePtr != NULL) {
-      if ((*nodePtr)->key == key)
-        return (*nodePtr)->value;
-      nodePtr = (key > (*nodePtr)->key) ? &((*nodePtr)->right) : &((*nodePtr)->left);
-    }
-    throw std::invalid_argument("key not found");
+  const V & lookup(const K & key) const override {
+    Node * node = find(root, key);
+    if (!node)
+      throw std::invalid_argument("key not found");
+    return node->value;
   }
 
-  virtual void remove(const K & key) {
-    Node * node = findNode(key);
-    if (node == NULL)
+  void remove(const K & key) override {
+    Node * node = find(root, key);
+    if (!node)
       return;
     if (node->left && node->right) {
       Node * swapNode = node->left;
-      while (swapNode->right) {
+      while (swapNode->right)
         swapNode = swapNode->right;
-      }
       std::swap(node->key, swapNode->key);
       std::swap(node->value, swapNode->value);
-      node = swapNode;
     }
-    root = removeNode(root, key);
+    root = remove(root, key);
   }
 
-  virtual ~BstMap() { removeNodes(root); }
+  ~BstMap() override { clear(root); }
 };
