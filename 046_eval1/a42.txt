@@ -1,1 +1,0 @@
-0:Planet A:Planet B:10:5:0.0000001
