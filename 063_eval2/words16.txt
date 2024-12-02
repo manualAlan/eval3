@@ -1,7 +1,0 @@
-place:
-place:empty
-adjective:
-adjective:bright
-color:blue
-color:yellow
-color:

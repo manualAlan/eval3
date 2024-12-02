@@ -1,8 +1,0 @@
-animal:lion
-animal:tiger
-animal:elephant
-animal:giraffe
-adjective:fierce
-adjective:brave
-adjective:gentle
-adjective:curious

@@ -1,2 +1,0 @@
-animal:sea lion
-place:New York

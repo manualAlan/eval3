@@ -1,4 +1,0 @@
-animal: dog
-pets:dog
-dogs:dog
-

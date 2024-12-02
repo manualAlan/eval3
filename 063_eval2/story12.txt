@@ -1,2 +1,0 @@
-The sky is _color_.
-The _a1_ animal is running.

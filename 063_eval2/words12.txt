@@ -1,3 +1,0 @@
-color:red
-color:blue
-animal:dog
