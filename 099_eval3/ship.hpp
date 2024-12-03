@@ -21,7 +21,7 @@ class Cargo {
         const std::string & destination,
         uint64_t weight,
         const std::vector<std::string> & properties);
-
+  void setWeight(uint64_t newWeight);
   const std::string & getName() const;
   const std::string & getSource() const;
   const std::string & getDestination() const;
@@ -46,7 +46,7 @@ class Ship {
        uint64_t capacity);
   virtual uint64_t getCapacity() const;
   virtual ~Ship() {}
-
+  //virtual function every subclass have canCarry for <*Ship> use
   virtual bool canCarry(const Cargo & cargo) const = 0;
   virtual void loadCargo(const Cargo & cargo) = 0;
 
@@ -57,76 +57,6 @@ class Ship {
   virtual void printDetails() const = 0;
 };
 //////////////////////////////
-class ContainerShip : public Ship {
- private:
-  unsigned int slots;
-  std::vector<std::string> hazmatCapabilities;
-  std::vector<Cargo> loadedCargo;
-
- public:
-  ContainerShip(const std::string & name,
-                const std::string & typeInfo,
-                const std::string & source,
-                const std::string & destination,
-                uint64_t capacity,
-                unsigned int slots,
-                const std::vector<std::string> & hazmatCapabilities);
-
-  virtual bool canCarry(const Cargo & cargo) const;
-  virtual void loadCargo(const Cargo & cargo);
-  virtual void printDetails() const;
-};
-//////////////////////////////////////////
-class Tanker : public Ship {
- private:
-  int minTemp;
-  int maxTemp;
-  unsigned int tanks;
-  std::vector<std::string> hazmatCapabilities;
-  std::vector<Cargo> loadedCargo;
-
- public:
-  Tanker(const std::string & name,
-         const std::string & typeInfo,
-         const std::string & source,
-         const std::string & destination,
-         uint64_t capacity,
-         int minTemp,
-         int maxTemp,
-         unsigned int tanks,
-         const std::vector<std::string> & hazmatCapabilities) :
-      Ship(name, typeInfo, source, destination, capacity),
-      minTemp(minTemp),
-      maxTemp(maxTemp),
-      tanks(tanks),
-      hazmatCapabilities(hazmatCapabilities) {}
-
-  bool canCarry(const Cargo & cargo) const;
-  void loadCargo(const Cargo & cargo);
-  void printDetails() const;
-};
-////////////////////////////////////////////////
-class AnimalShip : public Ship {
- private:
-  unsigned int smallThreshold;
-  bool hasRoamer;
-  std::vector<Cargo> loadedCargo;
-
- public:
-  AnimalShip(const std::string & name,
-             const std::string & typeInfo,
-             const std::string & source,
-             const std::string & destination,
-             uint64_t capacity,
-             unsigned int smallThreshold) :
-      Ship(name, typeInfo, source, destination, capacity),
-      smallThreshold(smallThreshold),
-      hasRoamer(false) {}
-
-  bool canCarry(const Cargo & cargo) const;
-  void loadCargo(const Cargo & cargo);
-  void printDetails() const;
-};
 ////////////////////////////////////////////////
 //dleet class to manage a collection of ships
 class Fleet {

@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 
+#include "AnimalShip.hpp"
+#include "ContainerShip.hpp"
+#include "Tanker.hpp"
 #include "ship.hpp"
 // Function to read ships from an input file
 void readShips(const std::string & filename, Fleet & fleet);
