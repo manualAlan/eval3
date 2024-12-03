@@ -9,12 +9,15 @@
 
 #include "ship.hpp"
 bool Tanker::canCarry(const Cargo & cargo) const {
-  //source and destination match
+  //  std::cout << "Checking if ship '" << name << "' can carry cargo '" << cargo.getName()
+  //        << "'" << std::endl;
+
+  // Source and destination match
   if (cargo.getSource() != source || cargo.getDestination() != destination) {
     return false;
   }
 
-  // hazardous material rules
+  // Hazardous material rules
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
        ++it) {
@@ -26,27 +29,68 @@ bool Tanker::canCarry(const Cargo & cargo) const {
       }
     }
   }
-  //  "liquid" or "gas" property
-  if (std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "liquid") ==
-          cargo.getProperties().end() &&
-      std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "gas") ==
-          cargo.getProperties().end()) {
+
+  // "liquid" or "gas" property
+  bool isLiquid =
+      std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "liquid") !=
+      cargo.getProperties().end();
+  bool isGas =
+      std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "gas") !=
+      cargo.getProperties().end();
+
+  if (!isLiquid && !isGas) {
     return false;
   }
 
-  //check if there is enough total capacity
-  if (usedCapacity + cargo.getWeight() > capacity) {
+  // Ensure capacity is divisible by the number of tanks
+  uint64_t capacityPerTank = capacity / tanks;
+  if (capacity % tanks != 0) {
+    std::cerr << "Error: Tanker capacity not divisible by the number of tanks."
+              << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+
+  // Simulate tank allocation
+  uint64_t remainingWeight = cargo.getWeight();
+  bool cargoTypeMatches = false;
+
+  // Check if the cargo can fit into partially filled tanks of the same type
+  for (std::vector<Tank>::const_iterator it = tankStatus.begin(); it != tankStatus.end();
+       ++it) {
+    if (it->cargoType == cargo.getName() && it->used < capacityPerTank) {
+      uint64_t availableSpace = capacityPerTank - it->used;
+      if (remainingWeight <= availableSpace) {
+        cargoTypeMatches = true;  // It can fit into an existing tank
+        remainingWeight = 0;
+        break;
+      }
+      remainingWeight -= availableSpace;
+    }
+  }
+
+  // Check if remaining weight can fit into new tanks
+  if (remainingWeight > 0) {
+    for (std::vector<Tank>::const_iterator it = tankStatus.begin();
+         it != tankStatus.end();
+         ++it) {
+      if (it->used == 0) {  // Empty tank
+        uint64_t loadAmount = std::min(capacityPerTank, remainingWeight);
+        remainingWeight -= loadAmount;
+        if (remainingWeight == 0) {
+          cargoTypeMatches = true;
+          break;
+        }
+      }
+    }
+  }
+
+  // If there's still remaining weight or type doesn't match, it can't be carried
+  if (remainingWeight > 0 || !cargoTypeMatches) {
     return false;
   }
 
-  //check if there are enough tanks available
-  unsigned int availableTanks = tanks - loadedCargo.size();
-  if (availableTanks == 0) {
-    return false;
-  }
-
-  //remperature requirements
-  int cargoMinTemp = 0, cargoMaxTemp = 0;
+  // Temperature requirements
+  int cargoMinTemp = -273, cargoMaxTemp = 1000;
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
        ++it) {
@@ -66,9 +110,67 @@ bool Tanker::canCarry(const Cargo & cargo) const {
 }
 
 void Tanker::loadCargo(const Cargo & cargo) {
-  usedCapacity += cargo.getWeight();
+  // Calculate per tank capacity
+  uint64_t capacityPerTank = capacity / tanks;
+
+  // Ensure that capacity is divisible by the number of tanks (this should be checked during initialization)
+  if (capacity % tanks != 0) {
+    std::cerr << "Error: Tanker capacity not divisible by the number of tanks."
+              << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+
+  uint64_t remainingWeight = cargo.getWeight();
+
+  // First, fill partially filled tanks of the same cargo type
+  for (std::vector<Tank>::iterator it = tankStatus.begin(); it != tankStatus.end();
+       ++it) {
+    if (it->cargoType == cargo.getName() && it->used < capacityPerTank) {
+      uint64_t availableSpace = capacityPerTank - it->used;
+      uint64_t loadAmount = std::min(availableSpace, remainingWeight);
+      it->used += loadAmount;
+      remainingWeight -= loadAmount;
+      if (remainingWeight == 0) {
+        break;  // Fully loaded
+      }
+    }
+  }
+
+  // Use empty tanks if there’s remaining weight
+  for (std::vector<Tank>::iterator it = tankStatus.begin(); it != tankStatus.end();
+       ++it) {
+    if (it->used == 0) {  // Empty tank
+      uint64_t loadAmount = std::min(capacityPerTank, remainingWeight);
+      it->cargoType = cargo.getName();
+      it->used = loadAmount;
+      remainingWeight -= loadAmount;
+      if (remainingWeight == 0) {
+        break;  // Fully loaded
+      }
+    }
+  }
+
+  // If there’s still remaining weight, this is an internal logic error, as canCarry should have caught it
+  if (remainingWeight > 0) {
+    std::cerr << "Logic error: Attempting to load cargo that cannot fit: "
+              << cargo.getName() << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+
+  // Add the cargo to the loadedCargo list for tracking
   loadedCargo.push_back(cargo);
+
+  // Update the used capacity of the ship
+  usedCapacity += cargo.getWeight();
+
+  //  std::cout << "Successfully loaded " << cargo.getWeight() << " of '" << cargo.getName()
+  //        << "' onto ship '" << name << "'" << std::endl;
 }
+
+//void Tanker::loadCargo(const Cargo & cargo) {
+// usedCapacity += cargo.getWeight();
+// loadedCargo.push_back(cargo);
+//}
 void Tanker::printDetails() const {
   std::cout << "The Tanker Ship " << name << "(" << usedCapacity << "/" << capacity
             << ") is carrying : " << std::endl;
@@ -77,5 +179,12 @@ void Tanker::printDetails() const {
        ++it) {
     std::cout << "  " << it->getName() << "(" << it->getWeight() << ")" << std::endl;
   }
-  std::cout << "  " << loadedCargo.size() << " / " << tanks << " tanks used" << std::endl;
+  unsigned int tanksUsed = 0;
+  for (std::vector<Tank>::const_iterator it = tankStatus.begin(); it != tankStatus.end();
+       ++it) {
+    if (it->used > 0) {
+      ++tanksUsed;  // Count tanks that have been used
+    }
+  }
+  std::cout << "  " << tanksUsed << " / " << tanks << " tanks used" << std::endl;
 }
