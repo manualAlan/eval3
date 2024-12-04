@@ -12,7 +12,7 @@ bool Tanker::canCarry(const Cargo & cargo) const {
   //  std::cout << "Checking if ship '" << name << "' can carry cargo '" << cargo.getName()
   //        << "'" << std::endl;
 
-  // Source and destination match
+  //Source and destination match
   if (cargo.getSource() != source || cargo.getDestination() != destination) {
     return false;
   }
@@ -30,7 +30,7 @@ bool Tanker::canCarry(const Cargo & cargo) const {
     }
   }
 
-  // "liquid" or "gas" property
+  //"liquid" or "gas" property
   bool isLiquid =
       std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "liquid") !=
       cargo.getProperties().end();
@@ -150,14 +150,14 @@ void Tanker::loadCargo(const Cargo & cargo) {
     }
   }
 
-  // If there’s still remaining weight, this is an internal logic error, as canCarry should have caught it
+  //If there’s still remaining weight, this is an internal logic error, as canCarry should have caught it
   if (remainingWeight > 0) {
-    std::cerr << "Logic error: Attempting to load cargo that cannot fit: "
-              << cargo.getName() << std::endl;
+    std::cerr << "atempting to load cargo that cannot fit: " << cargo.getName()
+              << std::endl;
     std::exit(EXIT_FAILURE);
   }
 
-  // Add the cargo to the loadedCargo list for tracking
+  //Add the cargo to the loadedCargo list for tracking
   loadedCargo.push_back(cargo);
 
   // Update the used capacity of the ship
