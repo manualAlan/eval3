@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <map>
@@ -40,6 +41,17 @@ void writeCompressedOutput(const char * inFile,
 
   //BitFileWriter will close the output file in its destructor
   //but you probably need to close your input file.
+  std::ifstream is(inFile);
+  assert(is.is_open());
+  int c;
+  while ((c = is.get()) != EOF) {
+    std::map<unsigned, BitString>::const_iterator a = theMap.find(c);
+    assert(a != theMap.end());
+    bfw.writeBitString(a->second);
+  }
+  std::map<unsigned, BitString>::const_iterator a = theMap.find(256);
+  assert(a != theMap.end());
+  bfw.writeBitString(a->second);
 }
 
 int main(int argc, char ** argv) {
