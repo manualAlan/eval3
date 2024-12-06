@@ -1,25 +1,23 @@
-Grading at 12/06/2024:16:15:12.839572
-For commit ID 61efa276d9ef1b0eed0cb671b915b4c17cf91957
-Grading at Fri Dec  6 11:14:45 AM EST 2024
+Grading at 12/06/2024:16:17:18.296797
+For commit ID 5368f81b976992db579420ff3778027cc2314be8
+Grading at Fri Dec  6 11:16:53 AM EST 2024
 compiling
 g++ -ggdb3 -Wall -Werror -pedantic -std=gnu++98 -o compress  bitstring.o  buildTree.o  compress.o  node.o  readFreq.o
 Make succeed, compress created
 Testcase 1
 -----------------------
 Decompressing, and comparing to original...:
-Line_1_did_not_match
-Your file did not match the expected output
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 Testcase 2
 -----------------------
 Decompressing, and comparing to original...:
-Your file did not match the expected output
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 Testcase 3
 -----------------------
 Decompressing, and comparing to original...:
-Line_1_did_not_match
-Your file did not match the expected output
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A
