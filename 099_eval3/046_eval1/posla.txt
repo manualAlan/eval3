@@ -1,0 +1,10 @@
+0:earth:venus:200:5:12000
+100:Mars:Jupiter:150:3:8000
+50:Venus:Earth:300:4:10000
+200:Earth:Saturn:250:6:15000
+500:Mars:Neptune:180:2:5000
+300:Jupiter:Pluto:220:4:20000
+150:Saturn:Earth:100:7:14000
+400:Neptune:Venus:350:5:18000
+600:Pluto:Mars:170:8:12000
+250:Earth:Jupiter:210:9:16000

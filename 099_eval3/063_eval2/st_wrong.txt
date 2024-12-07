@@ -1,0 +1,12 @@
+adj1: _adj_
+number1: _number_
+adj2: _adj_
+noun1: _noun_
+verb1: _verb_
+adj3: _adj_
+number2: _number_
+noun2: _noun_
+verb2: _verb_
+number3: _number_
+adj4: adj_
+noun3: _noun_

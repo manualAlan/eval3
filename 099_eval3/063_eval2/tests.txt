@@ -1,0 +1,78 @@
+story-step3 words11.txt story11.txt
+story-step3 words12.txt story12.txt
+story-step3 words13.txt story13.txt
+story-step4 -n words11.txt story11.txt
+
+story-step1 st_sd.txt
+story-step1 st_num.txt
+story-step1 st_xnum.txt
+story-step1 st_wrong.txt
+story-step2 words_sd.txt
+story-step2 words_sdrp.txt
+story-step2 words_wrong.txt
+story-step3 words_sd.txt st_sd.txt
+story-step3 words_sd.txt st_num.txt
+story-step3 words_sd.txt st_xnum.txt
+story-step3 words_sd.txt st_wrong.txt
+story-step3 words_sdrp.txt st_sd.txt
+story-step3 words_sdrp.txt st_num.txt
+story-step3 words_sdrp.txt st_xnum.txt
+story-step3 words_sdrp.txt st_wrong.txt
+story-step3 words_wrong.txt st_sd.txt
+story-step3 words_wrong.txt st_num.txt
+story-step3 words_wrong.txt st_xnum.txt
+story-step3 words_wrong.txt st_wrong.txt
+story-step4 -n words_sd.txt st_sd.txt
+story-step4 -n words_sd.txt st_num.txt
+story-step4 -n words_sd.txt st_xnum.txt
+story-step4 -n words_sd.txt st_wrong.txt
+story-step4 -n words_sdrp.txt st_sd.txt
+story-step4 -n words_sdrp.txt st_num.txt
+story-step4 -n words_sdrp.txt st_xnum.txt
+story-step4 -n words_sdrp.txt st_wrong.txt
+story-step4 -n words_wrong.txt st_sd.txt
+story-step4 -n words_wrong.txt st_num.txt
+story-step4 -n words_wrong.txt st_xnum.txt
+story-step4 -n words_wrong.txt st_wrong.txt
+story-step4 -n words11.txt story11.txt
+story-step4 -n words10.txt story10.txt
+story-step4 words11.txt story11.txt
+story-step4 words10.txt story10.txtstory-step4 -n words12.txt story12.txt
+story-step4 -n words13.txt story13.txt
+story-step4 words11.txt story11.txt
+story-step4 words12.txt story12.txt
+story-step4 words13.txt story13.txt
+story-step1 story.txt
+story-step1 story1.txt
+story-step1 story2.txt
+story-step1 story3.txt
+story-step1 story4.txt
+story-step1 story5.txt
+story-step2 words.txt
+story-step2 words1.txt
+story-step2 words2.txt
+story-step2 words3.txt
+story-step2 words4.txt
+story-step2 words.txt w
+story-step2 words5.txt
+story-step3 words.txt story.txt
+story-step3 words5.txt story5.txt
+story-step3 words6.txt story6.txt
+story-step3 words1.txt story3.txt
+story-step3 words3.txt story4.txt
+story-step3 words6.txt story1.txt
+story-step3 words1.txt story1.txt
+story-step3 words1.txt story3.txt
+story-step3 words2.txt story3.txt
+story-step3 words1.txt story2.txt
+story-step3 words6.txt story1.txt
+story-step3 words3.txt story6.txt
+story-step3 words5.txt story2.txt
+story-step4 -n words6.txt story6.txt
+story-step4 -n words7.txt story7.txt
+story-step4 -n words8.txt story8.txt
+story-step4 -n words9.txt story9.txt
+story-step4 -n words10.txt story10.txt
+story-step4 words6.txt story6.txt
+story-step4 words7.txt story7.txt
+story-step4 -n story8.txt words8.txt

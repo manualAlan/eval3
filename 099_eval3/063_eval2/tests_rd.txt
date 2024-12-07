@@ -1,0 +1,16 @@
+story-step4 -n words10.txt story10.txt
+story-step3 words12.txt story5.txt
+story-step4 -n words3.txt story11.txt
+story-step1 story2.txt
+story-step3 words7.txt story1.txt
+story-step2 words8.txt
+story-step1 story12.txt
+story-step3 words5.txt story4.txt
+story-step4 -n words13.txt story2.txt
+story-step3 words9.txt story9.txt
+story-step4 words8.txt story6.txt
+story-step1 story13.txt
+story-step4 -n words11.txt story11.txt
+story-step4 -n words9.txt story9.txt
+story-step4 -n words8.txt story8.txt
+story-step4 -n words7.txt story7.txt

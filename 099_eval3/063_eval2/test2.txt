@@ -1,0 +1,35 @@
+story-step1 st_sd.txt
+story-step1 st_num.txt
+story-step1 st_xnum.txt
+story-step1 st_wrong.txt
+story-step2 words_sd.txt
+story-step2 words_sdrp.txt
+story-step2 words_wrong.txt
+story-step3 words_sd.txt st_sd.txt
+story-step3 words_sd.txt st_num.txt
+story-step3 words_sd.txt st_xnum.txt
+story-step3 words_sd.txt st_wrong.txt
+story-step3 words_sdrp.txt st_sd.txt
+story-step3 words_sdrp.txt st_num.txt
+story-step3 words_sdrp.txt st_xnum.txt
+story-step3 words_sdrp.txt st_wrong.txt
+story-step3 words_wrong.txt st_sd.txt
+story-step3 words_wrong.txt st_num.txt
+story-step3 words_wrong.txt st_xnum.txt
+story-step3 words_wrong.txt st_wrong.txt
+story-step4 -n words_sd.txt st_sd.txt
+story-step4 -n words_sd.txt st_num.txt
+story-step4 -n words_sd.txt st_xnum.txt
+story-step4 -n words_sd.txt st_wrong.txt
+story-step4 -n words_sdrp.txt st_sd.txt
+story-step4 -n words_sdrp.txt st_num.txt
+story-step4 -n words_sdrp.txt st_xnum.txt
+story-step4 -n words_sdrp.txt st_wrong.txt
+story-step4 -n words_wrong.txt st_sd.txt
+story-step4 -n words_wrong.txt st_num.txt
+story-step4 -n words_wrong.txt st_xnum.txt
+story-step4 -n words_wrong.txt st_wrong.txt
+story-step4 -n words11.txt story11.txt
+story-step4 -n words10.txt story10.txt
+story-step4 words11.txt story11.txt
+story-step4 words10.txt story10.txt
