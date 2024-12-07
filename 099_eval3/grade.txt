@@ -1,9 +1,60 @@
-Grading at 12/07/2024:23:18:09.094973
-For commit ID b14b952d3af5e8a3ec9f467b5b7203da80d2ca87
-Grading at Sat Dec  7 06:17:19 PM EST 2024
+Grading at 12/07/2024:23:25:06.329259
+For commit ID 46d883f77a0afe8c40db9d063072d70c3714bf1f
+Grading at Sat Dec  7 06:24:09 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ big_ship.txt bcargo2.txt 
+-------------------------
+I need to compile your code for ships-step3 (make ships-step3)
+
+Compiling ships-step3
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ big_ship.txt bcargo1.txt 
+-------------------------
+Running our code...
+Running your code
+We said this was an error.  Our error message was
+Cargo to load has to have at least 5 parts, but cargo10,l2:l5,800,container has only 4
+However, you exited with EXIT_SUCCESS
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ big_ship.txt bcargo3.txt 
+-------------------------
+Running our code...
+Running your code
+We said this was an error.  Our error message was
+min=temp=10 has more than 1 equal sign
+However, you exited with EXIT_SUCCESS
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ big_ship.txt bcargo2.tx 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  ships-step1 
@@ -73,13 +124,7 @@ We agreed on this testcase and valgrind was clean
 I need to compile your code for ships-step3 (make ships-step3)
 
 Compiling ships-step3
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+make: 'ships-step3' is up to date.
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
@@ -164,11 +209,46 @@ Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
  *** This is one of the four cases for step 4 early start EC **
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ big_ship.txt bcargo1.txt 
+-------------------------
+Running our code...
+Running your code
+We said this was an error.  Our error message was
+Cargo to load has to have at least 5 parts, but cargo10,l2:l5,800,container has only 4
+However, you exited with EXIT_SUCCESS
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ big_ship.txt bcargo2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ big_ship.txt bcargo3.txt 
+-------------------------
+Running our code...
+Running your code
+We said this was an error.  Our error message was
+min=temp=10 has more than 1 equal sign
+However, you exited with EXIT_SUCCESS
+You have already pass the basic tests for step1:
 **step1 basic tests passed for bm350 at 1733613488** : 364cfb09843d480d561ac1fe3e0f77d18bcb9bda  -
+You have already pass the basic tests for step2:
 **step2 basic tests passed for bm350 at 1733613488** : c2b8d43b8134b770aca5c434f6c8d5a92e2ab5b1  -
+You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
+You have already pass the basic tests for step4:
 **step4 basic tests passed for bm350 at 1733613489** : c32e23ba314d8d0f8dcb00e933103c834ab7aefb  -
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
