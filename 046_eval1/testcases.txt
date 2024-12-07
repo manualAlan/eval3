@@ -1,7 +1,0 @@
-launches-step1 lengthp.txt
-launches-step2 launches2.txt
-launches-step2 planets1.txt
-
-launches-step3 planets1.txt launches2.txt
-launches-step3 sol.txt posla.txt
-launches-step4 planets1.txt launches2.txt
