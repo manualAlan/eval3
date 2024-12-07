@@ -1,2 +1,0 @@
-cargo3,CityA,CityB,200,container
-cargo4,CityA,CityB,200,container

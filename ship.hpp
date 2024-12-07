@@ -67,10 +67,7 @@ class Fleet {
   AVLMultiMap<uint64_t, Ship *> shipMap;
 
  public:
-  Fleet();
   ~Fleet();
-  Fleet(const Fleet & other);
-  Fleet & operator=(const Fleet & other);  //ro3
   const std::vector<Ship *> & getShips() const { return ships; }
   void addShip(Ship * ship);
   void computeRouteCapacities();

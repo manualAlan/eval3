@@ -14,16 +14,16 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  //fleet obj
+  // Create a Fleet object
   Fleet fleet;
 
-  /// populate the fleet
+  //read ships from file and populate the fleet
   readShips(argv[1], fleet);
 
-  //read cargo from file
+  //Read cargo from file
   std::vector<Cargo> cargoList = readCargo(argv[2]);
 
-  //load cargo onto ships
+  //oad cargo onto ships
   fleet.loadCargo(cargoList);
 
   //print ships after loading

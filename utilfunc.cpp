@@ -20,7 +20,7 @@ void readShips(const std::string & filename, Fleet & fleet) {
     std::istringstream iss(line);
     std::string name, typeInfo, source, destination;
     uint64_t capacity;
-    //separate fields by :
+
     std::getline(iss, name, ':');
     std::getline(iss, typeInfo, ':');
     std::getline(iss, source, ':');
@@ -29,13 +29,14 @@ void readShips(const std::string & filename, Fleet & fleet) {
       std::cerr << "Error: Malformed input in line: " << line << std::endl;
       std::exit(EXIT_FAILURE);
     }
-    //go to differet sub types of ships
+
     if (typeInfo.find("Container") == 0) {
       std::istringstream typeStream(typeInfo);
       std::string type, slotsStr, hazmatStr;
       std::getline(typeStream, type, ',');
       std::getline(typeStream, slotsStr, ',');
       unsigned int slots = std::strtol(slotsStr.c_str(), NULL, 10);
+
       std::vector<std::string> hazmatCapabilities;
       while (std::getline(typeStream, hazmatStr, ',')) {
         hazmatCapabilities.push_back(hazmatStr);
@@ -47,11 +48,10 @@ void readShips(const std::string & filename, Fleet & fleet) {
     else if (typeInfo.find("Tanker") == 0) {
       std::istringstream typeStream(typeInfo);
       std::string type;
-      int minTemp;
+      int minTemp, maxTemp;
       unsigned int tanks;
-      int maxTemp;
-
       std::string hazmatStr;
+
       std::getline(typeStream, type, ',');
       typeStream >> minTemp;
       typeStream.ignore(1, ',');
@@ -86,7 +86,7 @@ void readShips(const std::string & filename, Fleet & fleet) {
           new AnimalShip(name, typeInfo, source, destination, capacity, smallThreshold));
     }
     else {
-      std::cerr << "wrong or onknown ship " << line << std::endl;
+      std::cerr << "Error: Unknown ship type in line: " << line << std::endl;
       std::exit(EXIT_FAILURE);
     }
   }

@@ -11,4 +11,3 @@ ships-step%: step%.cpp $(COMMON_OBJ) *.hpp
 
 clean:
 	rm -rf *.o *~ $(BINARIES)
-

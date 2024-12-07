@@ -6,20 +6,20 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-//subclass of ship
+
 #include "ship.hpp"
 bool AnimalShip::canCarry(const Cargo & cargo) const {
-  //check if source and destination match
+  // Check if source and destination match
   if (cargo.getSource() != source || cargo.getDestination() != destination) {
     return false;
   }
 
-  //check enough capacity
+  // Check if there is enough capacity
   if (usedCapacity + cargo.getWeight() > capacity) {
     return false;
   }
 
-  //check no hazardous properties allowed)
+  // Check hazardous material rules (no hazardous properties allowed)
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
        ++it) {
@@ -28,24 +28,24 @@ bool AnimalShip::canCarry(const Cargo & cargo) const {
     }
   }
 
-  //check if the cargo is "animal"
+  // Check if the cargo is "animal"
   bool isAnimal =
       std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "animal") !=
       cargo.getProperties().end();
 
   if (isAnimal) {
-    //If cargo is "roamer", ensure no other "roamer" is already loaded
+    // If cargo is "roamer", ensure no other "roamer" is already loaded
     bool isRoamer =
         std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "roamer") !=
         cargo.getProperties().end();
     if (isRoamer && hasRoamer) {
       return false;
     }
-    //if not a "roamer", it's okay to load
+    // If not a "roamer", it's okay to load
     return true;
   }
   else {
-    //Check non-animal cargo rules
+    // Check non-animal cargo rules
     // Rule 5: Ensure it does not have "liquid" or "gas" properties
     bool isLiquid =
         std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "liquid") !=
@@ -57,12 +57,12 @@ bool AnimalShip::canCarry(const Cargo & cargo) const {
       return false;
     }
 
-    //small enough?
+    // Rule 6: Ensure it is "small enough"
     if (cargo.getWeight() > smallThreshold) {
       return false;
     }
 
-    //if all checks passed,  loaded!
+    // If all checks passed, cargo can be loaded
     return true;
   }
 }

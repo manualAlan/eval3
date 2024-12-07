@@ -43,7 +43,7 @@ class Tanker : public Ship {
       std::exit(EXIT_FAILURE);
     }
 
-    // Initialize the tankStatus vector with empty tanks
+    //initialize the tankStatus vector with empty tanks
     for (unsigned int i = 0; i < tanks; ++i) {
       Tank emptyTank;
       tankStatus.push_back(emptyTank);
