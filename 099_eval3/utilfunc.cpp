@@ -160,22 +160,34 @@ std::vector<Cargo> readCargo(const std::string & filename) {
 
   std::vector<Cargo> cargoList;
   std::string line;
+
   while (std::getline(file, line)) {
     std::istringstream iss(line);
     std::string name, source, destination, weightStr, property;
-    uint64_t weight;
-    //Parse the cargo details from the line
-    std::getline(iss, name, ',');
-    std::getline(iss, source, ',');
-    std::getline(iss, destination, ',');
-    std::getline(iss, weightStr, ',');
-    weight = std::strtoull(weightStr.c_str(), NULL, 10);
-    //parse the cargo properties
-    std::vector<std::string> properties;
+
+    //split the line into fields and count them
+    std::vector<std::string> fields;
     while (std::getline(iss, property, ',')) {
-      properties.push_back(property);
+      fields.push_back(property);
     }
-    //add to the cargo list
+
+    if (fields.size() < 5) {
+      std::cerr << "Cargo to load has to have at least 5 parts, but" << line
+                << "has only " << fields.size() << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+
+    //parse the mandatory fields
+    name = fields[0];
+    source = fields[1];
+    destination = fields[2];
+    weightStr = fields[3];
+    uint64_t weight = std::strtoull(weightStr.c_str(), NULL, 10);
+
+    //extract remaining fields as properties
+    std::vector<std::string> properties(fields.begin() + 4, fields.end());
+
+    //add the cargo to the list
     cargoList.push_back(Cargo(name, source, destination, weight, properties));
   }
 
