@@ -1,6 +1,0 @@
-Grading at 12/07/2024:23:11:47.940864
-For commit ID c62dfb9bf11e837166076c565c76ffe6a4405e70
-Grading at Sat Dec  7 06:11:47 PM EST 2024
-Cannot do pregrader without testcases in testcases.txt
-
-Overall Grade: NO GRADE YET
