@@ -88,17 +88,38 @@ bool Tanker::canCarry(const Cargo & cargo) const {
   if (remainingWeight > 0 || !cargoTypeMatches) {
     return false;
   }
-
+  for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
+       it != cargo.getProperties().end();
+       ++it) {
+    int equalsCount = std::count(it->begin(), it->end(), '=');
+    if (equalsCount > 1) {  //reject properties with more than one equals sign
+      return false;
+    }
+  }
   //temperature requirements
   int cargoMinTemp = -273, cargoMaxTemp = 1000;
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
        ++it) {
     if (it->find("mintemp=") == 0) {
-      cargoMinTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      //cargoMinTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      std::string valueStr = it->substr(8);
+      if (valueStr.empty()) {
+        cargoMinTemp = 0;
+      }
+      else {
+        cargoMinTemp = std::strtol(valueStr.c_str(), NULL, 10);
+      }
     }
     else if (it->find("maxtemp=") == 0) {
-      cargoMaxTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      // cargoMaxTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      std::string valueStr = it->substr(8);
+      if (valueStr.empty()) {
+        cargoMaxTemp = 0;
+      }
+      else {
+        cargoMaxTemp = std::strtol(valueStr.c_str(), NULL, 10);
+      }
     }
   }
 
@@ -179,7 +200,7 @@ void Tanker::printDetails() const {
   for (std::vector<Tank>::const_iterator it = tankStatus.begin(); it != tankStatus.end();
        it++) {
     if (it->used > 0) {
-      ++tanksUsed;  // Count tanks that have been used
+      tanksUsed++;  // Count tanks that have been used
     }
   }
   std::cout << "  " << tanksUsed << " / " << tanks << " tanks used" << std::endl;
