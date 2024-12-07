@@ -1,6 +1,6 @@
-Grading at 12/07/2024:23:25:06.329259
-For commit ID 46d883f77a0afe8c40db9d063072d70c3714bf1f
-Grading at Sat Dec  7 06:24:09 PM EST 2024
+Grading at 12/07/2024:23:43:08.361617
+For commit ID cece7006254e227298a97801e0c5c625707e555f
+Grading at Sat Dec  7 06:42:11 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -31,9 +31,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We said this was an error.  Our error message was
-Cargo to load has to have at least 5 parts, but cargo10,l2:l5,800,container has only 4
-However, you exited with EXIT_SUCCESS
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  ships-step3 
@@ -217,9 +216,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We said this was an error.  Our error message was
-Cargo to load has to have at least 5 parts, but cargo10,l2:l5,800,container has only 4
-However, you exited with EXIT_SUCCESS
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  ships-step4 
