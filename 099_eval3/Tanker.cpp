@@ -29,7 +29,14 @@ bool Tanker::canCarry(const Cargo & cargo) const {
       }
     }
   }
-
+  for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
+       it != cargo.getProperties().end();
+       it++) {
+    size_t equalsCount = std::count(it->begin(), it->end(), '=');
+    if (equalsCount > 1) {  //reject properties with more than one=
+      return false;
+    }
+  }
   //"liquid" or "gas" property
   bool isLiquid =
       std::find(cargo.getProperties().begin(), cargo.getProperties().end(), "liquid") !=
@@ -93,12 +100,24 @@ bool Tanker::canCarry(const Cargo & cargo) const {
   int cargoMinTemp = -273, cargoMaxTemp = 1000;
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
-       ++it) {
+       ++it) {  //check min/max or default if no value
     if (it->find("mintemp=") == 0) {
-      cargoMinTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      std::string valueStr = it->substr(8);
+      if (valueStr.empty()) {
+        cargoMinTemp = 0;
+      }
+      else {
+        cargoMinTemp = std::strtol(valueStr.c_str(), NULL, 10);
+      }
     }
     else if (it->find("maxtemp=") == 0) {
-      cargoMaxTemp = std::strtol(it->substr(8).c_str(), NULL, 10);
+      std::string valueStr = it->substr(8);
+      if (valueStr.empty()) {
+        cargoMaxTemp = 0;
+      }
+      else {
+        cargoMaxTemp = std::strtol(valueStr.c_str(), NULL, 10);
+      }
     }
   }
 
