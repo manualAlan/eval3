@@ -34,7 +34,8 @@ bool Tanker::canCarry(const Cargo & cargo) const {
        it++) {
     size_t equalsCount = std::count(it->begin(), it->end(), '=');
     if (equalsCount > 1) {  //reject properties with more than one=
-      return false;
+      std::cerr << "wrong num of =" << std::endl;
+      std::exit(EXIT_FAILURE);
     }
   }
   //"liquid" or "gas" property
