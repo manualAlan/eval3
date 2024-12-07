@@ -1,6 +1,6 @@
-Grading at 12/07/2024:23:43:08.361617
-For commit ID cece7006254e227298a97801e0c5c625707e555f
-Grading at Sat Dec  7 06:42:11 PM EST 2024
+Grading at 12/07/2024:23:52:16.754488
+For commit ID 65b5249745cdbfcc3513a0516d6342f4c6a3dbff
+Grading at Sat Dec  7 06:51:18 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -31,8 +31,7 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step3 
@@ -41,9 +40,8 @@ And valgrind reported no errors
 -------------------------
 Running our code...
 Running your code
-We said this was an error.  Our error message was
-min=temp=10 has more than 1 equal sign
-However, you exited with EXIT_SUCCESS
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  ships-step3 
@@ -216,8 +214,7 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step4 
@@ -235,9 +232,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We said this was an error.  Our error message was
-min=temp=10 has more than 1 equal sign
-However, you exited with EXIT_SUCCESS
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 You have already pass the basic tests for step1:
 **step1 basic tests passed for bm350 at 1733613488** : 364cfb09843d480d561ac1fe3e0f77d18bcb9bda  -
 You have already pass the basic tests for step2:
@@ -246,7 +242,7 @@ You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
 You have already pass the basic tests for step4:
 **step4 basic tests passed for bm350 at 1733613489** : c32e23ba314d8d0f8dcb00e933103c834ab7aefb  -
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
