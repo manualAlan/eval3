@@ -1,11 +1,12 @@
 #ifndef SHIP_HPP
 #define SHIP_HPP
-
 #include <stdint.h>
 
 #include <map>
 #include <string>
 #include <vector>
+
+#include "avlmultimap03.hpp"
 //////////////////////
 class Cargo {
  private:
@@ -49,7 +50,7 @@ class Ship {
   //virtual function every subclass have canCarry for <*Ship> use
   virtual bool canCarry(const Cargo & cargo) const = 0;
   virtual void loadCargo(const Cargo & cargo) = 0;
-
+  uint64_t getUsedCapacity() const { return usedCapacity; }
   const std::string & getName() const;
   const std::string & getSource() const;
   const std::string & getDestination() const;
@@ -63,6 +64,7 @@ class Fleet {
  private:
   std::vector<Ship *> ships;
   std::map<std::pair<std::string, std::string>, uint64_t> routeCapacities;
+  AVLMultiMap<uint64_t, Ship *> shipMap;
 
  public:
   ~Fleet();
