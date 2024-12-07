@@ -1,0 +1,20 @@
+ships-step1 inputs/ships0.txt
+ships-step1 inputs/ships1.txt
+ships-step1 inputs/ships2.txt
+ships-step1 shipst1.txt
+ships-step1 shipst2.txt
+ships-step1 shipst3.txt
+ships-step1 shipst4.txt
+ships-step2 ship2t1.txt cargo2t1.txt
+ships-step2 ship2t2.txt cargo2t2.txt
+ships-step2 ship2t3.txt cargo2t3.txt
+ships-step2 ship2t4.txt cargo2t4.txt
+ships-step2 inputs/ships0.txt inputs/cargo0.txt
+ships-step3 inputs/ships0.txt inputs/cargo1.txt
+ships-step3 inputs/ships1.txt inputs/cargo0.txt
+ships-step3 inputs/ships1.txt inputs/cargo1.txt
+ships-step3 inputs/ships2.txt inputs/cargo2.txt
+ships-step4 inputs/ships0.txt inputs/cargo1.txt
+ships-step4 inputs/ships1.txt inputs/cargo0.txt
+ships-step4 inputs/ships1.txt inputs/cargo1.txt
+ships-step4 inputs/ships2.txt inputs/cargo2.txt

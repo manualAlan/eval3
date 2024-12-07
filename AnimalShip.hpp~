@@ -1,0 +1,6 @@
+#ifndef ANIMALSHIP_HPP
+#define ANIMALSHIP_HPP
+#include <string>
+#include <vector>
+
+#endif

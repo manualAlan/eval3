@@ -1,0 +1,15 @@
+cargo16,l1,l2,500,container
+cargo17,l5,l4,200,container,hazardous-radioactive
+cargo18,l4,l5,400,container,hazardous-toxic
+cargo19,l3,l5,800,gas,mintemp=-50,maxtemp=-10,hazardous-flammable
+cargo20,l2,l1,700,liquid,mintemp=-150,maxtemp=-100
+cargo21,l3,l1,100,liquid,hazardous-flammable
+cargo22,l1,l4,1000,container,hazardous-radioactive
+cargo23,l2,l5,1500,container
+cargo24,l1,l3,50,container
+cargo25,l4,l5,200,container,hazardous-flammable
+cargo26,l3,l2,300,container
+cargo27,l2,l1,800,liquid,mintemp=-200,maxtemp=-180
+cargo28,l1,l3,200,container,hazardous-radioactive
+cargo29,l5,l4,500,container,hazardous-toxic
+cargo30,l4,l1,150,animal
