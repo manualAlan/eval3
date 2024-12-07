@@ -7,6 +7,7 @@
 #include <sstream>
 #include <stdexcept>
 ///////////////////////cargo
+//constructor
 Cargo::Cargo(const std::string & name,
              const std::string & source,
              const std::string & destination,
@@ -18,7 +19,7 @@ Cargo::Cargo(const std::string & name,
     weight(weight),
     properties(properties) {
 }
-
+//getters for priv fileds
 const std::string & Cargo::getName() const {
   return name;
 }
@@ -35,7 +36,7 @@ uint64_t Cargo::getWeight() const {
   return weight;
 }
 void Cargo::setWeight(uint64_t newWeight) {
-  weight = newWeight;  //Update the cargo weight
+  weight = newWeight;  //update the cargo weight
 }
 const std::vector<std::string> & Cargo::getProperties() const {
   return properties;
@@ -54,6 +55,7 @@ Ship::Ship(const std::string & name,
     capacity(capacity),
     usedCapacity(0) {
 }
+//getters for private fields
 uint64_t Ship::getCapacity() const {
   // std::cout << "1" << std::endl;
   return capacity;
@@ -76,7 +78,31 @@ Fleet::~Fleet() {
     delete *it;
   }
 }
-
+//following the rule ofthree the other two;
+Fleet::Fleet(const Fleet & other) {
+  for (std::vector<Ship *>::const_iterator it = other.ships.begin();
+       it != other.ships.end();
+       ++it) {
+    ships.push_back(*it);  // Assuming `Ship` has a virtual `clone` method
+  }
+  routeCapacities = other.routeCapacities;
+}
+Fleet & Fleet::operator=(const Fleet & other) {
+  if (this != &other) {  // Prevent self-assignment
+    for (std::vector<Ship *>::iterator it = ships.begin(); it != ships.end(); ++it) {
+      delete *it;  // Clean up existing ships
+    }
+    ships.clear();
+    for (std::vector<Ship *>::const_iterator it = other.ships.begin();
+         it != other.ships.end();
+         ++it) {
+      ships.push_back(*it);  // Deep copy each ship
+    }
+    routeCapacities = other.routeCapacities;
+  }
+  return *this;
+}
+///////////////////
 void Fleet::addShip(Ship * ship) {
   ships.push_back(ship);
   shipMap.add(ship->getCapacity() - ship->getUsedCapacity(), ship);  //  new for step4
@@ -157,7 +183,7 @@ void Fleet::loadCargo(const std::vector<Cargo> & cargoList) {
 
       //calculate remaining capacity after loading
       uint64_t remainingCapacity = bestFit->getCapacity() - bestFit->getUsedCapacity();
-      //reinsert ship into AVL tree
+      //put ship into AVL tree
       shipMap.add(remainingCapacity, bestFit);
 
       //print detailed loading message

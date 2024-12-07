@@ -1,4 +1,4 @@
-#include <algorithm>
+#include <algorithm>  //this is copied from step2
 #include <cstdlib>
 #include <iostream>
 
@@ -6,7 +6,7 @@
 
 int main(int argc, char ** argv) {
   if (argc != 3) {
-    std::cerr << "input " << argv[0] << " ships_file cargo_file" << std::endl;
+    std::cerr << "input ships_file cargo_file" << std::endl;
     return EXIT_FAILURE;
   }
   Fleet fleet;
@@ -14,7 +14,7 @@ int main(int argc, char ** argv) {
   //Read ships from the file
   readShips(argv[1], fleet);
 
-  //read cargo from the file
+  //read cargo from file
   std::vector<Cargo> cargoList = readCargo(argv[2]);
 
   //Process cargo loading

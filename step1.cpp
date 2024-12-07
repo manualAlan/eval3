@@ -15,6 +15,5 @@ int main(int argc, char ** argv) {
   //compute and print route capacity
   fleet.computeRouteCapacities();
   fleet.printRouteCapacities();
-
   return 0;
 }
