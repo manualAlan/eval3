@@ -35,7 +35,7 @@ uint64_t Cargo::getWeight() const {
   return weight;
 }
 void Cargo::setWeight(uint64_t newWeight) {
-  weight = newWeight;  // Update the cargo weight
+  weight = newWeight;  //Update the cargo weight
 }
 const std::vector<std::string> & Cargo::getProperties() const {
   return properties;
@@ -106,24 +106,24 @@ bool compareWeight(const Cargo & a, const Cargo & b) {
   return a.getWeight() > b.getWeight();
 }
 void Fleet::loadCargo(const std::vector<Cargo> & cargoList) {
-  // Sort cargo list from largest to smallest weight
+  //Sort cargo list from largest to smallest weight
   std::vector<Cargo> sortedCargoList = cargoList;
   std::stable_sort(sortedCargoList.begin(), sortedCargoList.end(), compareWeight);
 
-  // Iterate over each cargo
+  //Iterate over each cargo
   for (std::vector<Cargo>::const_iterator cargoIt = sortedCargoList.begin();
        cargoIt != sortedCargoList.end();
        ++cargoIt) {
     const Cargo & cargo = *cargoIt;
 
-    // Get all entries in the AVL tree
+    //Get all entries in the AVL tree
     std::vector<std::pair<std::pair<uint64_t, std::set<Ship *> >, int> > treeContents =
         shipMap.preOrderDump();
 
     Ship * bestFit = NULL;
     uint64_t minWaste = UINT64_MAX;
 
-    // Iterate over the AVL tree contents to find the best fit
+    //Iterate over the AVL tree contents to find the best fit
     for (std::vector<
              std::pair<std::pair<uint64_t, std::set<Ship *> >, int> >::const_iterator it =
              treeContents.begin();
@@ -149,19 +149,18 @@ void Fleet::loadCargo(const std::vector<Cargo> & cargoList) {
     }
 
     if (bestFit != NULL) {
-      // Remove ship from AVL tree
+      //remove ship from AVL tree
       shipMap.remove(bestFit->getCapacity() - bestFit->getUsedCapacity(), bestFit);
 
-      // Load the cargo onto the best-fit ship
+      //load the cargo onto the best-fit ship
       bestFit->loadCargo(cargo);
 
-      // Calculate remaining capacity after loading
+      //calculate remaining capacity after loading
       uint64_t remainingCapacity = bestFit->getCapacity() - bestFit->getUsedCapacity();
-
-      // Reinsert ship into AVL tree
+      //reinsert ship into AVL tree
       shipMap.add(remainingCapacity, bestFit);
 
-      // Print detailed loading message
+      //print detailed loading message
       std::cout << "Loading " << cargo.getName() << " onto " << bestFit->getName()
                 << " from " << cargo.getSource() << " to " << cargo.getDestination()
                 << " " << remainingCapacity << " capacity remains" << std::endl;
