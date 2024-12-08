@@ -1,250 +1,14 @@
-Grading at 12/08/2024:00:13:11.680996
-For commit ID e1b25005a26c5b40d635fc67ca4b918036cfa4ac
-Grading at Sat Dec  7 07:12:08 PM EST 2024
+Grading at 12/08/2024:00:16:03.958192
+For commit ID c24932e0224e8e11f3173dcf6af72f59d5c232e6
+Grading at Sat Dec  7 07:15:51 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
 -------------------------
  This test case will run 
- ships-step3 
- With arguments 
- big_ship.txt bcargo2.txt 
--------------------------
-I need to compile your code for ships-step3 (make ships-step3)
-
-Compiling ships-step3
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- big_ship.txt bcargo1.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- big_ship.txt bcargo3.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- big_ship.txt bcargo2.tx 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- inputs/ships0.txt 
--------------------------
-I need to compile your code for ships-step1 (make ships-step1)
-
-Compiling ships-step1
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step1 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step1.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the three test cases for step 1 early start EC **
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- inputs/ships1.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the three test cases for step 1 early start EC **
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- inputs/ships2.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the three test cases for step 1 early start EC **
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- s11.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- s12.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- s13.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- s14.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step1 
- With arguments 
- s15.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step2 
- With arguments 
- s21.txt c21.txt 
--------------------------
-I need to compile your code for ships-step2 (make ships-step2)
-
-Compiling ships-step2
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step2 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step2.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step2 
- With arguments 
- s22.txt c22.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step2 
- With arguments 
- s23.txt c23.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step2 
- With arguments 
- s24.txt c24.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step2 
- With arguments 
- inputs/ships0.txt inputs/cargo0.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is the test case for step 2 early start EC **
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- inputs/ships0.txt inputs/cargo1.txt 
--------------------------
-I need to compile your code for ships-step3 (make ships-step3)
-
-Compiling ships-step3
-make: 'ships-step3' is up to date.
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four test cases for step 3 early start EC **
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- inputs/ships1.txt inputs/cargo0.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four test cases for step 3 early start EC **
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- inputs/ships1.txt inputs/cargo1.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 3 early start EC **
--------------------------
- This test case will run 
- ships-step3 
- With arguments 
- inputs/ships2.txt inputs/cargo2.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 3 early start EC **
--------------------------
- This test case will run 
  ships-step4 
  With arguments 
- inputs/ships0.txt inputs/cargo1.txt 
+ big_ship.txt bcargo1.txt 
 -------------------------
 I need to compile your code for ships-step4 (make ships-step4)
 
@@ -259,44 +23,71 @@ rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 4 early start EC **
 -------------------------
  This test case will run 
  ships-step4 
  With arguments 
- inputs/ships1.txt inputs/cargo0.txt 
+ big_ship.txt bcargo2.txt 
 -------------------------
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 4 early start EC **
 -------------------------
  This test case will run 
  ships-step4 
  With arguments 
- inputs/ships1.txt inputs/cargo1.txt 
+ big_ship.txt bcargo3.txt 
 -------------------------
 Running our code...
 Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 4 early start EC **
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
- ships-step4 
+ ships-step3 
  With arguments 
- inputs/ships2.txt inputs/cargo2.txt 
+ s31.txt c31.txt 
 -------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
- *** This is one of the four cases for step 4 early start EC **
+I need to compile your code for ships-step3 (make ships-step3)
 
-Grading has taken more than 60 seconds
-Skipping remaining test cases
-You have already pass the basic tests for step1:
-**step1 basic tests passed for bm350 at 1733613488** : 364cfb09843d480d561ac1fe3e0f77d18bcb9bda  -
-You have already pass the basic tests for step2:
-**step2 basic tests passed for bm350 at 1733613488** : c2b8d43b8134b770aca5c434f6c8d5a92e2ab5b1  -
+Compiling ships-step3
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ s41.txt c41.txt 
+-------------------------
+I need to compile your code for ships-step4 (make ships-step4)
+
+Compiling ships-step4
+make: 'ships-step4' is up to date.
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ s41.txt c42.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+The info about step1 in your grade.txt is weird. Please ask Drew
+The info about step2 in your grade.txt is weird. Please ask Drew
 You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
 You have already pass the basic tests for step4:
