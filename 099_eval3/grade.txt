@@ -1,6 +1,6 @@
-Grading at 12/08/2024:17:19:22.304354
-For commit ID 772773aced12f93dc21125bc7b426f8e551013a2
-Grading at Sun Dec  8 12:19:05 PM EST 2024
+Grading at 12/08/2024:17:37:21.573917
+For commit ID e8ac4debbfbfd2be378b610ee82f3f560cb50442
+Grading at Sun Dec  8 12:37:02 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -22,8 +22,7 @@ g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp Animal
 rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step3 
@@ -32,8 +31,7 @@ And valgrind reported no errors
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step3 
@@ -42,8 +40,7 @@ And valgrind reported no errors
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step3 
@@ -92,8 +89,7 @@ g++ -o ships-step4 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step4.cpp Animal
 rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step4 
@@ -102,8 +98,7 @@ And valgrind reported no errors
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step4 
@@ -112,8 +107,7 @@ And valgrind reported no errors
 -------------------------
 Running our code...
 Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+We agreed on this testcase and valgrind was clean
 -------------------------
  This test case will run 
  ships-step4 
