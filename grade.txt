@@ -1,6 +1,125 @@
-Grading at 12/07/2024:23:06:46.945153
-For commit ID a6ee0fa4080cea542a16fbde7ebc2a928b0aa439
-Grading at Sat Dec  7 06:06:46 PM EST 2024
-Cannot do pregrader without testcases in testcases.txt
+Grading at 12/03/2024:02:29:54.714357
+For commit ID d7065771b69d5ed4c987be6f7ab34366e6b76a76
+Grading at Mon Dec  2 09:29:37 PM EST 2024
+Doing make clean
+rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
+Running your test cases
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships0.txt 
+-------------------------
+I need to compile your code for ships-step1 (make ships-step1)
+
+Compiling ships-step1
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step1 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step1.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ inputs/ships2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the three test cases for step 1 early start EC **
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ inputs/ships0.txt inputs/cargo0.txt 
+-------------------------
+I need to compile your code for ships-step2 (make ships-step2)
+
+Compiling ships-step2
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step2 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step2.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is the test case for step 2 early start EC **
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ inputs/ships0.txt inputs/cargo1.txt 
+-------------------------
+I need to compile your code for ships-step3 (make ships-step3)
+
+Compiling ships-step3
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the four test cases for step 3 early start EC **
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ inputs/ships1.txt inputs/cargo0.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the four test cases for step 3 early start EC **
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ inputs/ships1.txt inputs/cargo1.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the four cases for step 3 early start EC **
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ inputs/ships2.txt inputs/cargo2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+ *** This is one of the four cases for step 3 early start EC **
+You have already pass the basic tests for step1:
+**step1 basic tests passed for bm350 at 1733162768** : dc01ffef6b82c5ddaa2089f03a9cc068a7edc54f  -
+You have already pass the basic tests for step2:
+**step2 basic tests passed for bm350 at 1733162768** : dade167dcf0e4396dc18f0efe1757dd76226bd2a  -
+**step3 basic tests passed for bm350 at 1733192994** : 7705c5f4df0776173c379593eaae21ba0cbc7977  -
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
