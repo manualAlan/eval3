@@ -11,10 +11,10 @@
 void readShips(const std::string & filename, Fleet & fleet) {
   std::ifstream file(filename.c_str());
   if (!file) {
-    std::cerr << "Error: Could not open file " << filename << std::endl;
+    std::cerr << "Error:Could not open file " << filename << std::endl;
     std::exit(EXIT_FAILURE);
   }
-
+  std::set<std::string> shipNames;
   std::string line;
   while (std::getline(file, line)) {
     std::istringstream iss(line);
@@ -26,10 +26,15 @@ void readShips(const std::string & filename, Fleet & fleet) {
     std::getline(iss, source, ':');
     std::getline(iss, destination, ':');
     if (!(iss >> capacity)) {
-      std::cerr << "Error: Malformed input in line: " << line << std::endl;
+      std::cerr << "wrong form input in line: " << line << std::endl;
       std::exit(EXIT_FAILURE);
     }
 
+    if (shipNames.find(name) != shipNames.end()) {
+      std::cerr << "duplicate ship name '" << name << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+    shipNames.insert(name);
     if (typeInfo.find("Container") == 0) {
       std::istringstream typeStream(typeInfo);
       std::string type, slotsStr, hazmatStr;
