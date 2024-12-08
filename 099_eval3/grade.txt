@@ -1,52 +1,14 @@
-Grading at 12/08/2024:01:09:51.951797
-For commit ID 40664d0130d7b4a86d55d7e2a77da7e91a94a1c7
-Grading at Sat Dec  7 08:09:39 PM EST 2024
+Grading at 12/08/2024:17:19:22.304354
+For commit ID 772773aced12f93dc21125bc7b426f8e551013a2
+Grading at Sun Dec  8 12:19:05 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
 -------------------------
  This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo1.txt 
--------------------------
-I need to compile your code for ships-step4 (make ships-step4)
-
-Compiling ships-step4
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
-g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step4 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step4.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo2.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo3.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
--------------------------
- This test case will run 
  ships-step3 
  With arguments 
- s31.txt c31.txt 
+ shipb.txt cargob1.txt 
 -------------------------
 I need to compile your code for ships-step3 (make ships-step3)
 
@@ -64,14 +26,50 @@ We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
 -------------------------
  This test case will run 
- ships-step4 
+ ships-step3 
  With arguments 
- s41.txt c41.txt 
+ shipb.txt cargob2.txt 
 -------------------------
-I need to compile your code for ships-step4 (make ships-step4)
-
-Compiling ships-step4
-make: 'ships-step4' is up to date.
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ shipb.txt cargob3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ shipb.txt cargob4.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ shipb.txt cargob5.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step3 
+ With arguments 
+ shipb.txt cargob6.txt 
+-------------------------
 Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
@@ -80,7 +78,67 @@ And valgrind reported no errors
  This test case will run 
  ships-step4 
  With arguments 
- s41.txt c42.txt 
+ shipb.txt cargob1.txt 
+-------------------------
+I need to compile your code for ships-step4 (make ships-step4)
+
+Compiling ships-step4
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
+g++ -o ships-step4 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step4.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ shipb.txt cargob2.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ shipb.txt cargob3.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ shipb.txt cargob4.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ shipb.txt cargob5.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step4 
+ With arguments 
+ shipb.txt cargob6.txt 
 -------------------------
 Running our code...
 Running your code
