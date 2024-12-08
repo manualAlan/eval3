@@ -1,6 +1,6 @@
-Grading at 12/08/2024:00:16:03.958192
-For commit ID c24932e0224e8e11f3173dcf6af72f59d5c232e6
-Grading at Sat Dec  7 07:15:51 PM EST 2024
+Grading at 12/08/2024:01:09:51.951797
+For commit ID 40664d0130d7b4a86d55d7e2a77da7e91a94a1c7
+Grading at Sat Dec  7 08:09:39 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -86,8 +86,6 @@ Running our code...
 Running your code
 We agreed this was an error, and you printed something to stderr
 And valgrind reported no errors
-The info about step1 in your grade.txt is weird. Please ask Drew
-The info about step2 in your grade.txt is weird. Please ask Drew
 You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
 You have already pass the basic tests for step4:
