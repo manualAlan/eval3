@@ -5,6 +5,15 @@ ships-step3 big_ship.txt bcargo2.tx
 ships-step1 inputs/ships0.txt
 ships-step1 inputs/ships1.txt
 ships-step1 inputs/ships2.txt
+ships-step1 s11.txt
+ships-step1 s12.txt
+ships-step1 s13.txt
+ships-step1 s14.txt
+ships-step1 s15.txt
+ships-step2 s21.txt c21.txt
+ships-step2 s22.txt c22.txt
+ships-step2 s23.txt c23.txt
+ships-step2 s24.txt c24.txt
 ships-step2 inputs/ships0.txt inputs/cargo0.txt
 ships-step3 inputs/ships0.txt inputs/cargo1.txt
 ships-step3 inputs/ships1.txt inputs/cargo0.txt
