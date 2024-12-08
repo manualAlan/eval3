@@ -1,6 +1,6 @@
-Grading at 12/08/2024:17:37:21.573917
-For commit ID e8ac4debbfbfd2be378b610ee82f3f560cb50442
-Grading at Sun Dec  8 12:37:02 PM EST 2024
+Grading at 12/08/2024:20:04:34.793673
+For commit ID 399ec40f5deb763b636d5796d7e1e5ee25212f57
+Grading at Sun Dec  8 03:04:15 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -14,12 +14,13 @@ I need to compile your code for ships-step3 (make ships-step3)
 
 Compiling ships-step3
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Cargo.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+g++ -o ships-step3 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step3.cpp AnimalShip.o Cargo.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o Cargo.o
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
@@ -81,12 +82,13 @@ I need to compile your code for ships-step4 (make ships-step4)
 
 Compiling ships-step4
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 AnimalShip.cpp
+g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Cargo.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ContainerShip.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 ship.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
-g++ -o ships-step4 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step4.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
-rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+g++ -o ships-step4 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step4.cpp AnimalShip.o Cargo.o ContainerShip.o ship.o Tanker.o utilfunc.o
+rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o Cargo.o
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
