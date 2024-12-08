@@ -1,0 +1,2 @@
+radioactive_waste,l1,l2,500
+fuel,l3,l4,700,liquid,maxtemp=

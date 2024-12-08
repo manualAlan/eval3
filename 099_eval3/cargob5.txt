@@ -1,0 +1,2 @@
+gas,l2,l4,400,gas,mintemp==20
+medicine,l1,l3,300,liquid,maxtemp==30
