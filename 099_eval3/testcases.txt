@@ -4,6 +4,14 @@ ships-step3 shipb.txt cargob3.txt
 ships-step3 shipb.txt cargob4.txt
 ships-step3 shipb.txt cargob5.txt
 ships-step3 shipb.txt cargob6.txt
+ships-step3 big_ship.txt bcargo1.txt
+ships-step3 big_ship.txt bcargo2.txt
+ships-step3 big_ship.txt bcargo3.txt
+ships-step3 big_ship.txt bcargo4.txt
+ships-step4 big_ship.txt bcargo1.txt
+ships-step4 big_ship.txt bcargo2.txt
+ships-step4 big_ship.txt bcargo3.txt
+ships-step4 big_ship.txt bcargo4.txt
 ships-step4 shipb.txt cargob1.txt
 ships-step4 shipb.txt cargob2.txt
 ships-step4 shipb.txt cargob3.txt
