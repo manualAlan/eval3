@@ -1,6 +1,6 @@
-Grading at 12/07/2024:23:52:16.754488
-For commit ID 65b5249745cdbfcc3513a0516d6342f4c6a3dbff
-Grading at Sat Dec  7 06:51:18 PM EST 2024
+Grading at 12/08/2024:00:05:27.542976
+For commit ID 0969f53caa9ea8d5a2c6527d6e14d6a58012be6e
+Grading at Sat Dec  7 07:04:25 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -94,9 +94,58 @@ We agreed on this testcase and valgrind was clean
  *** This is one of the three test cases for step 1 early start EC **
 -------------------------
  This test case will run 
+ ships-step1 
+ With arguments 
+ s11.txt 
+-------------------------
+Running our code...
+Running your code
+We said this was an error.  Our error message was
+Duplicate ship name: Ship One
+However, you exited with EXIT_SUCCESS
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ s12.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ s13.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ s14.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step1 
+ With arguments 
+ s15.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
  ships-step2 
  With arguments 
- inputs/ships0.txt inputs/cargo0.txt 
+ s21.txt c21.txt 
 -------------------------
 I need to compile your code for ships-step2 (make ships-step2)
 
@@ -108,6 +157,42 @@ g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 Tanker.cpp
 g++ -c -Wall -Werror -ggdb3 -pedantic --std=gnu++03 utilfunc.cpp
 g++ -o ships-step2 -Wall -Werror -ggdb3 -pedantic --std=gnu++03 step2.cpp AnimalShip.o ContainerShip.o ship.o Tanker.o utilfunc.o
 rm ship.o utilfunc.o Tanker.o ContainerShip.o AnimalShip.o
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ s22.txt c22.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ s23.txt c23.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ s24.txt c24.txt 
+-------------------------
+Running our code...
+Running your code
+We agreed on this testcase and valgrind was clean
+-------------------------
+ This test case will run 
+ ships-step2 
+ With arguments 
+ inputs/ships0.txt inputs/cargo0.txt 
+-------------------------
 Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
@@ -206,34 +291,9 @@ Running our code...
 Running your code
 We agreed on this testcase and valgrind was clean
  *** This is one of the four cases for step 4 early start EC **
--------------------------
- This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo1.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo2.txt 
--------------------------
-Running our code...
-Running your code
-We agreed on this testcase and valgrind was clean
--------------------------
- This test case will run 
- ships-step4 
- With arguments 
- big_ship.txt bcargo3.txt 
--------------------------
-Running our code...
-Running your code
-We agreed this was an error, and you printed something to stderr
-And valgrind reported no errors
+
+Grading has taken more than 60 seconds
+Skipping remaining test cases
 You have already pass the basic tests for step1:
 **step1 basic tests passed for bm350 at 1733613488** : 364cfb09843d480d561ac1fe3e0f77d18bcb9bda  -
 You have already pass the basic tests for step2:
@@ -242,7 +302,7 @@ You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
 You have already pass the basic tests for step4:
 **step4 basic tests passed for bm350 at 1733613489** : c32e23ba314d8d0f8dcb00e933103c834ab7aefb  -
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
