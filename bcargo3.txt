@@ -1,5 +1,0 @@
-cargo31,l2,l5,100,liquid,min=temp=10,maxtemp=50
-cargo32,l3,l1,200,liquid,mintemp=-100,max=temp=-50
-cargo33,l4,l3,300,gas,mintemp=20,maxtemp=15
-cargo34,l1,l4,400,container,hazardous-flammable
-cargo35,l2,l1,150,liquid,mintemp=0,maxtemp=-20
