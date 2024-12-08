@@ -14,13 +14,14 @@ void readShips(const std::string & filename, Fleet & fleet) {
     std::cerr << "Error:Could not open file " << filename << std::endl;
     std::exit(EXIT_FAILURE);
   }
+  //to track ship names and avoid duplicates
   std::set<std::string> shipNames;
   std::string line;
   while (std::getline(file, line)) {
     std::istringstream iss(line);
     std::string name, typeInfo, source, destination;
     uint64_t capacity;
-
+    //parsing ship details
     std::getline(iss, name, ':');
     std::getline(iss, typeInfo, ':');
     std::getline(iss, source, ':');
@@ -28,13 +29,14 @@ void readShips(const std::string & filename, Fleet & fleet) {
     if (!(iss >> capacity)) {
       std::cerr << "wrong form input in line: " << line << std::endl;
       std::exit(EXIT_FAILURE);
-    }
-
+    }  //check if capacity is a valid
     if (shipNames.find(name) != shipNames.end()) {
       std::cerr << "duplicate ship name '" << name << std::endl;
       std::exit(EXIT_FAILURE);
-    }
+    }  //check for duplicate ship names
     shipNames.insert(name);
+
+    //process different ship types
     if (typeInfo.find("Container") == 0) {
       std::istringstream typeStream(typeInfo);
       std::string type, slotsStr, hazmatStr;
@@ -46,7 +48,6 @@ void readShips(const std::string & filename, Fleet & fleet) {
       while (std::getline(typeStream, hazmatStr, ',')) {
         hazmatCapabilities.push_back(hazmatStr);
       }
-
       fleet.addShip(new ContainerShip(
           name, typeInfo, source, destination, capacity, slots, hazmatCapabilities));
     }
