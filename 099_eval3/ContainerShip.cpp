@@ -8,6 +8,7 @@
 #include <stdexcept>
 
 #include "ship.hpp"
+//constructor
 ContainerShip::ContainerShip(const std::string & name,
                              const std::string & typeInfo,
                              const std::string & source,
@@ -23,22 +24,22 @@ ContainerShip::ContainerShip(const std::string & name,
 bool ContainerShip::canCarry(const Cargo & cargo) const {
   if (cargo.getSource() != source || cargo.getDestination() != destination) {
     return false;
-  }
+  }  //check if the cargo's route matches
 
   if (std::find(cargo.getProperties().begin(),
                 cargo.getProperties().end(),
                 "container") == cargo.getProperties().end()) {
     return false;
-  }
+  }  //check if the cargo is tagged as a container
 
   if (usedCapacity + cargo.getWeight() > capacity) {
     return false;
-  }
+  }  //make sure the ship has enough capacity
 
   if (loadedCargo.size() >= slots) {
-    return false;
+    return false;  //ensure there's a free slot for the cargo
   }
-
+  //validate the hazardous
   for (std::vector<std::string>::const_iterator it = cargo.getProperties().begin();
        it != cargo.getProperties().end();
        ++it) {
@@ -58,6 +59,7 @@ void ContainerShip::loadCargo(const Cargo & cargo) {
   loadedCargo.push_back(cargo);
   usedCapacity += cargo.getWeight();
 }
+//print ship's name and how much capacity is used
 void ContainerShip::printDetails() const {
   std::cout << "The Container Ship " << name << "(" << usedCapacity << "/" << capacity
             << ") is carrying : " << std::endl;

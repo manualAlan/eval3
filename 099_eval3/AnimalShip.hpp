@@ -2,7 +2,7 @@
 #define ANIMALSHIP_HPP
 #include <string>
 #include <vector>
-
+//extend from superclass Ship
 #include "ship.hpp"
 class AnimalShip : public Ship {
  private:
