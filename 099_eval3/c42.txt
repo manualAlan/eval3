@@ -1,0 +1,4 @@
+cargo11,l1,l2,200,liquid,min=temp=
+cargo12,l1,l3,150,gas,max=temp=-25
+cargo13,l1,l4,100,animal,roamer=twice
+cargo14,l2,l4,,container

@@ -1,0 +1,10 @@
+cargo1,l1,l2,100,container
+cargo2,l1,l2,50,hazardous-radioactive
+cargo3,l1,l3,200,liquid,mintemp=-20,maxtemp=30
+cargo4,l1,l4,300,gas,mintemp=-35,maxtemp=45
+cargo5,l3,l2,100,container,hazardous-explosive
+cargo6,l3,l4,250,animal,roamer
+cargo7,l2,l4,400,animal
+cargo8,l4,l1,200,liquid,hazardous-chemical
+cargo9,l1,l4,50,container
+cargo10,l1,l3,400,gas,mintemp=-50

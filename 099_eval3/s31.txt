@@ -1,0 +1,7 @@
+ship1:Container:l1:l2:200:2,hazardous-chemical
+ship2:Tanker:l1:l3:400:2,-20,50
+ship3:Container:l2:l4:300:3
+ship4:Animals:l3:l4:500:100
+ship5:Animals:l1:l3:600:50
+ship6:Container:l1:l2:100:1
+ship7:Tanker:l2:l3:500:4,-30,40

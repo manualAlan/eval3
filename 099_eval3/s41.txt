@@ -1,0 +1,9 @@
+ship1:Container:l1:l2:300:3,hazardous-radioactive
+ship2:Container:l1:l3:200:2
+ship3:Animals:l2:l4:400:50
+ship4:Tanker:l1:l4:500:3,-30,50
+ship5:Container:l3:l1:400:2
+ship6:Animals:l4:l2:600:100
+ship7:Tanker:l4:l1:800:4,-40,60,hazardous-chemical
+ship8:Tanker:l1:l3:700:2,-10,40
+ship9:Container:l3:l2:150:1,hazardous-explosive
