@@ -1,6 +1,6 @@
-Grading at 12/08/2024:00:05:27.542976
-For commit ID 0969f53caa9ea8d5a2c6527d6e14d6a58012be6e
-Grading at Sat Dec  7 07:04:25 PM EST 2024
+Grading at 12/08/2024:00:13:11.680996
+For commit ID e1b25005a26c5b40d635fc67ca4b918036cfa4ac
+Grading at Sat Dec  7 07:12:08 PM EST 2024
 Doing make clean
 rm -rf *.o *~ ships-step1 ships-step2 ships-step3 ships-step4
 Running your test cases
@@ -100,9 +100,8 @@ We agreed on this testcase and valgrind was clean
 -------------------------
 Running our code...
 Running your code
-We said this was an error.  Our error message was
-Duplicate ship name: Ship One
-However, you exited with EXIT_SUCCESS
+We agreed this was an error, and you printed something to stderr
+And valgrind reported no errors
 -------------------------
  This test case will run 
  ships-step1 
@@ -302,7 +301,7 @@ You have already pass the basic tests for step3:
 **step3 basic tests passed for bm350 at 1733613488** : 0b5f5fb6166a9a46c8818336b97887ac215d4c6f  -
 You have already pass the basic tests for step4:
 **step4 basic tests passed for bm350 at 1733613489** : c32e23ba314d8d0f8dcb00e933103c834ab7aefb  -
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
